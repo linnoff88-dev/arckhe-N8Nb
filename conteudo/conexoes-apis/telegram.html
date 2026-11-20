@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    code { font-family: 'Monaco', 'Consolas', monospace; font-size: 0.875rem; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-sky-400 to-sky-600 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fab fa-telegram"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">Telegram</h1>
+          <p class="text-white/90">Bots, Webhooks e Automacoes</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-info-circle text-sky-500 mr-2"></i>Visao Geral
+      </h2>
+      <p class="text-neutral-600 dark:text-neutral-400 mb-4">
+        Telegram oferece uma das APIs mais simples e poderosas para automacao.
+        Crie bots com BotFather, configure webhooks e automatize notificacoes.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-check text-emerald-500"></i></div>
+          <p class="text-sm font-medium">Dificuldade: Facil</p>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-dollar-sign text-green-500"></i></div>
+          <p class="text-sm font-medium">Custo: Gratis</p>
+        </div>
+        <div class="bg-sky-50 dark:bg-sky-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-key text-sky-500"></i></div>
+          <p class="text-sm font-medium">Auth: Bot Token</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Bot -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+        <i class="fas fa-robot text-sky-500 mr-2"></i>Criar Bot com BotFather
+      </h2>
+
+      <pre><code>1. No Telegram, busque @BotFather
+2. Envie /newbot
+3. Escolha nome do bot (ex: "Meu Assistente")
+4. Escolha username (deve terminar em "bot", ex: meuassistente_bot)
+5. Copie o Token gerado
+   Formato: 123456789:ABCdefGHIjklMNOpqrsTUVwxyz</code></pre>
+
+      <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+        <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-2">
+          <i class="fas fa-lightbulb mr-2"></i>Dica
+        </h4>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          Guarde o token em local seguro. Ele e a unica credencial necessaria para controlar seu bot.
+        </p>
+      </div>
+    </div>
+
+    <!-- Configure Webhook -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+        <i class="fas fa-link text-purple-500 mr-2"></i>Configurar Webhook
+      </h2>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Opcao 1: Via N8N/Make</h3>
+        <pre><code>1. Adicione modulo "Telegram Bot > Watch Updates"
+2. Clique em "Add" connection
+3. Cole o Token do bot
+4. O sistema criara o webhook automaticamente</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Opcao 2: Manualmente via API</h3>
+        <pre><code>https://api.telegram.org/bot{TOKEN}/setWebhook?url={SUA_URL_WEBHOOK}</code></pre>
+      </div>
+    </div>
+
+    <!-- Useful Commands -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-terminal text-green-500 mr-2"></i>Comandos Uteis do BotFather
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/setdescription</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Definir descricao do bot</p>
+        </div>
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/setabouttext</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Texto "Sobre" do bot</p>
+        </div>
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/setuserpic</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Foto de perfil do bot</p>
+        </div>
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/setcommands</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Menu de comandos</p>
+        </div>
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/mybots</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Gerenciar todos os bots</p>
+        </div>
+        <div class="p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <code class="text-sky-600 dark:text-sky-400">/token</code>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Gerar novo token</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-book text-purple-500 mr-2"></i>Conceitos-Chave
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Bot Token</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Credencial unica do bot</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Chat ID</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Identificador unico da conversa</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Update</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Evento recebido (mensagem, etc)</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Inline Keyboard</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Botoes interativos na mensagem</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/20 rounded-2xl p-8 border-2 border-sky-200 dark:border-sky-800 mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-lightbulb text-sky-500 mr-2"></i>Exemplos de Uso
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex items-center gap-3">
+          <i class="fas fa-bell text-sky-500"></i>
+          <span class="text-neutral-700 dark:text-neutral-300">Notificacoes automaticas</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-comments text-sky-500"></i>
+          <span class="text-neutral-700 dark:text-neutral-300">Chatbot de atendimento</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-play text-sky-500"></i>
+          <span class="text-neutral-700 dark:text-neutral-300">Comandos para acionar workflows</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-chart-bar text-sky-500"></i>
+          <span class="text-neutral-700 dark:text-neutral-300">Envio de relatorios</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="whatsapp.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-sky-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a href="youtube.html" class="flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3 rounded-xl font-bold hover:from-red-600 hover:to-red-800 transition-all">
+        <span>Proximo: YouTube</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

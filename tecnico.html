@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha Tecnico - Conexoes e APIs | N8N Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .gradient-tech { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-gray-800">N8N Academy</a>
+                    <span class="text-gray-400 mx-2">-</span>
+                    <a href="https://inema.club" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-cyan-300 transition-colors">INEMA.CLUB</a>
+                    <span class="text-gray-400 mx-2">/</span>
+                    <span class="text-purple-600 font-semibold">Trilha Tecnico</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                        20 Guias
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="gradient-tech text-white py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="text-6xl mb-6"><i class="fas fa-plug"></i></div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Conexoes e APIs</h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-6">
+                Guias completos de configuracao para as APIs mais importantes.
+                Do cadastro no console ate a credencial configurada no N8N.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 text-sm">
+                <span class="bg-white/20 px-4 py-2 rounded-full">OAuth 2.0</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full">API Keys</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full">Webhooks</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full">Tokens</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+
+        <!-- Comunicacao -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-comments text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Comunicacao</h2>
+                    <p class="text-gray-600">Mensageiros, SMS e redes sociais</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- WhatsApp -->
+                <a href="conteudo/tecnico/whatsapp.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-green-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">WhatsApp Business</h3>
+                            <p class="text-sm text-gray-600 mt-1">Meta Cloud API, webhooks, templates de mensagem</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">OAuth</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Webhooks</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Telegram -->
+                <a href="conteudo/tecnico/telegram.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-telegram text-blue-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Telegram</h3>
+                            <p class="text-sm text-gray-600 mt-1">BotFather, Bot Token, comandos e callbacks</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Facil</span>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Bot Token</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Slack -->
+                <a href="conteudo/tecnico/slack.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-purple-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-slack text-purple-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Slack</h3>
+                            <p class="text-sm text-gray-600 mt-1">Apps, Bot Tokens, Events, Webhooks</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">OAuth</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Events</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Discord -->
+                <a href="conteudo/tecnico/discord.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-indigo-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-discord text-indigo-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Discord</h3>
+                            <p class="text-sm text-gray-600 mt-1">Bots, Webhooks, Embeds, notificacoes</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Bot Token</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Webhook</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Twilio -->
+                <a href="conteudo/tecnico/twilio.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-red-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-sms text-red-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Twilio</h3>
+                            <p class="text-sm text-gray-600 mt-1">SMS, WhatsApp, chamadas de voz, 2FA</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">API Key</span>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">SMS</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Meta -->
+                <a href="conteudo/tecnico/meta.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-600">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-facebook text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Meta (Facebook/Instagram)</h3>
+                            <p class="text-sm text-gray-600 mt-1">Graph API, Page Tokens, publicacoes</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">OAuth</span>
+                                <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded">Instagram</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- X/Twitter -->
+                <a href="conteudo/tecnico/twitter.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-gray-800">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-x-twitter text-gray-800 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">X (Twitter)</h3>
+                            <p class="text-sm text-gray-600 mt-1">Developer Portal, tweets, API v2</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">OAuth 2.0</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pago</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Google & Produtividade -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                    <i class="fab fa-google text-red-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Google & Produtividade</h2>
+                    <p class="text-gray-600">Servicos Google e ferramentas de trabalho</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Google Suite -->
+                <a href="conteudo/tecnico/google.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-red-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-google text-red-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Google Suite</h3>
+                            <p class="text-sm text-gray-600 mt-1">Gmail, Sheets, Drive, Calendar - OAuth completo</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">OAuth 2.0</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Console</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- YouTube -->
+                <a href="conteudo/tecnico/youtube.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-red-600">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-youtube text-red-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">YouTube API</h3>
+                            <p class="text-sm text-gray-600 mt-1">Upload, gerenciar videos, playlists, analytics</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">OAuth 2.0</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Quotas</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Notion -->
+                <a href="conteudo/tecnico/notion.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-gray-800">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-cube text-gray-800 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Notion</h3>
+                            <p class="text-sm text-gray-600 mt-1">Integrations, databases, paginas, properties</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">API Key</span>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Connect Pages</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Airtable -->
+                <a href="conteudo/tecnico/airtable.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-teal-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-table text-teal-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Airtable</h3>
+                            <p class="text-sm text-gray-600 mt-1">Personal Access Token, bases, tabelas, formulas</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded">PAT</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Scopes</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Marketing & CRM -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-bullhorn text-orange-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Marketing & CRM</h2>
+                    <p class="text-gray-600">Email marketing, CRM e relacionamento</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- HubSpot -->
+                <a href="conteudo/tecnico/hubspot.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-hubspot text-orange-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">HubSpot</h3>
+                            <p class="text-sm text-gray-600 mt-1">CRM, Contacts, Deals, Companies, Tickets</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Private App</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">CRM</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- SendGrid -->
+                <a href="conteudo/tecnico/sendgrid.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">SendGrid</h3>
+                            <p class="text-sm text-gray-600 mt-1">Email transacional, templates, webhooks</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">API Key</span>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">100/dia gratis</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Inteligencia Artificial -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-brain text-emerald-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Inteligencia Artificial</h2>
+                    <p class="text-gray-600">LLMs, chatbots e IA generativa</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- OpenAI -->
+                <a href="conteudo/tecnico/openai.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-emerald-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-robot text-emerald-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">OpenAI / ChatGPT</h3>
+                            <p class="text-sm text-gray-600 mt-1">API Keys, modelos GPT-4o, billing, tools</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded">API Key</span>
+                                <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">AI Agent</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- LLMs Alternativos -->
+                <a href="conteudo/tecnico/llms.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-orange-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-orange-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">LLMs Alternativos</h3>
+                            <p class="text-sm text-gray-600 mt-1">DeepSeek, Mistral, OpenRouter, Perplexity</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">95% Menor Custo</span>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">OpenRouter</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- E-commerce & Pagamentos -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-shopping-cart text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">E-commerce & Pagamentos</h2>
+                    <p class="text-gray-600">Lojas online e processamento de pagamentos</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Shopify -->
+                <a href="conteudo/tecnico/shopify.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-green-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-shopify text-green-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Shopify</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pedidos, produtos, clientes, estoque</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Custom App</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">E-commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Stripe -->
+                <a href="conteudo/tecnico/stripe.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-violet-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-stripe text-violet-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Stripe</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pagamentos, assinaturas, webhooks, checkout</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-violet-100 text-violet-700 px-2 py-1 rounded">API Key</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Webhooks</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mercado Pago -->
+                <a href="conteudo/tecnico/mercadopago.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-hand-holding-usd text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Mercado Pago</h3>
+                            <p class="text-sm text-gray-600 mt-1">PIX, cartao, boleto, link de pagamento</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Access Token</span>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">PIX</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Dados & Scraping -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-database text-cyan-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Dados & Scraping</h2>
+                    <p class="text-gray-600">Coleta e extracao de dados da web</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Apify -->
+                <a href="conteudo/tecnico/apify.html" class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-cyan-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-spider text-cyan-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Apify</h3>
+                            <p class="text-sm text-gray-600 mt-1">Web scraping, Actors, extracoes automatizadas</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded">API Token</span>
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Scraping</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- HTTP Request Universal -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-globe text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Qualquer API</h2>
+                    <p class="text-gray-600">O node mais poderoso do N8N</p>
+                </div>
+            </div>
+
+            <a href="conteudo/tecnico/http.html" class="block bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg p-8 card-hover text-white">
+                <div class="flex items-center gap-6">
+                    <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-globe text-4xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2">HTTP Request</h3>
+                        <p class="text-white/90 mb-4">
+                            Conecte com QUALQUER API do mundo. REST, GraphQL, webhooks.
+                            Aprenda autenticacao, metodos HTTP, tipos de body e muito mais.
+                        </p>
+                        <div class="flex gap-3">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm">GET/POST/PUT/DELETE</span>
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm">Bearer/API Key/OAuth</span>
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm">JSON/Form Data</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-3xl ml-auto"></i>
+                </div>
+            </a>
+        </section>
+
+        <!-- Quick Start -->
+        <section class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-rocket mr-2 text-purple-600"></i>Por Onde Comecar?
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-green-600">1</span>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Telegram</h3>
+                    <p class="text-sm text-gray-600">A API mais facil de configurar. Ideal para primeiros testes.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">2</span>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Google Suite</h3>
+                    <p class="text-sm text-gray-600">OAuth completo. Essencial para automacoes empresariais.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-purple-600">3</span>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">HTTP Request</h3>
+                    <p class="text-sm text-gray-600">Domine e conecte com qualquer API do mundo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="iniciante.html" class="bg-gray-200 text-gray-800 px-8 py-4 rounded-xl font-bold hover:bg-gray-300 transition text-center">
+                <i class="fas fa-arrow-left mr-2"></i>Trilha Iniciante
+            </a>
+            <a href="index.html" class="bg-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-purple-700 transition text-center">
+                <i class="fas fa-home mr-2"></i>Voltar ao Inicio
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">N8N Academy - Dominando automacoes</p>
+            <p class="text-sm text-gray-500 mt-2">20 guias detalhados de conexoes e APIs</p>
+        </div>
+    </footer>
+
+</body>
+</html>

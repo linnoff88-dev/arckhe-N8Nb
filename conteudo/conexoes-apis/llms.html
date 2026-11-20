@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLMs e IA - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-purple-500 to-pink-600 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fas fa-brain"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">LLMs e IA</h1>
+          <p class="text-white/90">OpenAI, DeepSeek, OpenRouter, Groq</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- OpenAI -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-emerald-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">OpenAI</h2>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse platform.openai.com
+2. Crie conta ou faca login
+3. Billing > Add payment method
+4. API Keys > Create new secret key
+5. Copie a chave (so aparece uma vez!)</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Conectar no N8N/Make</h3>
+        <pre><code>1. Modulo OpenAI (ChatGPT, DALL-E)
+2. Add connection
+3. Cole a API Key</code></pre>
+      </div>
+
+      <div class="overflow-x-auto">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Custos (2026)</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-2 px-3">Modelo</th>
+              <th class="text-left py-2 px-3">Input</th>
+              <th class="text-left py-2 px-3">Output</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-600 dark:text-neutral-400">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">GPT-4 Turbo</td>
+              <td class="py-2 px-3">$10/M tokens</td>
+              <td class="py-2 px-3">$30/M tokens</td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">GPT-4o</td>
+              <td class="py-2 px-3">$5/M tokens</td>
+              <td class="py-2 px-3">$15/M tokens</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3">GPT-3.5 Turbo</td>
+              <td class="py-2 px-3">$0.50/M tokens</td>
+              <td class="py-2 px-3">$1.50/M tokens</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DeepSeek -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-blue-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-water"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">DeepSeek</h2>
+          <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs rounded-full">27x mais barato que GPT-4!</span>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse platform.deepseek.com
+2. Crie conta
+3. API Keys > Create
+4. Copie a chave</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Conectar via HTTP (Compativel OpenAI)</h3>
+        <pre><code>URL: https://api.deepseek.com/v1/chat/completions
+Headers: Authorization: Bearer {API_KEY}
+Body: mesmo formato OpenAI</code></pre>
+      </div>
+
+      <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+        <h4 class="font-bold text-emerald-700 dark:text-emerald-300">Custo DeepSeek R1</h4>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">Input: $0.55/M tokens | Output: $2.19/M tokens</p>
+      </div>
+    </div>
+
+    <!-- OpenRouter -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-orange-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-route"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">OpenRouter</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-center">
+          <i class="fas fa-cubes text-orange-500 text-xl mb-2"></i>
+          <p class="text-sm">Multiplos LLMs em uma API</p>
+        </div>
+        <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-center">
+          <i class="fas fa-shield-alt text-orange-500 text-xl mb-2"></i>
+          <p class="text-sm">Fallback automatico</p>
+        </div>
+        <div class="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-center">
+          <i class="fas fa-credit-card text-orange-500 text-xl mb-2"></i>
+          <p class="text-sm">Billing unificado</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse openrouter.ai
+2. Crie conta
+3. Keys > Create Key
+4. Copie a chave</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Conectar via HTTP</h3>
+        <pre><code>URL: https://openrouter.ai/api/v1/chat/completions
+Headers:
+  - Authorization: Bearer {API_KEY}
+  - HTTP-Referer: seu-site.com
+Body: formato OpenAI + campo "model"</code></pre>
+      </div>
+
+      <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+        <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Modelos Disponiveis</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 text-xs rounded">OpenAI (GPT-4)</span>
+          <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 text-xs rounded">Anthropic (Claude)</span>
+          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 text-xs rounded">Google (Gemini)</span>
+          <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 text-xs rounded">Meta (Llama)</span>
+          <span class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 text-xs rounded">Mistral</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Groq -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-green-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Groq</h2>
+          <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs rounded-full">GRATIS!</span>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse console.groq.com
+2. Crie conta
+3. API Keys > Create
+4. Copie a chave</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Conectar via HTTP (Compativel OpenAI)</h3>
+        <pre><code>URL: https://api.groq.com/openai/v1/chat/completions
+Headers: Authorization: Bearer {API_KEY}</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+          <p class="font-bold text-green-700">Llama 3.1 70B</p>
+          <p class="text-xs text-neutral-600">Gratis</p>
+        </div>
+        <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+          <p class="font-bold text-green-700">Llama 3.1 8B</p>
+          <p class="text-xs text-neutral-600">Gratis</p>
+        </div>
+        <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+          <p class="font-bold text-green-700">Mixtral 8x7B</p>
+          <p class="text-xs text-neutral-600">Gratis</p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+        <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-1">Limitacoes</h4>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">Rate limits no tier gratuito. Ideal para prototipagem e testes.</p>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://platform.openai.com/api-keys" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-emerald-500"></i>
+          <span>OpenAI API Keys</span>
+        </a>
+        <a href="https://platform.deepseek.com/api_keys" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-blue-500"></i>
+          <span>DeepSeek API Keys</span>
+        </a>
+        <a href="https://openrouter.ai" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-orange-500"></i>
+          <span>OpenRouter</span>
+        </a>
+        <a href="https://console.groq.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-green-500"></i>
+          <span>Groq Console</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="twitter.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-purple-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>X (Twitter)</span>
+      </a>
+      <a href="databases.html" class="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-3 rounded-xl font-bold hover:from-emerald-600 hover:to-teal-700 transition-all">
+        <span>Proximo: Databases</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Trigger - Guia Completo | N8N Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem;
+                  overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../iniciante.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">⚡</span><span>Event Trigger</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8 animate-pulse">⚡</div>
+      <h1 class="text-6xl font-bold mb-6 gradient-text-white">Event Trigger</h1>
+      <p class="text-3xl mb-4 text-white/90">Automação em tempo real baseada em eventos externos</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Transforme o n8n de uma ferramenta agendada para uma plataforma que reage instantaneamente a eventos do seu negócio</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- O QUE FAZ -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📚</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que são Event Trigger Nodes?</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        <strong>Event Triggers</strong> escutam eventos externos de aplicações como Gmail, Slack, HubSpot, Google Calendar e disparam workflows instantaneamente quando o evento ocorre.
+      </p>
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl border-2 border-blue-200 dark:border-blue-800 mb-6">
+        <p class="text-xl text-blue-900 dark:text-blue-300 leading-relaxed">
+          <strong>💡 Diferença crucial:</strong> Event Triggers transformam n8n de uma ferramenta baseada em horário (Schedule Trigger) para uma plataforma que <strong>REAGE EM TEMPO REAL</strong> a eventos do seu negócio, sem esperar polling ou verificações agendadas.
+        </p>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+        Nodes como <strong>Gmail Trigger</strong>, <strong>Slack Trigger</strong>, <strong>HubSpot Trigger</strong>, <strong>Google Calendar</strong> e outros permitem construir automações sempre ativas que respondem imediatamente a novos emails, mensagens, contatos, eventos e muito mais.
+      </p>
+
+      <img src="images/photo_5093792193734356545_y.jpg" alt="Triggers Diagram" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl my-8" />
+    </div>
+
+    <!-- TABELA DE EVENT TRIGGERS -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Event Triggers Comuns no n8n</h3>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden shadow-lg">
+        <table class="w-full">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="px-6 py-4 text-left text-lg font-bold">Node</th>
+              <th class="px-6 py-4 text-left text-lg font-bold">Evento Típico</th>
+              <th class="px-6 py-4 text-left text-lg font-bold">Setup/Notas</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 dark:divide-neutral-700">
+            <tr class="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <td class="px-6 py-4 font-semibold text-neutral-900 dark:text-neutral-100">Gmail Trigger</td>
+              <td class="px-6 py-4 text-neutral-700 dark:text-neutral-300">New Email Received</td>
+              <td class="px-6 py-4 text-neutral-600 dark:text-neutral-400">Use filtros, polling</td>
+            </tr>
+            <tr class="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <td class="px-6 py-4 font-semibold text-neutral-900 dark:text-neutral-100">Slack Trigger</td>
+              <td class="px-6 py-4 text-neutral-700 dark:text-neutral-300">New Message, Reaction, Channel Created</td>
+              <td class="px-6 py-4 text-neutral-600 dark:text-neutral-400">Credenciais app necessárias</td>
+            </tr>
+            <tr class="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <td class="px-6 py-4 font-semibold text-neutral-900 dark:text-neutral-100">HubSpot Trigger</td>
+              <td class="px-6 py-4 text-neutral-700 dark:text-neutral-300">New Contact, Form Submission</td>
+              <td class="px-6 py-4 text-neutral-600 dark:text-neutral-400">Setup conexão app</td>
+            </tr>
+            <tr class="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <td class="px-6 py-4 font-semibold text-neutral-900 dark:text-neutral-100">Google Calendar</td>
+              <td class="px-6 py-4 text-neutral-700 dark:text-neutral-300">New Event, Event Update</td>
+              <td class="px-6 py-4 text-neutral-600 dark:text-neutral-400">Selecione calendário, evento</td>
+            </tr>
+            <tr class="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <td class="px-6 py-4 font-semibold text-neutral-900 dark:text-neutral-100">Webhook Trigger</td>
+              <td class="px-6 py-4 text-neutral-700 dark:text-neutral-300">Incoming HTTP Request</td>
+              <td class="px-6 py-4 text-neutral-600 dark:text-neutral-400">Totalmente custom/webhook</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GMAIL TRIGGER DETALHADO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📧</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Gmail Trigger - Exemplo Completo</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="border-l-4 border-blue-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Função</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Dispara workflow quando nova mensagem chega no Gmail ou corresponde a filtros customizados</p>
+        </div>
+        <div class="border-l-4 border-blue-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">💼 Quando Usar</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Ideal para automações que respondem instantaneamente a novos emails: parsing de anexos, respostas automáticas, logging de mensagens em bancos de dados</p>
+        </div>
+        <div class="border-l-4 border-blue-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">⚙️ Configuração (Passo a Passo)</p>
+          <div class="space-y-3 mt-3">
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">1. Autentique n8n com sua conta Google</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">2. Escolha frequência de polling (verificação)</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">3. Aplique filtros opcionais: remetente, label, status não lido, sintaxe de busca do Gmail</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">4. Decida payload: simplificado (campos core) ou dados raw completos</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">5. Pode limitar triggers apenas a certos labels, remetentes ou critérios de busca específicos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLACK TRIGGER DETALHADO -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💬</span>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Slack Trigger - Exemplo Completo</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Função</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Dispara workflow em eventos do Slack: mensagem postada, reação com emoji, novo canal/usuário criado</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">💼 Quando Usar</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Perfeito para ações instantâneas como roteamento de notificações, logging de mensagens, ou iniciar workflows baseados em atividade de chat</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">⚙️ Configuração</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Autentique com seu workspace Slack usando Slack API e configure eventos específicos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASOS DE USO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🚀</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Casos de Uso Principais</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">📧 Parse de Anexos em Email</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Gmail Trigger detecta emails com anexos, extrai arquivos automaticamente e processa (ex: upload para cloud, análise de dados)</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">🤖 Respostas Automáticas</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Responder automaticamente a emails de clientes com informações específicas ou templates personalizados</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">📊 Logging de Mensagens</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Registrar mensagens do Slack ou emails em banco de dados para auditoria, análise ou compliance</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">🔔 Roteamento de Notificações</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Baseado em eventos (novo contato HubSpot, evento Google Calendar), enviar notificações para equipes específicas</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">⚡ Workflow Iniciado por Chat</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Mensagem específica no Slack dispara workflow complexo (ex: "/report sales" gera relatório automaticamente)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLO PRÁTICO -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💡</span>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Exemplo Prático: Auto-resposta Gmail com Filtro</h3>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6 font-semibold">Cenário: Responder automaticamente emails de suporte que contenham "urgent" no assunto</p>
+        <div class="code-block mb-6">
+<span class="text-blue-400">// Configuração Gmail Trigger</span>
+
+<span class="text-green-400">Node:</span> Gmail Trigger
+<span class="text-green-400">Event:</span> Message Received
+<span class="text-green-400">Poll Times:</span> Every 5 minutes
+<span class="text-green-400">Filters:</span>
+  - Label: "support"
+  - Search: "subject:urgent is:unread"
+
+<span class="text-blue-400">// Workflow completo:</span>
+
+Gmail Trigger
+  → IF (check if "urgent" in subject)
+    → Edit Fields (prepare response data)
+      → Gmail (Send Reply)
+        → Gmail (Mark as Read)
+
+<span class="text-blue-400">// Resultado:</span>
+Emails urgentes recebem resposta automática instantânea
+        </div>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400">⚡ <strong>Poder:</strong> Automação sempre ativa, responde em segundos após email chegar!</p>
+      </div>
+    </div>
+
+    <!-- BEST PRACTICES -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">✨</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Best Practices & Tips</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-l-4 border-blue-500">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-300 mb-2">🔄 Polling vs Webhooks</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Alguns triggers (Gmail) usam POLLING (n8n verifica eventos a cada X minutos), outros usam WEBHOOKS para notificações instantâneas. Entenda qual seu trigger usa!</p>
+        </div>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-l-4 border-blue-500">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-300 mb-2">🎯 Use Filtros para Evitar Triggers Desnecessários</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Configure filtros no próprio trigger node para disparar apenas em eventos relevantes e manter execuções focadas</p>
+        </div>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-l-4 border-blue-500">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-300 mb-2">🧪 Testando Event Triggers</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Ative o workflow e CAUSE o evento (envie email de teste, poste mensagem no Slack) para verificar setup. Execuções manuais são para teste, mas apenas modo "active" escuta eventos automaticamente!</p>
+        </div>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-l-4 border-blue-500">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-300 mb-2">🔧 Integrações Não Suportadas</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Para apps sem event trigger nativo ou eventos customizados, use Webhook Trigger node ou HTTP generic triggers</p>
+        </div>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-l-4 border-blue-500">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-300 mb-2">🔒 Credenciais e Permissões</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Sempre configure credenciais corretamente e garanta que app tem permissões necessárias (ex: Gmail API precisa de acesso completo à inbox)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-3xl p-12 text-center shadow-2xl">
+      <span class="text-7xl mb-6 block">🎓</span>
+      <h3 class="text-4xl font-bold mb-6">Domine Event Triggers!</h3>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">Event Triggers são essenciais para construir automações responsivas e "always-on" que reagem instantaneamente a eventos do negócio em todas suas ferramentas e plataformas.</p>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <a href="../iniciante.html" class="bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-neutral-100 transition-all shadow-lg transform hover:scale-105">
+          ← Voltar ao Curso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400 text-lg">&copy; 2025 N8N Academy - Fundamentos Completos</p>
+      <p class="text-neutral-500 mt-2">Conteúdo baseado no n8n Cheatsheet 2026 by Nate Herk</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden');
+    } else { themeToggleDarkIcon.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark'); localStorage.setItem('color-theme', 'light');
+      } else { document.documentElement.classList.add('dark'); localStorage.setItem('color-theme', 'dark'); }
+    });
+  </script>
+</body>
+</html>

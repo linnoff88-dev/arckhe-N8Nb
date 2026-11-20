@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Business - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    code { font-family: 'Monaco', 'Consolas', monospace; font-size: 0.875rem; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fab fa-whatsapp"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">WhatsApp Business</h1>
+          <p class="text-white/90">Z-API, Evolution API, Twilio, Meta Cloud API</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Provider Comparison -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-balance-scale text-green-500 mr-2"></i>Comparacao de Provedores
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-3 px-4 font-bold">Provedor</th>
+              <th class="text-left py-3 px-4 font-bold">Tipo</th>
+              <th class="text-left py-3 px-4 font-bold">Custo</th>
+              <th class="text-left py-3 px-4 font-bold">Dificuldade</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-600 dark:text-neutral-400">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700 bg-green-50 dark:bg-green-900/20">
+              <td class="py-3 px-4 font-medium">Z-API</td>
+              <td class="py-3 px-4">Hosted</td>
+              <td class="py-3 px-4">R$49+/mes</td>
+              <td class="py-3 px-4"><span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs">Facil</span></td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-3 px-4 font-medium">Evolution API</td>
+              <td class="py-3 px-4">Self-hosted</td>
+              <td class="py-3 px-4">Gratis</td>
+              <td class="py-3 px-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">Media</span></td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-3 px-4 font-medium">Twilio</td>
+              <td class="py-3 px-4">Oficial</td>
+              <td class="py-3 px-4">$0.005/msg</td>
+              <td class="py-3 px-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">Media</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Meta Cloud API</td>
+              <td class="py-3 px-4">Oficial</td>
+              <td class="py-3 px-4">Gratis*</td>
+              <td class="py-3 px-4"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">Dificil</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-neutral-500 mt-2">*Meta Cloud API e gratis mas requer aprovacao de templates</p>
+    </div>
+
+    <!-- Z-API -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-green-500">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-star text-green-500 mr-2"></i>Opcao 1: Z-API (Recomendado para Iniciantes)
+      </h2>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse z-api.io
+2. Crie conta e escolha plano
+3. Crie uma instancia
+4. Escaneie o QR Code com WhatsApp
+5. Copie as credenciais:
+   - Instance ID
+   - Token
+   - Security Token
+6. No N8N/Make, use modulo HTTP:
+   - Base URL: https://api.z-api.io/instances/{instance}/token/{token}</code></pre>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Endpoints Principais</h3>
+        <pre><code>POST /send-text          - Enviar texto
+POST /send-image         - Enviar imagem
+POST /send-document      - Enviar documento
+GET  /chats              - Listar conversas
+POST /send-button-list   - Enviar botoes</code></pre>
+      </div>
+    </div>
+
+    <!-- Evolution API -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-purple-500">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-server text-purple-500 mr-2"></i>Opcao 2: Evolution API (Self-Hosted)
+      </h2>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Provisione VPS (DigitalOcean, Contabo)
+2. Instale Docker
+3. Clone repositorio:
+   git clone https://github.com/EvolutionAPI/evolution-api
+4. Configure docker-compose.yml
+5. Execute: docker-compose up -d
+6. Acesse painel web
+7. Crie instancia e escaneie QR Code</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
+          <i class="fas fa-dollar-sign text-emerald-500 text-2xl mb-2"></i>
+          <p class="text-sm font-medium">Sem custo mensal</p>
+        </div>
+        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center">
+          <i class="fas fa-database text-blue-500 text-2xl mb-2"></i>
+          <p class="text-sm font-medium">Controle total dos dados</p>
+        </div>
+        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center">
+          <i class="fas fa-infinity text-purple-500 text-2xl mb-2"></i>
+          <p class="text-sm font-medium">Sem limites de msgs</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meta Cloud API -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-blue-500">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fab fa-meta text-blue-500 mr-2"></i>Opcao 3: Meta Cloud API (Oficial)
+      </h2>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg mb-6">
+        <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-2">Pre-requisitos</h4>
+        <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+          <li>- Business Manager verificado</li>
+          <li>- Numero de telefone dedicado</li>
+          <li>- Templates aprovados pelo Meta</li>
+        </ul>
+      </div>
+
+      <pre><code>1. developers.facebook.com > Create App > Business
+2. Adicione produto WhatsApp
+3. Configure numero de telefone
+4. Crie e submeta templates
+5. Aguarde aprovacao
+6. Use API com token gerado</code></pre>
+    </div>
+
+    <!-- Concepts -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-book text-purple-500 mr-2"></i>Conceitos-Chave
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">HSM (Template)</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Mensagem pre-aprovada pelo Meta</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Session Message</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Mensagem dentro da janela de 24h</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Template Message</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Mensagem fora da janela 24h</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Webhook</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Receber mensagens em tempo real</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://z-api.io" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-green-500"></i>
+          <span>Z-API</span>
+        </a>
+        <a href="https://github.com/EvolutionAPI/evolution-api" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fab fa-github text-purple-500"></i>
+          <span>Evolution API (GitHub)</span>
+        </a>
+        <a href="https://www.twilio.com/whatsapp" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-red-500"></i>
+          <span>Twilio WhatsApp</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=A0OwvNOLNlw" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fab fa-youtube text-red-500"></i>
+          <span>Video Tutorial Evolution API</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="meta.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-green-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>META</span>
+      </a>
+      <a href="telegram.html" class="flex items-center gap-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white px-6 py-3 rounded-xl font-bold hover:from-sky-500 hover:to-sky-700 transition-all">
+        <span>Proximo: Telegram</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

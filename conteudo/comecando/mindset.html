@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindset de Automação - Guia Completo | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../comecando.html" class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">🧠</span><span>Mindset de Automação</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8">🧠</div>
+      <h1 class="text-6xl font-bold mb-6">Mindset de Automação</h1>
+      <p class="text-3xl mb-4 text-white/90">A mentalidade certa para começar</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Antes de construir qualquer workflow, você precisa pensar como um engenheiro de processos</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- POR QUE AUTOMATIZAR -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🚀</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Por que automatizar?</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        Automação não é sobre substituir pessoas. É sobre <strong>liberar tempo</strong> para trabalho que realmente importa.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-lg font-semibold text-amber-900 dark:text-amber-300 mb-2">💰 ROI de 30% a 200%</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Empresas que automatizam processos repetitivos veem retorno no primeiro ano</p>
+        </div>
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-lg font-semibold text-amber-900 dark:text-amber-300 mb-2">⏰ Tempo Liberado</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Tarefas de 2 horas/dia viram 5 minutos de monitoramento</p>
+        </div>
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-lg font-semibold text-amber-900 dark:text-amber-300 mb-2">🎯 Menos Erros</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Máquinas não esquecem passos, não copiam errado, não se distraem</p>
+        </div>
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-lg font-semibold text-amber-900 dark:text-amber-300 mb-2">📈 Escalabilidade</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Processar 10 ou 10.000 items tem o mesmo custo de setup</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- O QUE NÃO AUTOMATIZAR -->
+    <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-3xl p-12 mb-12 border-2 border-red-200 dark:border-red-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🚫</span>
+        <h3 class="text-4xl font-bold text-red-900 dark:text-red-300">O que NÃO automatizar</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        Automatizar tudo é um erro comum. Alguns processos devem permanecer manuais:
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-3">🔄 Processos Instáveis</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Se o processo muda toda semana, automatizar gera retrabalho constante</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-3">☝️ Tarefas Únicas</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Se você faz algo uma vez por ano, o custo de automatizar não compensa</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-3">🧠 Decisões Complexas</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Julgamento humano, contexto emocional, negociações delicadas</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-3">⚠️ Alto Risco</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Ações irreversíveis que precisam de revisão humana antes de executar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CICLO DO APRENDIZADO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎢</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">O Ciclo do Aprendizado</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-8">
+        Todo iniciante passa por este ciclo. Saber disso evita desistência prematura:
+      </p>
+      <div class="space-y-6">
+        <div class="border-l-4 border-green-500 pl-6 py-4 bg-green-50 dark:bg-green-900/20 rounded-r-xl">
+          <p class="text-xl font-bold text-green-900 dark:text-green-100 mb-2">1. 🎉 Empolgação</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">"Isso é incrível! Vou automatizar TUDO!"</p>
+        </div>
+        <div class="border-l-4 border-yellow-500 pl-6 py-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-r-xl">
+          <p class="text-xl font-bold text-yellow-900 dark:text-yellow-100 mb-2">2. 😤 Frustração</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">"Por que não funciona? A documentação não ajuda!"</p>
+        </div>
+        <div class="border-l-4 border-red-500 pl-6 py-4 bg-red-50 dark:bg-red-900/20 rounded-r-xl">
+          <p class="text-xl font-bold text-red-900 dark:text-red-100 mb-2">3. 😰 Crise</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">"Talvez eu não seja feito pra isso..."</p>
+        </div>
+        <div class="border-l-4 border-blue-500 pl-6 py-4 bg-blue-50 dark:bg-blue-900/20 rounded-r-xl">
+          <p class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-2">4. 💪 Confiança</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">"Agora entendi! Sei resolver problemas e onde buscar ajuda."</p>
+        </div>
+      </div>
+      <div class="mt-8 p-6 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-amber-900 dark:text-amber-200">
+          💡 A frustração é parte do processo. Persista através dela - a confiança vem depois.
+        </p>
+      </div>
+    </div>
+
+    <!-- PENSAMENTO DE ENGENHEIRO -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🔧</span>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Pensamento de Engenheiro de Processos</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        Antes de abrir o N8N, documente o processo manual:
+      </p>
+      <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg mb-6">
+        <h4 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Perguntas essenciais:</h4>
+        <ul class="space-y-3 text-lg text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Qual o <strong>gatilho</strong> que inicia o processo?</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Quais <strong>dados de entrada</strong> são necessários?</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Quais <strong>passos</strong> acontecem em sequência?</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Quais <strong>decisões</strong> são tomadas no caminho?</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Qual o <strong>resultado final</strong> esperado?</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-3">→</span>Quais <strong>exceções</strong> podem acontecer?</li>
+        </ul>
+      </div>
+      <div class="p-6 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-blue-900 dark:text-blue-200">
+          ⚠️ Automatizar um processo mal definido = automatizar o caos. Documente primeiro!
+        </p>
+      </div>
+    </div>
+
+    <!-- ROI -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💰</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Calculando ROI de Automações</h3>
+      </div>
+      <div class="bg-neutral-100 dark:bg-neutral-700 p-8 rounded-2xl mb-8">
+        <h4 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Fórmula Básica:</h4>
+        <div class="code-block text-center text-xl">
+ROI = (Tempo Economizado × Valor/Hora) - Custo da Automação
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800">
+          <p class="text-lg font-semibold text-green-900 dark:text-green-300 mb-2">⏱️ Tempo Economizado</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Horas/semana que a tarefa manual consumia</p>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-lg font-semibold text-blue-900 dark:text-blue-300 mb-2">💵 Valor/Hora</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Salário + encargos + custo de oportunidade</p>
+        </div>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+          <p class="text-lg font-semibold text-purple-900 dark:text-purple-300 mb-2">🔧 Custo Automação</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Tempo de desenvolvimento + ferramentas + manutenção</p>
+        </div>
+      </div>
+      <div class="mt-8 p-6 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200">
+          <strong>Exemplo:</strong> Tarefa de 2h/dia × R$50/hora = R$100/dia economizado.<br>
+          Se a automação custou 8h para criar = R$400.<br>
+          <strong>Payback em 4 dias!</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Exemplo 1 -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-2xl border-2 border-green-200 dark:border-green-800">
+          <h4 class="text-2xl font-bold text-green-900 dark:text-green-300 mb-4">✅ Exemplo 1: Processo Ideal para Automatizar</h4>
+          <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl mb-4">
+            <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Cenário: Envio de Relatórios Diários</p>
+            <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>• <strong>Frequência:</strong> Todo dia às 8h</li>
+              <li>• <strong>Passos:</strong> Extrair dados do sistema → Formatar em planilha → Enviar por email</li>
+              <li>• <strong>Tempo manual:</strong> 45 minutos/dia</li>
+              <li>• <strong>Regras:</strong> Sempre os mesmos dados, mesmo formato, mesmos destinatários</li>
+            </ul>
+          </div>
+          <div class="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg">
+            <p class="text-green-900 dark:text-green-200"><strong>Por que é ideal:</strong> Repetitivo, previsível, regras claras, alto volume de tempo economizado.</p>
+          </div>
+        </div>
+
+        <!-- Exemplo 2 -->
+        <div class="bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 p-8 rounded-2xl border-2 border-red-200 dark:border-red-800">
+          <h4 class="text-2xl font-bold text-red-900 dark:text-red-300 mb-4">❌ Exemplo 2: Processo que NÃO deve ser Automatizado</h4>
+          <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl mb-4">
+            <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Cenário: Responder Reclamações de Clientes VIP</p>
+            <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>• <strong>Frequência:</strong> 2-3x por mês</li>
+              <li>• <strong>Contexto:</strong> Cada caso é único, requer análise emocional</li>
+              <li>• <strong>Risco:</strong> Resposta errada pode perder cliente de R$50k/ano</li>
+              <li>• <strong>Decisão:</strong> Exige julgamento sobre compensação, tom, urgência</li>
+            </ul>
+          </div>
+          <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg">
+            <p class="text-red-900 dark:text-red-200"><strong>Por que evitar:</strong> Baixa frequência, alto risco, requer empatia humana e julgamento contextual.</p>
+          </div>
+        </div>
+
+        <!-- Exemplo 3 -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+          <h4 class="text-2xl font-bold text-blue-900 dark:text-blue-300 mb-4">🧮 Exemplo 3: Cálculo de ROI Real</h4>
+          <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl mb-4">
+            <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Cenário: Integração de Leads do Site para CRM</p>
+            <div class="code-block">
+ANTES (Manual):
+- Verificar formulários: 10 min, 5x/dia = 50 min/dia
+- Copiar dados para CRM: 5 min/lead × 10 leads = 50 min/dia
+- Total: 100 min/dia = 8.3 horas/semana
+
+CUSTO DO TEMPO:
+- Salário analista: R$4.000/mês ÷ 160h = R$25/hora
+- Custo semanal: 8.3h × R$25 = R$207,50/semana
+
+AUTOMAÇÃO:
+- Tempo de desenvolvimento: 4 horas = R$100
+- Manutenção: 0.5h/mês = R$12,50/mês
+
+ROI PRIMEIRO MÊS:
+- Economia: R$830 (4 semanas)
+- Investimento: R$100 + R$12,50 = R$112,50
+- Retorno: 638%
+            </div>
+          </div>
+          <div class="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg">
+            <p class="text-blue-900 dark:text-blue-200"><strong>Conclusão:</strong> Automação se paga em menos de 1 semana. ROI de 638% no primeiro mês!</p>
+          </div>
+        </div>
+
+        <!-- Exemplo 4 -->
+        <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 p-8 rounded-2xl border-2 border-purple-200 dark:border-purple-800">
+          <h4 class="text-2xl font-bold text-purple-900 dark:text-purple-300 mb-4">📝 Exemplo 4: Documentando um Processo</h4>
+          <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl mb-4">
+            <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Template de Documentação de Processo</p>
+            <div class="code-block">
+PROCESSO: Sincronização de Estoque
+
+GATILHO: A cada 1 hora
+
+ENTRADAS:
+- Planilha de vendas (Google Sheets)
+- API do e-commerce (Shopify)
+
+PASSOS:
+1. Buscar vendas da última hora
+2. Para cada venda, identificar produtos
+3. Calcular novo estoque
+4. Atualizar estoque no e-commerce
+5. Se estoque < 10, enviar alerta
+
+SAÍDAS:
+- Estoque atualizado
+- Log de alterações
+- Alertas de estoque baixo
+
+EXCEÇÕES:
+- API indisponível → Retry 3x, depois alerta
+- Produto não encontrado → Log e pular
+- Estoque negativo → Bloquear e alertar
+            </div>
+          </div>
+          <div class="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-lg">
+            <p class="text-purple-900 dark:text-purple-200"><strong>Dica:</strong> Documentar assim ANTES de construir evita 80% dos bugs e retrabalho.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-3xl p-12 text-center">
+      <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
+      <p class="text-xl mb-8">Agora que você tem o mindset certo, aprenda sobre as 3 camadas da automação.</p>
+      <a href="camadas.html" class="inline-block bg-white text-amber-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Próximo: As 3 Camadas →
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy - Mindset de Automação</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON - A Linguagem dos Dados | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+    .code-key { color: #7dd3fc; }
+    .code-string { color: #86efac; }
+    .code-number { color: #fcd34d; }
+    .code-boolean { color: #f472b6; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../comecando.html" class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">📊</span><span>JSON</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8">📊</div>
+      <h1 class="text-6xl font-bold mb-6">JSON</h1>
+      <p class="text-3xl mb-4 text-white/90">A Linguagem Universal dos Dados</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">99% das APIs usam JSON. Sem entender JSON, você não entende automação.</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- O QUE É JSON -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📚</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que é JSON?</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        <strong>JavaScript Object Notation</strong> - formato universal para trocar dados entre sistemas.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800 text-center">
+          <p class="text-4xl mb-2">📖</p>
+          <p class="text-lg font-semibold text-green-800 dark:text-green-300">Legível por Humanos</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Texto simples que você consegue ler</p>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800 text-center">
+          <p class="text-4xl mb-2">🤖</p>
+          <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">Legível por Máquinas</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Fácil de processar programaticamente</p>
+        </div>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 text-center">
+          <p class="text-4xl mb-2">🌍</p>
+          <p class="text-lg font-semibold text-purple-800 dark:text-purple-300">Padrão Universal</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Usado por praticamente todas as APIs</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTRUTURA CHAVE-VALOR -->
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-12 mb-12 border-2 border-green-200 dark:border-green-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🔑</span>
+        <h3 class="text-4xl font-bold text-green-900 dark:text-green-300">Estrutura Chave-Valor</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        JSON organiza dados em pares de <strong>chave</strong> (nome) e <strong>valor</strong> (dado):
+      </p>
+      <div class="code-block mb-6">
+<span class="code-key">{</span>
+  <span class="code-key">"nome"</span>: <span class="code-string">"João Silva"</span>,
+  <span class="code-key">"idade"</span>: <span class="code-number">30</span>,
+  <span class="code-key">"ativo"</span>: <span class="code-boolean">true</span>,
+  <span class="code-key">"email"</span>: <span class="code-string">"joao@email.com"</span>
+<span class="code-key">}</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">📌 Regras das Chaves</p>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400">
+            <li>→ Sempre entre aspas duplas</li>
+            <li>→ Devem ser únicas no objeto</li>
+            <li>→ Case-sensitive ("Nome" ≠ "nome")</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">📌 Tipos de Valores</p>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400">
+            <li>→ <span class="code-string">String</span>: texto entre aspas</li>
+            <li>→ <span class="code-number">Number</span>: números sem aspas</li>
+            <li>→ <span class="code-boolean">Boolean</span>: true ou false</li>
+            <li>→ null, arrays, objetos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARRAYS E OBJETOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📦</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Arrays e Objetos Aninhados</h3>
+      </div>
+
+      <div class="mb-8">
+        <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Arrays (Listas) - usa [ ]</p>
+        <div class="code-block">
+<span class="code-key">{</span>
+  <span class="code-key">"frutas"</span>: [<span class="code-string">"maçã"</span>, <span class="code-string">"banana"</span>, <span class="code-string">"laranja"</span>],
+  <span class="code-key">"numeros"</span>: [<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>]
+<span class="code-key">}</span>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Objetos Aninhados - usa { } dentro de { }</p>
+        <div class="code-block">
+<span class="code-key">{</span>
+  <span class="code-key">"usuario"</span>: {
+    <span class="code-key">"nome"</span>: <span class="code-string">"Maria"</span>,
+    <span class="code-key">"endereco"</span>: {
+      <span class="code-key">"cidade"</span>: <span class="code-string">"São Paulo"</span>,
+      <span class="code-key">"cep"</span>: <span class="code-string">"01234-567"</span>
+    }
+  }
+<span class="code-key">}</span>
+        </div>
+      </div>
+
+      <div class="p-6 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-blue-900 dark:text-blue-200">
+          💡 APIs geralmente retornam arrays de objetos - ex: lista de usuários, pedidos, produtos.
+        </p>
+      </div>
+    </div>
+
+    <!-- JSON NO N8N -->
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-12 mb-12 border-2 border-amber-200 dark:border-amber-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">⚡</span>
+        <h3 class="text-4xl font-bold text-amber-900 dark:text-amber-300">JSON no N8N</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        No N8N, cada item é um objeto JSON. Você acessa dados usando expressões:
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4">Acessando Dados</p>
+          <div class="code-block text-sm">
+// Dado simples
+{{ $json.nome }}
+
+// Objeto aninhado
+{{ $json.usuario.endereco.cidade }}
+
+// Array (primeiro item)
+{{ $json.frutas[0] }}
+
+// Array (segundo item)
+{{ $json.frutas[1] }}
+          </div>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4">Variáveis Úteis</p>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li><code class="bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">$json</code> - dados do item atual</li>
+            <li><code class="bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">$input.all()</code> - todos os items</li>
+            <li><code class="bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">$input.first()</code> - primeiro item</li>
+            <li><code class="bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">$('Node').all()</code> - dados de outro node</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDAÇÃO E DEBUG -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🔍</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Validação e Debug</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        JSON inválido quebra tudo. Erros comuns:
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl border-2 border-red-200 dark:border-red-800">
+          <p class="text-lg font-bold text-red-800 dark:text-red-300 mb-2">❌ Erros Comuns</p>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ Vírgula extra no final</li>
+            <li>→ Aspas simples (deve ser dupla)</li>
+            <li>→ Chave sem aspas</li>
+            <li>→ Falta de vírgula entre items</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800">
+          <p class="text-lg font-bold text-green-800 dark:text-green-300 mb-2">✅ Ferramentas de Validação</p>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ <a href="https://jsonlint.com" target="_blank" class="text-blue-600 underline">JSONLint.com</a></li>
+            <li>→ Output Panel do N8N</li>
+            <li>→ Console do navegador</li>
+            <li>→ VS Code com extensão JSON</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="code-block">
+// ❌ ERRADO - vírgula extra
+{ "nome": "João", "idade": 30, }
+
+// ✅ CORRETO
+{ "nome": "João", "idade": 30 }
+
+// ❌ ERRADO - aspas simples
+{ 'nome': 'João' }
+
+// ✅ CORRETO
+{ "nome": "João" }
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+      <div class="space-y-8">
+        <!-- Exemplo 1: Resposta de API -->
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800">
+          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-3">🌐 Exemplo 1: Resposta típica de API</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Quando você busca um usuário em uma API, geralmente recebe:</p>
+          <div class="code-block">
+{
+  <span class="code-key">"success"</span>: <span class="code-boolean">true</span>,
+  <span class="code-key">"data"</span>: {
+    <span class="code-key">"id"</span>: <span class="code-number">12345</span>,
+    <span class="code-key">"nome"</span>: <span class="code-string">"Maria Silva"</span>,
+    <span class="code-key">"email"</span>: <span class="code-string">"maria@empresa.com"</span>,
+    <span class="code-key">"ativo"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"perfil"</span>: {
+      <span class="code-key">"cargo"</span>: <span class="code-string">"Gerente"</span>,
+      <span class="code-key">"departamento"</span>: <span class="code-string">"Vendas"</span>
+    },
+    <span class="code-key">"telefones"</span>: [<span class="code-string">"11-99999-0000"</span>, <span class="code-string">"11-3333-4444"</span>]
+  }
+}
+
+// Como acessar no N8N:
+{{ $json.data.nome }}                    → "Maria Silva"
+{{ $json.data.perfil.cargo }}            → "Gerente"
+{{ $json.data.telefones[0] }}            → "11-99999-0000"
+          </div>
+        </div>
+
+        <!-- Exemplo 2: Lista de Pedidos -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">📦 Exemplo 2: Array de pedidos (muito comum)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">APIs de e-commerce retornam listas assim:</p>
+          <div class="code-block">
+{
+  <span class="code-key">"pedidos"</span>: [
+    {
+      <span class="code-key">"id"</span>: <span class="code-string">"PED-001"</span>,
+      <span class="code-key">"cliente"</span>: <span class="code-string">"João"</span>,
+      <span class="code-key">"total"</span>: <span class="code-number">150.00</span>,
+      <span class="code-key">"status"</span>: <span class="code-string">"enviado"</span>
+    },
+    {
+      <span class="code-key">"id"</span>: <span class="code-string">"PED-002"</span>,
+      <span class="code-key">"cliente"</span>: <span class="code-string">"Ana"</span>,
+      <span class="code-key">"total"</span>: <span class="code-number">89.90</span>,
+      <span class="code-key">"status"</span>: <span class="code-string">"pendente"</span>
+    }
+  ],
+  <span class="code-key">"total_pedidos"</span>: <span class="code-number">2</span>
+}
+
+// No N8N (após Split In Batches):
+{{ $json.id }}       → Cada item: "PED-001", "PED-002"
+{{ $json.cliente }}  → Cada item: "João", "Ana"
+          </div>
+        </div>
+
+        <!-- Exemplo 3: Webhook Payload -->
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🪝 Exemplo 3: Payload de Webhook (Stripe)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Quando recebe pagamento confirmado:</p>
+          <div class="code-block">
+{
+  <span class="code-key">"event"</span>: <span class="code-string">"payment.succeeded"</span>,
+  <span class="code-key">"data"</span>: {
+    <span class="code-key">"object"</span>: {
+      <span class="code-key">"id"</span>: <span class="code-string">"pi_3ABC123"</span>,
+      <span class="code-key">"amount"</span>: <span class="code-number">9900</span>,
+      <span class="code-key">"currency"</span>: <span class="code-string">"brl"</span>,
+      <span class="code-key">"customer_email"</span>: <span class="code-string">"cliente@email.com"</span>,
+      <span class="code-key">"metadata"</span>: {
+        <span class="code-key">"produto_id"</span>: <span class="code-string">"CURSO-N8N"</span>,
+        <span class="code-key">"cupom"</span>: <span class="code-string">"DESCONTO10"</span>
+      }
+    }
+  }
+}
+
+// Acessando no N8N:
+{{ $json.data.object.amount / 100 }}           → 99.00 (em reais)
+{{ $json.data.object.customer_email }}         → "cliente@email.com"
+{{ $json.data.object.metadata.produto_id }}    → "CURSO-N8N"
+          </div>
+        </div>
+
+        <!-- Exemplo 4: Transformação -->
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">🔄 Exemplo 4: Transformando JSON no N8N (Set Node)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Recebe dados bagunçados → Reorganiza para próximo node:</p>
+          <div class="code-block">
+// ENTRADA (do webhook):
+{
+  "first_name": "João",
+  "last_name": "Silva",
+  "email_address": "joao@email.com"
+}
+
+// SET NODE - Configuração:
+nome_completo = {{ $json.first_name }} {{ $json.last_name }}
+email = {{ $json.email_address }}
+data_cadastro = {{ $now.format('yyyy-MM-dd') }}
+
+// SAÍDA (para próximo node):
+{
+  "nome_completo": "João Silva",
+  "email": "joao@email.com",
+  "data_cadastro": "2025-01-15"
+}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-3xl p-12 text-center">
+      <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
+      <p class="text-xl mb-8">Agora aprenda sobre APIs - como sistemas conversam entre si.</p>
+      <a href="apis.html" class="inline-block bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Próximo: APIs →
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy - JSON</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else { themeToggleDarkIcon.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Execute Workflow (Sub-workflows) - Guia Completo | N8N Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem;
+                  overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+    .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../iniciante.html" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">🔄</span><span>Execute Workflow</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8 animate-pulse">🔄</div>
+      <h1 class="text-6xl font-bold mb-6 gradient-text-white">Sub-workflows</h1>
+      <p class="text-3xl mb-4 text-white/90">Execute Sub-workflow & When Executed by Another Workflow</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Modularize automações complexas em componentes reutilizáveis e escaláveis - DRY (Don't Repeat Yourself) levado ao extremo</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- O QUE FAZ -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📚</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que são Sub-workflow Nodes?</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        Sub-workflows no n8n permitem que workflows <strong>chamem outros workflows</strong> de forma modular, passando dados estruturados como inputs e recebendo outputs - transformando automações complexas em sistemas escaláveis e de fácil manutenção.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-xl border-2 border-indigo-200 dark:border-indigo-800">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-3">🔧 Execute Sub-workflow Node</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Permite que QUALQUER workflow invoque outro workflow dentro do n8n, passando dados estruturados e recebendo outputs do sub-workflow</p>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-xl border-2 border-indigo-200 dark:border-indigo-800">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-3">🎯 When Executed by Another Workflow</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Trigger que fica no INÍCIO do workflow chamado, especificando como ele processará inputs do workflow pai</p>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-xl border-2 border-indigo-200 dark:border-indigo-800">
+        <p class="text-xl text-indigo-900 dark:text-indigo-300 leading-relaxed">
+          <strong>💡 Arquitetura poderosa:</strong> Construa lógica de negócio core (como "Send Notification", "Clean Data", "Validate Input") ONCE e reutilize em quantos workflows precisar. Atualizações em um lugar propagam instantaneamente para todas as automações!
+        </p>
+      </div>
+
+      <img src="images/photo_5093792193734356549_y.jpg" alt="Flow & Core Nodes" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl my-8" />
+    </div>
+
+    <!-- CASOS DE USO -->
+    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-3xl p-12 mb-12 border-2 border-indigo-200 dark:border-indigo-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎯</span>
+        <h3 class="text-4xl font-bold text-indigo-900 dark:text-indigo-300">Casos de Uso Principais</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-3">🔧 Funções Utilitárias Compartilhadas</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Centralize error handling, formatação de dados, reporting ou API wrappers - todos os workflows podem usar</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-3">👥 Colaboração em Equipe</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Todos podem usar e contribuir para ferramentas modulares ao invés de copiar/colar nodes entre workflows</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-3">📈 Escalabilidade Extrema</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Atualize lógica em UM lugar e propague melhorias/fixes instantaneamente para dezenas de workflows</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-3">🤖 Sistemas Agênticos</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Sub-workflows funcionam como tools/actions invocadas por AI agents em orquestrações complexas</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-3">🏗️ Arquitetura Limpa</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Mantenha workflows principais com 4-6 nodes, empurrando lógica complexa para sub-workflows</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMO CONFIGURAR -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">⚙️</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Como Configurar Sub-workflows (Passo a Passo)</h3>
+      </div>
+
+      <div class="mb-12">
+        <h4 class="text-3xl font-bold text-indigo-700 dark:text-indigo-400 mb-6">PARTE 1: Criando o Sub-workflow</h4>
+        <div class="space-y-6">
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">1. Criar Novo Workflow</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Crie um novo workflow que atuará como sub-workflow (será chamado por outros)</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">2. Adicionar Trigger "When Executed by Another Workflow"</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Coloque este trigger no INÍCIO do workflow. Escolha input mode: campos definidos, JSON example, ou "accept all data" para inputs flexíveis</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">3. Construir Lógica do Sub-workflow</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Construa o workflow normalmente, processando inputs recebidos e gerando resultados</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">4. Configurar Permissões de Acesso</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Ajuste "This workflow can be called by" nas settings para controlar acesso/segurança/colaboração</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-3xl font-bold text-indigo-700 dark:text-indigo-400 mb-6">PARTE 2: Chamando o Sub-workflow</h4>
+        <div class="space-y-6">
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">1. Adicionar "Execute Sub-workflow" Node</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">No workflow pai, adicione o node Execute Sub-workflow onde precisa chamar outro workflow</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">2. Selecionar Source do Workflow</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400"><strong>Database:</strong> referência por workflow ID | <strong>Local File:</strong> JSON pré-salvo | <strong>Parameter:</strong> JSON direto | <strong>URL:</strong> fonte remota</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">3. Mapear Input Data</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Mapeie dados de input para corresponder ao que sub-workflow espera - mapeamento automático disponível se você declarou campos estruturados</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-6 py-4">
+            <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">4. Ativar e Testar</p>
+            <p class="text-lg text-neutral-600 dark:text-neutral-400">Ative workflow pai e teste execução. Pode visualizar links de histórico de execução entre parent e sub-workflow para debugging fácil</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLO PRÁTICO -->
+    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-3xl p-12 mb-12 border-2 border-indigo-200 dark:border-indigo-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💡</span>
+        <h3 class="text-4xl font-bold text-indigo-900 dark:text-indigo-300">Exemplo Prático: Sub-workflow "Send Slack Report"</h3>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6 font-semibold">Cenário: Criar sub-workflow reutilizável para enviar relatórios ao Slack</p>
+        <div class="code-block mb-6">
+<span class="text-indigo-400">// SUB-WORKFLOW: "Send Slack Report"</span>
+
+<span class="text-green-400">Trigger:</span> When Executed by Another Workflow
+<span class="text-green-400">Input Fields:</span>
+  - channel (string)
+  - message (string)
+  - data (object)
+
+<span class="text-green-400">Nodes:</span>
+  1. Edit Fields (format message with data)
+  2. Slack (send message to channel)
+  3. Return output (success/error status)
+
+<span class="text-indigo-400">// WORKFLOWS PAIS que podem chamar:</span>
+
+<span class="text-yellow-400">Marketing Workflow:</span>
+  Schedule Trigger → Fetch Campaign Data → <span class="text-green-400">Execute Sub-workflow</span> ("Send Slack Report")
+
+<span class="text-yellow-400">Sales Workflow:</span>
+  Event Trigger → Process Sales → <span class="text-green-400">Execute Sub-workflow</span> ("Send Slack Report")
+
+<span class="text-yellow-400">Support Workflow:</span>
+  Webhook → Handle Ticket → <span class="text-green-400">Execute Sub-workflow</span> ("Send Slack Report")
+
+<span class="text-indigo-400">// Resultado:</span>
+Todos usam MESMO sub-workflow - mudanças propagam instantaneamente!
+        </div>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400">⚡ <strong>Poder:</strong> Atualize formatação do Slack report em UM lugar, impacta Marketing, Sales e Support instantaneamente!</p>
+      </div>
+    </div>
+
+    <!-- BEST PRACTICES -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">✨</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Best Practices & Tips</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl border-l-4 border-indigo-500">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-2">🛡️ Valide Inputs e Trate Erros</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Cada sub-workflow deve validar inputs e tratar erros gracefully, especialmente com modo "accept all data"</p>
+        </div>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl border-l-4 border-indigo-500">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-2">📌 Pin Example Input Data</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Durante desenvolvimento, prine dados de input de exemplo para debugging fácil e testes repetíveis</p>
+        </div>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl border-l-4 border-indigo-500">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-2">🏗️ Minimize Main Workflow Nodes</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Idealmente 4-6 nodes no workflow principal - empurre lógica complexa para sub-workflows para arquitetura mais limpa</p>
+        </div>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl border-l-4 border-indigo-500">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-2">📝 Nomes Descritivos e Documentação</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Use nomes descritivos e documente workflows para que outros usuários possam facilmente descobrir módulos reutilizáveis</p>
+        </div>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl border-l-4 border-indigo-500">
+          <p class="text-xl font-bold text-indigo-900 dark:text-indigo-300 mb-2">🔗 Execution History Links</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Use links de histórico de execução entre parent e sub-workflow para debugging rápido e rastreamento de fluxo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-3xl p-12 text-center shadow-2xl">
+      <span class="text-7xl mb-6 block">🎓</span>
+      <h3 class="text-4xl font-bold mb-6">Domine Sub-workflows!</h3>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">Modularizando com sub-workflows, n8n se torna uma plataforma para construir sistemas de automação robustos, colaborativos e escaláveis - empowering você para escalar e manter automações complexas com facilidade.</p>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <a href="../iniciante.html" class="bg-white text-indigo-600 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-neutral-100 transition-all shadow-lg transform hover:scale-105">
+          ← Voltar ao Curso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400 text-lg">&copy; 2025 N8N Academy - Fundamentos Completos</p>
+      <p class="text-neutral-500 mt-2">Conteúdo baseado no n8n Cheatsheet 2026 by Nate Herk</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden');
+    } else { themeToggleDarkIcon.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark'); localStorage.setItem('color-theme', 'light');
+      } else { document.documentElement.classList.add('dark'); localStorage.setItem('color-theme', 'dark'); }
+    });
+  </script>
+</body>
+</html>

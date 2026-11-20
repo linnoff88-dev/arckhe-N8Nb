@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Trigger - Guia Completo | N8N Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem;
+                  overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+    .gradient-text { background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../iniciante.html" class="text-2xl font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">⏰</span><span>Schedule Trigger</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-800 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8 animate-pulse">⏰</div>
+      <h1 class="text-6xl font-bold mb-6 gradient-text-white">Schedule Trigger</h1>
+      <p class="text-3xl mb-4 text-white/90">Automação hands-free que funciona enquanto você dorme</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Dispare workflows em horários fixos ou intervalos personalizados - como o cron do Unix, integrado ao n8n</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- O QUE FAZ -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📚</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que o Schedule Trigger faz?</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        O <strong>Schedule Trigger</strong> dispara workflows baseados em um cronograma que você define, como:
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
+          <p class="text-lg font-semibold text-emerald-900 dark:text-emerald-300 mb-2">⏰ Todo dia às 8h</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Horário fixo diário</p>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
+          <p class="text-lg font-semibold text-emerald-900 dark:text-emerald-300 mb-2">📅 Toda Segunda às 9h</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Semanal específico</p>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
+          <p class="text-lg font-semibold text-emerald-900 dark:text-emerald-300 mb-2">⚡ A cada 10 minutos</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Intervalos curtos</p>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
+          <p class="text-lg font-semibold text-emerald-900 dark:text-emerald-300 mb-2">🔧 Expressões CRON</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Padrões customizados</p>
+        </div>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+        Funciona como o utilitário Unix cron, mas integrado ao ambiente de workflows do n8n.
+      </p>
+
+      <img src="images/photo_5093792193734356545_y.jpg" alt="Triggers Diagram" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl my-8" />
+    </div>
+
+    <!-- CASOS DE USO -->
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-12 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎯</span>
+        <h3 class="text-4xl font-bold text-emerald-900 dark:text-emerald-300">Casos de Uso Principais</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">🔄 Data Syncs Noturnos</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Sincronizar com Google Sheets, Notion e outras plataformas durante a madrugada</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">📊 Reports Automáticos</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Relatórios diários, semanais ou mensais de vendas e analytics</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">📬 Lembretes Agendados</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Notificações, lembretes ou emails em lote programados</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">🧹 Tarefas de Manutenção</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Limpeza de banco de dados, arquivamento recorrente</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">🤖 AI Agents & Bots</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Busca regular de informações ou postagens automatizadas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMO CONFIGURAR -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">⚙️</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Como Configurar (Passo a Passo)</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="border-l-4 border-emerald-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">1. Adicionar o Node</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">No seu workflow, procure por "Schedule Trigger" e adicione ao canvas</p>
+        </div>
+        <div class="border-l-4 border-emerald-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">2. Configurar Intervalos</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Escolha entre intervalos (minutos, horas, dias, semanas) ou use padrão CRON para agendamentos avançados (como "toda terça às 5h")</p>
+        </div>
+        <div class="border-l-4 border-emerald-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">3. Definir Timezone</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">O node usa o timezone do workflow ou do servidor n8n - CONFIRA para evitar execuções no horário errado!</p>
+        </div>
+        <div class="border-l-4 border-emerald-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">4. Conectar o Workflow</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Anexe o Schedule Trigger aos outros nodes (HTTP requests, processamento de dados, emails)</p>
+        </div>
+        <div class="border-l-4 border-emerald-500 pl-6 py-4">
+          <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">5. Ativar o Workflow</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">O workflow DEVE estar ativado para o trigger funcionar. Teste com execuções manuais primeiro!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLO REAL -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-3xl p-12 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💡</span>
+        <h3 class="text-4xl font-bold text-emerald-900 dark:text-emerald-300">Exemplo Prático: Automação Toda Segunda às 9h</h3>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6 font-semibold">Cenário: Executar workflow toda segunda-feira às 9h da manhã</p>
+        <div class="code-block mb-6">
+<span class="text-emerald-400">// Configuração do Schedule Trigger</span>
+
+<span class="text-blue-400">Modo:</span> Weekly (Semanal)
+<span class="text-blue-400">Weeks Between Triggers:</span> 1
+<span class="text-blue-400">Weekday:</span> Monday (Segunda-feira)
+<span class="text-blue-400">Hour:</span> 9
+<span class="text-blue-400">Minute:</span> 0
+<span class="text-blue-400">Timezone:</span> America/Sao_Paulo
+
+<span class="text-emerald-400">// Conecte aos próximos nodes:</span>
+Schedule Trigger → HTTP Request → Edit Fields → Send Email
+        </div>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400">⚡ <strong>Resultado:</strong> O workflow dispara automaticamente toda segunda-feira às 9h, sem intervenção manual!</p>
+      </div>
+    </div>
+
+    <!-- BEST PRACTICES -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">✨</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Best Practices & Dicas</h3>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
+          <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">🔧 Lógica Dinâmica de Horário</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Se precisa de lógica baseada em valores do banco (ex: executar baseado em data no DB), configure trigger frequente (a cada minuto) e use node IF para decidir se deve prosseguir</p>
+        </div>
+        <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
+          <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">🌍 Sempre Verifique o Timezone</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Dupla-verificação do timezone PREVINE execuções fora do horário esperado</p>
+        </div>
+        <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
+          <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">⚠️ Cuidado com Frequências Excessivas</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Intervalos muito curtos (a cada minuto) podem impactar os recursos da instância n8n</p>
+        </div>
+        <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
+          <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">🎯 Teste Primeiro!</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Sempre execute manualmente antes de ativar - confirme que todo o workflow funciona corretamente</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-3xl p-12 text-center shadow-2xl">
+      <span class="text-7xl mb-6 block">🎓</span>
+      <h3 class="text-4xl font-bold mb-6">Domine o Schedule Trigger!</h3>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">O Schedule Trigger é a ferramenta essencial para automações confiáveis e recorrentes, permitindo que seus processos de negócio operem no piloto automático.</p>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <a href="../iniciante.html" class="bg-white text-emerald-600 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-neutral-100 transition-all shadow-lg transform hover:scale-105">
+          ← Voltar ao Curso
+        </a>
+        <a href="../downloads/schedule.md" download class="bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/30 transition-all border-2 border-white/50">
+          📥 Download Material
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400 text-lg">&copy; 2025 N8N Academy - Fundamentos Completos</p>
+      <p class="text-neutral-500 mt-2">Conteúdo baseado no n8n Cheatsheet 2026 by Nate Herk</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden');
+    } else { themeToggleDarkIcon.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark'); localStorage.setItem('color-theme', 'light');
+      } else { document.documentElement.classList.add('dark'); localStorage.setItem('color-theme', 'dark'); }
+    });
+  </script>
+</body>
+</html>

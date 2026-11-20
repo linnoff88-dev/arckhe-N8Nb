@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta - Facebook & Instagram API | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+    .step-number { width: 3rem; height: 3rem; background: linear-gradient(135deg, #1877F2, #E4405F); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; flex-shrink: 0; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../tecnico.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">📱</span><span>Meta APIs</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="flex justify-center gap-4 text-6xl mb-8">
+        <span>📘</span><span>📸</span>
+      </div>
+      <h1 class="text-6xl font-bold mb-6">Facebook & Instagram</h1>
+      <p class="text-3xl mb-4 text-white/90">Meta Graph API</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Guia completo para configurar a Graph API da Meta e automatizar publicações, mensagens e análise de dados.</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- VISÃO GERAL -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎯</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visão Geral</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        Facebook e Instagram são gerenciados pela mesma API: <strong>Meta Graph API</strong>. Você cria um app no Meta for Developers e obtém acesso a ambas as plataformas.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <span class="text-4xl mr-4">📘</span>
+            <span class="text-2xl font-bold text-blue-800 dark:text-blue-300">Facebook</span>
+          </div>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ Publicar em páginas</li>
+            <li>→ Ler comentários e mensagens</li>
+            <li>→ Responder automaticamente</li>
+            <li>→ Gerenciar anúncios</li>
+            <li>→ Insights e métricas</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <span class="text-4xl mr-4">📸</span>
+            <span class="text-2xl font-bold text-pink-800 dark:text-pink-300">Instagram</span>
+          </div>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ Publicar fotos e vídeos</li>
+            <li>→ Reels e Stories (limitado)</li>
+            <li>→ Responder comentários e DMs</li>
+            <li>→ Insights de conta profissional</li>
+            <li>→ Menções e hashtags</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-amber-100 dark:bg-amber-900/30 p-6 rounded-xl border-2 border-amber-300 dark:border-amber-700">
+        <p class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-2">⚠️ Requisitos</p>
+        <ul class="text-neutral-700 dark:text-neutral-300 space-y-1">
+          <li>→ <strong>Facebook:</strong> Precisa de uma Página (não perfil pessoal)</li>
+          <li>→ <strong>Instagram:</strong> Precisa de conta Profissional/Business conectada à Página Facebook</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PASSO 1: CRIAR APP -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <div class="step-number mr-6">1</div>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Criar App no Meta for Developers</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">1.1 Acessar o Portal</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">→</span>
+              <span>Acesse <strong>developers.facebook.com</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">→</span>
+              <span>Faça login com sua conta Facebook</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">→</span>
+              <span>Clique em <strong>"My Apps"</strong> → <strong>"Create App"</strong></span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">1.2 Configurar o App</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">1.</span>
+              <span>Tipo: <strong>"Business"</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">2.</span>
+              <span>Nome: <code class="bg-neutral-100 dark:bg-neutral-600 px-2 py-1 rounded">N8N Social Bot</code></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">3.</span>
+              <span>Email de contato do app</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">4.</span>
+              <span>Business Account: selecione sua conta business</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">5.</span>
+              <span>Clique <strong>"Create App"</strong></span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">1.3 Adicionar Produtos</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">Na página do app, adicione os produtos necessários:</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg">
+              <p class="font-semibold text-blue-800 dark:text-blue-300">Para Facebook:</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Adicione "Facebook Login for Business"</p>
+            </div>
+            <div class="bg-pink-100 dark:bg-pink-900/30 p-4 rounded-lg">
+              <p class="font-semibold text-pink-800 dark:text-pink-300">Para Instagram:</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Adicione "Instagram Basic Display" ou "Instagram Graph API"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSO 2: PERMISSÕES -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <div class="step-number mr-6">2</div>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Configurar Permissões</h3>
+      </div>
+
+      <div class="bg-red-100 dark:bg-red-900/30 p-6 rounded-xl border-2 border-red-300 dark:border-red-700 mb-6">
+        <p class="text-lg font-semibold text-red-800 dark:text-red-300 mb-2">⚠️ Sobre Permissões da Meta</p>
+        <p class="text-neutral-700 dark:text-neutral-300">A Meta tem um sistema rigoroso de permissões. Algumas precisam de aprovação e verificação de negócio. Comece com as permissões básicas que são aprovadas automaticamente.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-xl">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Permissões Básicas (Aprovação Automática)</p>
+          <div class="code-block">
+// Facebook - Disponíveis sem aprovação:
+pages_show_list          // Listar páginas
+pages_read_engagement    // Ler engajamento
+pages_manage_posts       // Gerenciar posts (após app review)
+
+// Instagram - Disponíveis sem aprovação:
+instagram_basic          // Acesso básico
+instagram_content_publish // Publicar (após app review)
+instagram_manage_comments // Comentários (após app review)
+          </div>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-xl">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Como Solicitar Permissões</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">1.</span>
+              <span>No app, vá em <strong>"App Review"</strong> → <strong>"Permissions and Features"</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">2.</span>
+              <span>Encontre a permissão desejada</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">3.</span>
+              <span>Clique em <strong>"Request"</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">4.</span>
+              <span>Preencha os detalhes solicitados (como vai usar, screenshots, etc.)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-500 font-bold">5.</span>
+              <span>Aguarde aprovação (pode levar dias/semanas)</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSO 3: GERAR TOKEN -->
+    <div class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-3xl p-12 mb-12 border-2 border-green-200 dark:border-green-800">
+      <div class="flex items-center mb-8">
+        <div class="step-number mr-6">3</div>
+        <h3 class="text-4xl font-bold text-green-900 dark:text-green-300">Gerar Access Token</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.1 Usando o Graph API Explorer (Mais Fácil)</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 font-bold">1.</span>
+              <span>Acesse <strong>developers.facebook.com/tools/explorer</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 font-bold">2.</span>
+              <span>Selecione seu app no dropdown</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 font-bold">3.</span>
+              <span>Clique em <strong>"Generate Access Token"</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 font-bold">4.</span>
+              <span>Selecione as permissões necessárias</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 font-bold">5.</span>
+              <span>Autorize o app</span>
+            </li>
+          </ol>
+          <div class="mt-4 bg-amber-100 dark:bg-amber-900/30 p-4 rounded-xl">
+            <p class="text-amber-800 dark:text-amber-300">⚠️ Este token é temporário e expira em ~1 hora. Veja o passo 3.3 para token de longa duração.</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.2 Obter Page Access Token</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">Para postar em páginas, você precisa do token da PÁGINA, não do usuário:</p>
+          <div class="code-block">
+// No Graph API Explorer, faça esta requisição:
+GET /me/accounts
+
+// Resposta:
+{
+  "data": [
+    {
+      "access_token": "EAAG...token_da_pagina...",
+      "id": "123456789",
+      "name": "Minha Página"
+    }
+  ]
+}
+
+// Use o access_token da página específica
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.3 Converter para Token de Longa Duração (60 dias)</p>
+          <div class="code-block">
+// Requisição para estender o token:
+GET /oauth/access_token
+  ?grant_type=fb_exchange_token
+  &client_id={APP_ID}
+  &client_secret={APP_SECRET}
+  &fb_exchange_token={TOKEN_CURTO}
+
+// O token resultante dura ~60 dias
+
+// Para token PERMANENTE de página:
+// Use o Page Token obtido com um User Token de longa duração
+// Page Tokens derivados de User Tokens de longa duração não expiram!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSO 4: INSTAGRAM -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <div class="step-number mr-6">4</div>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Configurar Instagram</h3>
+      </div>
+
+      <div class="bg-pink-100 dark:bg-pink-900/30 p-6 rounded-xl border-2 border-pink-300 dark:border-pink-700 mb-6">
+        <p class="text-lg font-semibold text-pink-800 dark:text-pink-300 mb-2">📸 Requisitos para Instagram API</p>
+        <ul class="text-neutral-700 dark:text-neutral-300 space-y-1">
+          <li>→ Conta Instagram deve ser <strong>Profissional</strong> (Creator ou Business)</li>
+          <li>→ Deve estar <strong>conectada</strong> a uma Página do Facebook</li>
+          <li>→ Você deve ser admin da Página</li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-xl">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">4.1 Conectar Instagram ao Facebook</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-pink-500 font-bold">1.</span>
+              <span>No Instagram, vá em <strong>Configurações</strong> → <strong>Conta</strong> → <strong>Mudar para conta profissional</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-pink-500 font-bold">2.</span>
+              <span>Conecte à sua Página do Facebook</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-pink-500 font-bold">3.</span>
+              <span>No Facebook, vá na sua Página → <strong>Configurações</strong> → <strong>Instagram</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-pink-500 font-bold">4.</span>
+              <span>Confirme a conexão</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-xl">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">4.2 Obter Instagram Business Account ID</p>
+          <div class="code-block">
+// No Graph API Explorer:
+GET /{page-id}?fields=instagram_business_account
+
+// Resposta:
+{
+  "instagram_business_account": {
+    "id": "17841400000000000"  // Este é o ID do Instagram
+  },
+  "id": "123456789"
+}
+
+// Use este ID para operações no Instagram
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSO 5: CONFIGURAR NO N8N -->
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-3xl p-12 mb-12 border-2 border-purple-200 dark:border-purple-800">
+      <div class="flex items-center mb-8">
+        <div class="step-number mr-6">5</div>
+        <h3 class="text-4xl font-bold text-purple-900 dark:text-purple-300">Configurar no N8N</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">5.1 Credencial Facebook Graph API</p>
+          <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start gap-3">
+              <span class="text-purple-500 font-bold">1.</span>
+              <span>No N8N, vá em <strong>Credenciais</strong> → <strong>Adicionar</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-purple-500 font-bold">2.</span>
+              <span>Pesquise: <strong>"Facebook Graph API"</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-purple-500 font-bold">3.</span>
+              <span>Cole o <strong>Page Access Token</strong> de longa duração</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">5.2 Alternativa: HTTP Request</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">Para mais controle, use HTTP Request diretamente:</p>
+          <div class="code-block">
+// URL Base:
+https://graph.facebook.com/v18.0/
+
+// Headers:
+Authorization: Bearer {PAGE_ACCESS_TOKEN}
+
+// Ou via query parameter:
+?access_token={PAGE_ACCESS_TOKEN}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Publicar no Facebook -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-4">📘 Publicar Post no Facebook</p>
+          <div class="code-block text-sm">
+// Node: HTTP Request
+// Method: POST
+
+URL: https://graph.facebook.com/v18.0
+     /{page-id}/feed
+
+Body (JSON):
+{
+  "message": "Novidade chegando! 🚀",
+  "access_token": "{{ $credentials.token }}"
+}
+
+// Para post com imagem:
+URL: /{page-id}/photos
+Body:
+{
+  "url": "https://exemplo.com/img.jpg",
+  "caption": "Legenda da imagem"
+}
+          </div>
+        </div>
+
+        <!-- Publicar no Instagram -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-pink-800 dark:text-pink-300 mb-4">📸 Publicar no Instagram</p>
+          <div class="code-block text-sm">
+// Instagram requer 2 etapas:
+
+// 1. Criar container de mídia
+POST /{ig-user-id}/media
+{
+  "image_url": "https://exemplo.com/img.jpg",
+  "caption": "Legenda #hashtag",
+  "access_token": "..."
+}
+// Resposta: { "id": "container_id" }
+
+// 2. Publicar o container
+POST /{ig-user-id}/media_publish
+{
+  "creation_id": "{{ container_id }}",
+  "access_token": "..."
+}
+          </div>
+        </div>
+
+        <!-- Ler Comentários -->
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-4">💬 Ler Comentários</p>
+          <div class="code-block text-sm">
+// Facebook - comentários de um post:
+GET /{post-id}/comments
+  ?fields=from,message,created_time
+
+// Instagram - comentários:
+GET /{media-id}/comments
+  ?fields=text,username,timestamp
+          </div>
+        </div>
+
+        <!-- Responder Comentário -->
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-4">↩️ Responder Comentário</p>
+          <div class="code-block text-sm">
+// Facebook:
+POST /{comment-id}/comments
+{
+  "message": "Obrigado pelo comentário!"
+}
+
+// Instagram:
+POST /{comment-id}/replies
+{
+  "message": "@usuario Obrigado! 🙏"
+}
+          </div>
+        </div>
+
+        <!-- Webhooks -->
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-4">🔔 Receber Webhooks</p>
+          <div class="code-block text-sm">
+// Configure no Meta App Dashboard:
+// Webhooks → Page → Subscribe
+
+// Eventos disponíveis:
+- feed (posts, comentários)
+- messages (Messenger)
+- mention (menções)
+- ratings (avaliações)
+
+// Payload recebido no N8N:
+{
+  "entry": [{
+    "changes": [{
+      "field": "feed",
+      "value": { ... }
+    }]
+  }]
+}
+          </div>
+        </div>
+
+        <!-- Insights -->
+        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-xl">
+          <p class="text-xl font-bold text-indigo-800 dark:text-indigo-300 mb-4">📊 Obter Insights</p>
+          <div class="code-block text-sm">
+// Facebook Page Insights:
+GET /{page-id}/insights
+  ?metric=page_impressions,
+          page_engaged_users
+  &period=day
+
+// Instagram Insights:
+GET /{ig-user-id}/insights
+  ?metric=impressions,reach,
+          profile_views
+  &period=day
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-3xl p-12 mb-12 border-2 border-red-200 dark:border-red-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🔧</span>
+        <h3 class="text-4xl font-bold text-red-900 dark:text-red-300">Troubleshooting</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "(#200) Requires extended permission"</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Falta permissão para a ação.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Solicite a permissão específica em App Review → Permissions.</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "Error validating access token"</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Token expirado ou inválido.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Gere um novo token. Use tokens de longa duração para produção.</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ Instagram "Media creation failed"</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> URL da imagem não acessível ou formato inválido.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> A URL da imagem deve ser pública (HTTPS) e acessível pelos servidores da Meta. Formatos aceitos: JPEG, PNG.</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "App not authorized for this business"</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> App não associado à conta business correta.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Em business.facebook.com, vá em Settings → Business Info → Connected Apps e adicione seu app.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-center text-white">
+      <h3 class="text-4xl font-bold mb-6">Facebook & Instagram Configurados!</h3>
+      <p class="text-xl mb-8 text-white/90">Agora você pode automatizar suas redes sociais com N8N.</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="slack.html" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+          Próximo: Slack →
+        </a>
+        <a href="../../tecnico.html" class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/30 transition-colors">
+          Ver Todas as Conexões
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12 mt-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

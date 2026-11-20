@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Engineering | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>body { font-family: 'Inter', sans-serif; } .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; font-family: monospace; overflow-x: auto; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../comecando.html" class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">🎯</span><span>Context Engineering</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z" fill-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8">🎯</div>
+      <h1 class="text-6xl font-bold mb-6">Context Engineering</h1>
+      <p class="text-3xl mb-4 text-white/90">IA depende de contexto, não magia</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">90% da qualidade do output de IA depende da qualidade do input</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- IA NÃO É MÁGICA -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🪄</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">IA não é mágica</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8">
+        LLMs são <strong>pattern matching sofisticado</strong>. Não "entendem" - preveem próximas palavras baseado em padrões.
+      </p>
+      <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-2 border-red-200 dark:border-red-800 mb-8">
+        <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-4">⚠️ Limitações Reais:</p>
+        <ul class="space-y-2 text-lg text-neutral-700 dark:text-neutral-300">
+          <li>→ <strong>Alucinações:</strong> Inventa fatos com confiança</li>
+          <li>→ <strong>Sem memória real:</strong> Cada conversa é isolada</li>
+          <li>→ <strong>Conhecimento datado:</strong> Não sabe eventos recentes</li>
+          <li>→ <strong>Garbage in = Garbage out:</strong> Input ruim = output ruim</li>
+        </ul>
+      </div>
+      <div class="p-6 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-amber-900 dark:text-amber-200">
+          💡 Expectativas realistas evitam frustração. IA é ferramenta poderosa, não solução mágica.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMPORTÂNCIA DO CONTEXTO -->
+    <div class="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20 rounded-3xl p-12 mb-12 border-2 border-violet-200 dark:border-violet-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📚</span>
+        <h3 class="text-4xl font-bold text-violet-900 dark:text-violet-300">Importância do Contexto</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        <strong>Contexto = informação que a IA precisa</strong> para dar uma boa resposta. Sem contexto, ela chuta.
+      </p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-4">❌ Sem Contexto</p>
+          <div class="code-block text-sm mb-4">
+"Resuma este email"
+          </div>
+          <p class="text-neutral-600 dark:text-neutral-400">Qual email? Para quem? Qual tamanho? Que tom?</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Com Contexto</p>
+          <div class="code-block text-sm mb-4">
+"Resuma este email de reclamação
+para o gerente em 3 bullet points.
+Tom: profissional e urgente.
+Email: [conteúdo]"
+          </div>
+          <p class="text-neutral-600 dark:text-neutral-400">Claro, específico, acionável</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPTS VS CONTEXTO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🆚</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Prompts vs Contexto</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-8 rounded-xl">
+          <p class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4">📝 Prompt</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">A <strong>instrução</strong> - o que você quer que a IA faça</p>
+          <div class="code-block text-sm">
+"Classifique este ticket
+por prioridade (alta/média/baixa)"
+          </div>
+        </div>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
+          <p class="text-2xl font-bold text-purple-800 dark:text-purple-300 mb-4">📚 Contexto</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Os <strong>dados/informações</strong> que a IA precisa</p>
+          <div class="code-block text-sm">
+"Ticket: [conteúdo]
+Cliente: VIP
+Histórico: 3 reclamações
+SLA: 4 horas"
+          </div>
+        </div>
+      </div>
+      <div class="p-6 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-amber-900 dark:text-amber-200">
+          💡 Prompt perfeito + contexto ruim = resultado ruim. Foque nos DOIS!
+        </p>
+      </div>
+    </div>
+
+    <!-- DADOS ESTRUTURADOS -->
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-12 mb-12 border-2 border-green-200 dark:border-green-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📊</span>
+        <h3 class="text-4xl font-bold text-green-900 dark:text-green-300">Dados Estruturados para IA</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        IA entende melhor dados organizados. <strong>Texto bagunçado = interpretação errada.</strong>
+      </p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-3">❌ Texto Bagunçado</p>
+          <div class="code-block text-sm">
+"o joao comprou 3 camisetas azuis
+por 50 reais cada ontem e quer
+trocar uma pq veio com defeito"
+          </div>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-green-700 dark:text-green-400 mb-3">✅ Dados Estruturados</p>
+          <div class="code-block text-sm">
+{
+  "cliente": "João",
+  "itens": [{"produto": "camiseta azul", "qtd": 3, "preco": 50}],
+  "problema": "defeito",
+  "acao": "troca"
+}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOAS PRÁTICAS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">✅</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Boas Práticas</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-violet-50 dark:bg-violet-900/20 rounded-xl">
+          <p class="text-xl font-bold text-violet-800 dark:text-violet-300 mb-3">🎯 Seja Específico</p>
+          <p class="text-neutral-600 dark:text-neutral-400">"Responda em 3 bullet points, máximo 20 palavras cada"</p>
+        </div>
+        <div class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">📋 Dê Exemplos</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Few-shot: "Exemplo: input X → output Y"</p>
+        </div>
+        <div class="p-6 bg-green-50 dark:bg-green-900/20 rounded-xl">
+          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-3">📐 Defina Formato</p>
+          <p class="text-neutral-600 dark:text-neutral-400">"Retorne APENAS JSON no formato: {campo1, campo2}"</p>
+        </div>
+        <div class="p-6 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">🚫 Limite Escopo</p>
+          <p class="text-neutral-600 dark:text-neutral-400">"Considere APENAS os dados fornecidos, não invente"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+      <div class="space-y-8">
+        <!-- Exemplo 1: Prompt Ruim vs Bom -->
+        <div class="bg-gradient-to-r from-red-50 to-green-50 dark:from-red-900/20 dark:to-green-900/20 p-6 rounded-xl border-2 border-neutral-200 dark:border-neutral-700">
+          <p class="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-3">🔄 Exemplo 1: Evolução de um Prompt</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Classificar emails de suporte:</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+              <p class="text-sm font-bold text-red-600 mb-2">❌ Versão 1 (ruim)</p>
+              <div class="code-block text-xs">
+"Classifique este email"
+              </div>
+              <p class="text-xs text-neutral-500 mt-2">Problema: Vago demais</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+              <p class="text-sm font-bold text-yellow-600 mb-2">⚠️ Versão 2 (médio)</p>
+              <div class="code-block text-xs">
+"Classifique este email por prioridade"
+              </div>
+              <p class="text-xs text-neutral-500 mt-2">Problema: Sem categorias definidas</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg md:col-span-2">
+              <p class="text-sm font-bold text-green-600 mb-2">✅ Versão 3 (excelente)</p>
+              <div class="code-block text-xs">
+Você é um classificador de tickets de suporte.
+
+CATEGORIAS VÁLIDAS:
+- URGENTE: Sistema fora do ar, perda de dados, cliente VIP
+- ALTA: Bug que impede uso, prazo próximo
+- NORMAL: Dúvidas gerais, solicitações padrão
+- BAIXA: Feedback, sugestões, melhorias
+
+REGRAS:
+1. Cliente VIP sempre = URGENTE
+2. Palavras "urgente", "crítico" = subir 1 nível
+3. Palavras "quando puder", "sem pressa" = BAIXA
+
+FORMATO DE SAÍDA (JSON apenas):
+{ "categoria": "...", "justificativa": "...", "tags": [...] }
+
+EMAIL A CLASSIFICAR:
+{{ $json.email_body }}
+
+CONTEXTO ADICIONAL:
+- Cliente: {{ $json.cliente_nome }}
+- Plano: {{ $json.plano }}
+- Tickets anteriores: {{ $json.qtd_tickets }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exemplo 2: Few-Shot Learning -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">📚 Exemplo 2: Few-Shot Learning (Exemplos no Prompt)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Ensinar a IA o formato desejado com exemplos:</p>
+          <div class="code-block">
+Você extrai dados de recibos e retorna JSON estruturado.
+
+EXEMPLOS:
+---
+Input: "Restaurante Bom Sabor - R$ 45,90 - Pagamento Pix - 15/01/2025"
+Output: {"estabelecimento":"Restaurante Bom Sabor","valor":45.90,"metodo":"Pix","data":"2025-01-15"}
+
+Input: "UBER *TRIP - 23.50 BRL - Cartão final 1234"
+Output: {"estabelecimento":"Uber","valor":23.50,"metodo":"Cartão","data":null}
+
+Input: "Farmácia Drogasil - R$ 89,00 - Débito - 10 jan"
+Output: {"estabelecimento":"Farmácia Drogasil","valor":89.00,"metodo":"Débito","data":"2025-01-10"}
+---
+
+REGRAS:
+- Valores SEMPRE como float (89.00, não "R$ 89,00")
+- Datas SEMPRE em formato ISO (2025-01-15)
+- Se dado não existe, use null
+
+EXTRAIR DE:
+{{ $json.recibo_texto }}
+          </div>
+        </div>
+
+        <!-- Exemplo 3: System + User Prompt -->
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🧠 Exemplo 3: System Prompt + User Prompt no N8N</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Separando instrução fixa do conteúdo variável:</p>
+          <div class="code-block">
+// No OpenAI Node - System Prompt (fixo):
+Você é um assistente de vendas especializado em SaaS B2B.
+
+PERSONALIDADE:
+- Profissional mas amigável
+- Foca em benefícios, não features
+- Sempre sugere próximo passo
+
+RESTRIÇÕES:
+- NUNCA mencione concorrentes
+- NUNCA dê descontos sem aprovação
+- Limite: 3 parágrafos por resposta
+
+PRODUTOS QUE VENDEMOS:
+- Plano Starter: R$99/mês (até 5 usuários)
+- Plano Pro: R$249/mês (até 20 usuários)
+- Plano Enterprise: sob consulta
+
+// No OpenAI Node - User Prompt (dinâmico):
+PERGUNTA DO CLIENTE:
+{{ $json.mensagem }}
+
+CONTEXTO DO CLIENTE:
+- Nome: {{ $json.cliente_nome }}
+- Empresa: {{ $json.empresa }}
+- Funcionários: {{ $json.num_funcionarios }}
+- Interações anteriores: {{ $json.historico }}
+          </div>
+        </div>
+
+        <!-- Exemplo 4: Contexto de Negócio -->
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">📊 Exemplo 4: Injetando Contexto de Negócio</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Buscar dados relevantes antes de chamar a IA:</p>
+          <div class="code-block">
+// Workflow completo:
+
+1. Webhook (recebe pergunta do cliente)
+   ↓
+2. Airtable - Get Records (busca histórico do cliente)
+   Query: email = {{ $json.email }}
+   ↓
+3. HTTP Request (busca produtos comprados)
+   API: /api/purchases?customer={{ $json.customer_id }}
+   ↓
+4. Set Node (monta contexto)
+   contexto_cliente = {
+     nome: {{ $('Airtable').first().json.nome }},
+     plano: {{ $('Airtable').first().json.plano }},
+     desde: {{ $('Airtable').first().json.data_cadastro }},
+     produtos: {{ $('HTTP Request').all().map(p => p.nome) }},
+     tickets_abertos: {{ $('Airtable').first().json.tickets_abertos }}
+   }
+   ↓
+5. OpenAI - Chat Completion
+   System: "Você é suporte técnico..."
+   User: "
+     PERGUNTA: {{ $json.pergunta }}
+
+     CONTEXTO DO CLIENTE:
+     {{ JSON.stringify($json.contexto_cliente, null, 2) }}
+   "
+   ↓
+6. Respond to Webhook (retorna resposta)
+
+// Resultado: IA sabe TUDO sobre o cliente antes de responder!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-br from-violet-600 to-purple-600 text-white rounded-3xl p-12 text-center">
+      <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
+      <p class="text-xl mb-8">Agora aprenda sobre Planejamento de Processos - mapear antes de construir.</p>
+      <a href="planejamento.html" class="inline-block bg-white text-violet-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Próximo: Planejamento →
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy - Context Engineering</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const d = document.getElementById('theme-toggle-dark-icon');
+    const l = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); l.classList.remove('hidden'); } else { d.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() { d.classList.toggle('hidden'); l.classList.toggle('hidden'); document.documentElement.classList.toggle('dark'); localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

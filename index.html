@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N8N - Curso de Fundamentos de Automação</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+
+    .dark .modal-content {
+      background-color: #1f2937;
+    }
+
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dark .modal-header {
+      border-bottom-color: #374151;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #ef4444;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Card Hover Effect */
+    .level-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .level-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+
+  <!-- Navegação -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2">
+          <span class="text-3xl">🔗</span>
+          <span>N8N Academy</span>
+        </a>
+        <span class="text-neutral-400 mx-2">-</span>
+        <a href="https://inema.club" target="_blank" class="text-lg font-bold text-cyan-400 hover:text-cyan-300 transition-colors">INEMA.CLUB</a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#inicio" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Início</a>
+          <a href="#niveis" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Níveis</a>
+          <a href="#sobre" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sobre</a>
+
+          <!-- Dark Mode Toggle -->
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-colors">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors">
+          <svg class="w-6 h-6 text-neutral-700 dark:text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div class="animate-fade-in">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Domine a Automação com N8N
+        </h1>
+        <p class="text-xl sm:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+          Do iniciante ao masterclass: Aprenda os 17 nodes essenciais para criar automações poderosas
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#niveis" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-neutral-100 transition-colors inline-flex items-center gap-2">
+            <span>Começar Agora</span>
+            <span>→</span>
+          </a>
+          <button onclick="openModal('modal-sobre-n8n')" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">
+            O que é N8N?
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-white dark:bg-neutral-800 py-12 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">17</div>
+          <div class="text-neutral-600 dark:text-neutral-400 font-medium">Nodes Essenciais</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">75h</div>
+          <div class="text-neutral-600 dark:text-neutral-400 font-medium">Conteúdo Total</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">4</div>
+          <div class="text-neutral-600 dark:text-neutral-400 font-medium">Níveis Progressivos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Níveis Section -->
+  <section id="niveis" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        Escolha Seu Nível
+      </h2>
+      <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+        Progrida do básico ao avançado com um caminho estruturado de aprendizado
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card Começando -->
+      <div class="level-card bg-gradient-to-br from-amber-50 to-white dark:from-amber-900/20 dark:to-neutral-800 border-2 border-amber-200 dark:border-amber-800 hover:border-amber-400 dark:hover:border-amber-600 rounded-2xl p-6 shadow-lg hover:shadow-xl">
+        <div class="text-5xl mb-4">🚀</div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Começando</h3>
+
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <span class="inline-block px-3 py-1 bg-amber-500 text-white text-sm font-semibold rounded-full">
+            10 módulos
+          </span>
+        </div>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Fundamentos de automação antes do primeiro workflow
+        </p>
+
+        <ul class="space-y-1.5 mb-4">
+          <li class="flex items-start">
+            <span class="text-amber-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Mindset de automação</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-amber-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">JSON, APIs, Webhooks</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-amber-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Context Engineering</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-amber-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">ROI e monetização</span>
+          </li>
+        </ul>
+
+        <a href="comecando.html" class="block w-full bg-amber-500 text-white py-2.5 rounded-lg font-semibold hover:bg-amber-600 text-center transition-colors text-sm">
+          Começar Aqui
+        </a>
+      </div>
+
+      <!-- Card Iniciante -->
+      <div class="level-card bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-neutral-800 border-2 border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 dark:hover:border-emerald-600 rounded-2xl p-6 shadow-lg hover:shadow-xl">
+        <div class="text-5xl mb-4">🌟</div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Iniciante</h3>
+
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <span class="inline-block px-3 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-full">
+            17 nodes
+          </span>
+        </div>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Domine os 17 nodes essenciais do N8N
+        </p>
+
+        <ul class="space-y-1.5 mb-4">
+          <li class="flex items-start">
+            <span class="text-emerald-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Schedule & Event Triggers</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-emerald-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Manipulação de dados</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-emerald-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Lógica condicional</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-emerald-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">HTTP Request & Code</span>
+          </li>
+        </ul>
+
+        <a href="iniciante.html" class="block w-full bg-emerald-500 text-white py-2.5 rounded-lg font-semibold hover:bg-emerald-600 text-center transition-colors text-sm">
+          Começar Nível
+        </a>
+      </div>
+
+      <!-- Card Técnico -->
+      <div class="level-card bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-neutral-800 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 rounded-2xl p-6 shadow-lg hover:shadow-xl">
+        <div class="text-5xl mb-4">⚡</div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Técnico</h3>
+
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <span class="inline-block px-3 py-1 bg-blue-500 text-white text-sm font-semibold rounded-full">
+            Avançado
+          </span>
+        </div>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Técnicas intermediárias e otimização
+        </p>
+
+        <ul class="space-y-1.5 mb-4">
+          <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Subworkflows modulares</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Processamento em lote</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Código JavaScript</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Loops e iterações</span>
+          </li>
+        </ul>
+
+        <a href="tecnico.html" class="block w-full bg-blue-500 text-white py-2.5 rounded-lg font-semibold hover:bg-blue-600 text-center transition-colors text-sm">
+          Começar Nível
+        </a>
+      </div>
+
+      <!-- Card Masterclass -->
+      <div class="level-card bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-neutral-800 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 rounded-2xl p-6 shadow-lg hover:shadow-xl">
+        <div class="text-5xl mb-4">👑</div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Masterclass</h3>
+
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <span class="inline-block px-3 py-1 bg-purple-500 text-white text-sm font-semibold rounded-full">
+            IA & Enterprise
+          </span>
+        </div>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Automação com IA e workflows enterprise
+        </p>
+
+        <ul class="space-y-1.5 mb-4">
+          <li class="flex items-start">
+            <span class="text-purple-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Webhooks e APIs custom</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-purple-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">AI Agents avançados</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-purple-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Output estruturado</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-purple-500 mr-2 mt-0.5">✓</span>
+            <span class="text-neutral-700 dark:text-neutral-300 text-xs">Casos práticos reais</span>
+          </li>
+        </ul>
+
+        <a href="masterclass.html" class="block w-full bg-purple-500 text-white py-2.5 rounded-lg font-semibold hover:bg-purple-600 text-center transition-colors text-sm">
+          Começar Nível
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Card RAG - Trilha Especial -->
+    <div class="mt-12">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+          Trilha Especial
+        </h3>
+        <p class="text-neutral-600 dark:text-neutral-400">
+          Workflows avançados prontos para produção
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="level-card bg-gradient-to-br from-indigo-50 via-purple-50 to-violet-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-violet-900/20 border-2 border-indigo-200 dark:border-indigo-800 hover:border-indigo-400 dark:hover:border-indigo-600 rounded-2xl p-8 shadow-lg hover:shadow-xl">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-5xl">🧠</div>
+            <div>
+              <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Trilha RAG</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Retrieval Augmented Generation</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 mb-4 flex-wrap">
+            <span class="inline-block px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-semibold rounded-full">
+              4 workflows
+            </span>
+            <span class="inline-block px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 text-sm font-semibold rounded-full">
+              AI Agents
+            </span>
+            <span class="inline-block px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-semibold rounded-full">
+              Vector Stores
+            </span>
+          </div>
+
+          <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+            Transforme documentos em bases de conhecimento inteligentes. 4 arquiteturas RAG completas com workflows prontos para baixar e usar.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🌱</div>
+              <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Simple RAG</p>
+              <p class="text-xs text-neutral-500">Pinecone + GPT-4</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">📊</div>
+              <p class="text-xs font-semibold text-blue-600 dark:text-blue-400">Reranking</p>
+              <p class="text-xs text-neutral-500">Cohere Reranker</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🔄</div>
+              <p class="text-xs font-semibold text-orange-600 dark:text-orange-400">Hybrid</p>
+              <p class="text-xs text-neutral-500">Contexto Expandido</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🕸️</div>
+              <p class="text-xs font-semibold text-purple-600 dark:text-purple-400">Graph RAG</p>
+              <p class="text-xs text-neutral-500">Relacionamentos</p>
+            </div>
+          </div>
+
+          <a href="rag.html" class="block w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 text-white py-3 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-600 hover:to-violet-600 text-center transition-all text-sm">
+            Explorar Trilha RAG →
+          </a>
+        </div>
+
+        <!-- Card RAG Avançado -->
+        <div class="level-card bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-red-900/20 dark:via-orange-900/20 dark:to-amber-900/20 border-2 border-red-200 dark:border-red-800 hover:border-red-400 dark:hover:border-red-600 rounded-2xl p-8 shadow-lg hover:shadow-xl mt-6">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-5xl">🚀</div>
+            <div>
+              <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Trilha RAG Avançado</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Arquiteturas Avançadas de RAG</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 mb-4 flex-wrap">
+            <span class="inline-block px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-semibold rounded-full">
+              6 módulos
+            </span>
+            <span class="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm font-semibold rounded-full">
+              Agentic RAG
+            </span>
+            <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-semibold rounded-full">
+              Multimodal
+            </span>
+          </div>
+
+          <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+            Domine técnicas avançadas: Agentic RAG, Multimodal RAG, Voice RAG, Self-Updating, Multi-Agent e RAG Evaluation.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🤖</div>
+              <p class="text-xs font-semibold text-red-600 dark:text-red-400">Agentic</p>
+              <p class="text-xs text-neutral-500">Decisão Autônoma</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🖼️</div>
+              <p class="text-xs font-semibold text-orange-600 dark:text-orange-400">Multimodal</p>
+              <p class="text-xs text-neutral-500">Texto + Imagens</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1">🎙️</div>
+              <p class="text-xs font-semibold text-amber-600 dark:text-amber-400">Voice</p>
+              <p class="text-xs text-neutral-500">Agentes por Voz</p>
+            </div>
+          </div>
+
+          <a href="rag-avancado.html" class="block w-full bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-white py-3 rounded-lg font-semibold hover:from-red-600 hover:via-orange-600 hover:to-amber-600 text-center transition-all text-sm">
+            Explorar RAG Avançado →
+          </a>
+        </div>
+
+        <!-- Card Conexões e APIs -->
+        <div class="level-card bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20 border-2 border-cyan-200 dark:border-cyan-800 hover:border-cyan-400 dark:hover:border-cyan-600 rounded-2xl p-8 shadow-lg hover:shadow-xl mt-6">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-5xl">🔌</div>
+            <div>
+              <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Conexões e APIs</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Guia Completo de Integrações</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 mb-4 flex-wrap">
+            <span class="inline-block px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-full">
+              10 categorias
+            </span>
+            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-semibold rounded-full">
+              30+ serviços
+            </span>
+            <span class="inline-block px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-semibold rounded-full">
+              PDFs de Setup
+            </span>
+          </div>
+
+          <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+            Configure conexões com Google, META, WhatsApp, Telegram, LLMs (OpenAI, DeepSeek, Groq), Databases e mais.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1"><i class="fab fa-google text-red-500"></i></div>
+              <p class="text-xs font-semibold text-neutral-600 dark:text-neutral-400">Google</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1"><i class="fab fa-whatsapp text-green-500"></i></div>
+              <p class="text-xs font-semibold text-neutral-600 dark:text-neutral-400">WhatsApp</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1"><i class="fab fa-telegram text-sky-500"></i></div>
+              <p class="text-xs font-semibold text-neutral-600 dark:text-neutral-400">Telegram</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1"><i class="fas fa-brain text-purple-500"></i></div>
+              <p class="text-xs font-semibold text-neutral-600 dark:text-neutral-400">LLMs</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+              <div class="text-2xl mb-1"><i class="fas fa-database text-emerald-500"></i></div>
+              <p class="text-xs font-semibold text-neutral-600 dark:text-neutral-400">Databases</p>
+            </div>
+          </div>
+
+          <a href="conexoes-apis.html" class="block w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 text-white py-3 rounded-lg font-semibold hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600 text-center transition-all text-sm">
+            Explorar Conexões →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="sobre" class="bg-neutral-100 dark:bg-neutral-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Por que Aprender N8N?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-xl shadow-md">
+          <div class="text-4xl mb-3">🚀</div>
+          <h3 class="font-bold text-lg text-neutral-900 dark:text-neutral-100 mb-2">Open Source</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Plataforma gratuita e extensível</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-xl shadow-md">
+          <div class="text-4xl mb-3">🔌</div>
+          <h3 class="font-bold text-lg text-neutral-900 dark:text-neutral-100 mb-2">400+ Integrações</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Conecte qualquer ferramenta</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-xl shadow-md">
+          <div class="text-4xl mb-3">🧠</div>
+          <h3 class="font-bold text-lg text-neutral-900 dark:text-neutral-100 mb-2">IA Integrada</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Agentes inteligentes nativos</p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-xl shadow-md">
+          <div class="text-4xl mb-3">💼</div>
+          <h3 class="font-bold text-lg text-neutral-900 dark:text-neutral-100 mb-2">Enterprise Ready</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Escalável e profissional</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <span class="text-3xl">🔗</span>
+            <span>N8N Academy</span>
+          </h3>
+          <p class="text-neutral-400 text-sm">
+            Domine a automação workflow com o curso mais completo de N8N em português.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="comecando.html" class="text-neutral-400 hover:text-white transition-colors">🚀 Começando</a></li>
+            <li><a href="iniciante.html" class="text-neutral-400 hover:text-white transition-colors">🌟 Iniciante</a></li>
+            <li><a href="tecnico.html" class="text-neutral-400 hover:text-white transition-colors">⚡ Técnico</a></li>
+            <li><a href="masterclass.html" class="text-neutral-400 hover:text-white transition-colors">👑 Masterclass</a></li>
+            <li><a href="rag.html" class="text-neutral-400 hover:text-white transition-colors">🧠 Trilha RAG</a></li>
+            <li><a href="rag-avancado.html" class="text-neutral-400 hover:text-white transition-colors">🚀 RAG Avançado</a></li>
+            <li><a href="conexoes-apis.html" class="text-neutral-400 hover:text-white transition-colors">🔌 Conexões e APIs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Recursos</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://n8n.io" target="_blank" class="text-neutral-400 hover:text-white transition-colors">Site Oficial N8N</a></li>
+            <li><a href="https://docs.n8n.io" target="_blank" class="text-neutral-400 hover:text-white transition-colors">Documentação</a></li>
+            <li><a href="https://community.n8n.io" target="_blank" class="text-neutral-400 hover:text-white transition-colors">Comunidade</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-neutral-800 pt-8 text-center text-sm text-neutral-400">
+        <p>&copy; 2025 N8N Academy. Baseado no guia "Master n8n with 17 Nodes" por Nate Herk.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Sobre N8N -->
+  <div id="modal-sobre-n8n" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🔗 O que é N8N?</h2>
+        <button class="close-modal" onclick="closeModal('modal-sobre-n8n')">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4 font-semibold">
+            N8N é uma plataforma de automação workflow de código aberto que permite conectar aplicações e automatizar processos complexos sem precisar escrever código.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              Open Source
+            </span>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              Self-Hosted
+            </span>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              Fair-code
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-6 mb-6 border-2 border-indigo-200 dark:border-indigo-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">💡</span>
+            <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-300">Principais Vantagens</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400 mr-2">→</span>
+              <span><strong>Visual e Intuitivo:</strong> Interface drag-and-drop para criar workflows complexos</span>
+            </li>
+            <li class="flex items-start">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400 mr-2">→</span>
+              <span><strong>400+ Integrações:</strong> Conecte-se com praticamente qualquer serviço ou API</span>
+            </li>
+            <li class="flex items-start">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400 mr-2">→</span>
+              <span><strong>Customizável:</strong> Adicione código JavaScript quando necessário</span>
+            </li>
+            <li class="flex items-start">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400 mr-2">→</span>
+              <span><strong>IA Nativa:</strong> Integração com modelos de linguagem para automações inteligentes</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Para Quem é Este Curso?</h3>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2 text-sm">✓ Perfeito para:</p>
+              <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                <li>• Desenvolvedores buscando automação</li>
+                <li>• Profissionais de TI e DevOps</li>
+                <li>• Empreendedores digitais</li>
+                <li>• Analistas de negócios</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-semibold text-blue-700 dark:text-blue-400 mb-2 text-sm">📚 Você vai aprender:</p>
+              <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                <li>• 17 nodes essenciais</li>
+                <li>• Boas práticas de automação</li>
+                <li>• Integração com APIs</li>
+                <li>• Workflows com IA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Começar?</h3>
+          <p class="mb-4 text-sm">
+            Escolha seu nível e comece a dominar a automação workflow hoje mesmo!
+          </p>
+          <a href="#niveis" onclick="closeModal('modal-sobre-n8n')" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            Ver Níveis do Curso →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Dark Mode Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Check for saved theme or system preference
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on outside click
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal.active');
+        activeModals.forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

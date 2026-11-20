@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>META - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    code { font-family: 'Monaco', 'Consolas', monospace; font-size: 0.875rem; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fab fa-meta"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">META</h1>
+          <p class="text-white/90">Facebook Pages, Instagram Business, Messenger</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-info-circle text-blue-500 mr-2"></i>Visao Geral
+      </h2>
+      <p class="text-neutral-600 dark:text-neutral-400 mb-4">
+        Conecte-se ao ecossistema Meta para gerenciar Facebook Pages, Instagram Business e Messenger
+        atraves da Graph API.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-clock text-blue-500"></i></div>
+          <p class="text-sm font-medium">Dificuldade: Media</p>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-dollar-sign text-green-500"></i></div>
+          <p class="text-sm font-medium">Custo: Gratis</p>
+        </div>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl text-center">
+          <div class="text-2xl mb-2"><i class="fas fa-key text-purple-500"></i></div>
+          <p class="text-sm font-medium">Auth: OAuth2 + Token</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-8 border-2 border-amber-200 dark:border-amber-800 mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-clipboard-check text-amber-500 mr-2"></i>Pre-requisitos
+      </h2>
+      <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+        <li class="flex items-start"><i class="fas fa-check text-amber-500 mr-2 mt-1"></i>Conta Facebook pessoal</li>
+        <li class="flex items-start"><i class="fas fa-check text-amber-500 mr-2 mt-1"></i>Pagina do Facebook criada</li>
+        <li class="flex items-start"><i class="fas fa-check text-amber-500 mr-2 mt-1"></i>Conta Instagram Business vinculada a Pagina</li>
+      </ul>
+    </div>
+
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+        <i class="fas fa-list-ol text-blue-500 mr-2"></i>Passo a Passo
+      </h2>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">1</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Criar App no Meta for Developers</h3>
+        </div>
+        <pre><code>1. Acesse developers.facebook.com
+2. Clique em "My Apps" > "Create App"
+3. Selecione tipo: "Business" ou "Other"
+4. Preencha nome e email de contato
+5. Crie o app</code></pre>
+      </div>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">2</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Configurar Permissoes</h3>
+        </div>
+        <pre><code>No dashboard do app:
+1. Adicione o produto "Facebook Login"
+2. Adicione o produto "Instagram Graph API"
+3. Em Settings > Basic, copie:
+   - App ID
+   - App Secret</code></pre>
+      </div>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">3</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Gerar Access Token</h3>
+        </div>
+        <pre><code>1. Tools > Graph API Explorer
+2. Selecione seu app
+3. Adicione permissoes:
+   - pages_show_list
+   - pages_read_engagement
+   - pages_manage_posts
+   - instagram_basic
+   - instagram_content_publish
+   - business_management
+4. Gere o token
+5. Para token de longa duracao:
+   - Access Token Debugger > Extend Access Token</code></pre>
+      </div>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">4</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conectar no N8N/Make</h3>
+        </div>
+        <pre><code>1. Modulo Facebook/Instagram
+2. Clique em "Add" connection
+3. Cole App ID, App Secret e Access Token
+4. Selecione a pagina/conta</code></pre>
+      </div>
+    </div>
+
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-book text-purple-500 mr-2"></i>Conceitos-Chave
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Page Access Token</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Token para gerenciar pagina</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">User Access Token</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Token do usuario</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Graph API</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">API principal do Meta</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Business Account</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Conta comercial Instagram</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-orange-50 dark:bg-orange-900/20 rounded-2xl p-8 border-2 border-orange-200 dark:border-orange-800 mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-exclamation-triangle text-orange-500 mr-2"></i>Limitacoes
+      </h2>
+      <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+        <li class="flex items-start"><i class="fas fa-times text-orange-500 mr-2 mt-1"></i>Postar no Instagram requer conta Business</li>
+        <li class="flex items-start"><i class="fas fa-times text-orange-500 mr-2 mt-1"></i>Reels tem API separada</li>
+        <li class="flex items-start"><i class="fas fa-times text-orange-500 mr-2 mt-1"></i>Stories tem limitacoes de API</li>
+        <li class="flex items-start"><i class="fas fa-times text-orange-500 mr-2 mt-1"></i>Rate limit: ~200 chamadas/hora</li>
+      </ul>
+    </div>
+
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://developers.facebook.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-blue-500"></i>
+          <span>Meta for Developers</span>
+        </a>
+        <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-purple-500"></i>
+          <span>Graph API Explorer</span>
+        </a>
+        <a href="https://developers.facebook.com/tools/debug/accesstoken/" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-green-500"></i>
+          <span>Access Token Debugger</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="google.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-blue-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>Google</span>
+      </a>
+      <a href="whatsapp.html" class="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-xl font-bold hover:from-green-600 hover:to-green-800 transition-all">
+        <span>Proximo: WhatsApp</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

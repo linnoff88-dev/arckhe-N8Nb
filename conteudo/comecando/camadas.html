@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>As 3 Camadas da Automação - Guia Completo | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.7; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../comecando.html" class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">🏗️</span><span>As 3 Camadas</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8">🏗️</div>
+      <h1 class="text-6xl font-bold mb-6">As 3 Camadas da Automação</h1>
+      <p class="text-3xl mb-4 text-white/90">Workflows, IA e Agentes</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">Entenda a arquitetura de automação moderna e quando usar cada abordagem</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- VISÃO GERAL -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📊</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visão Geral</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        A automação moderna se divide em <strong>3 camadas</strong>, cada uma com características, vantagens e limitações distintas:
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border-2 border-green-300 dark:border-green-700 text-center">
+          <p class="text-5xl mb-4">⚙️</p>
+          <p class="text-2xl font-bold text-green-800 dark:text-green-300">Camada 1</p>
+          <p class="text-lg text-green-700 dark:text-green-400">Workflows</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Determinístico</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-2 border-blue-300 dark:border-blue-700 text-center">
+          <p class="text-5xl mb-4">🤖</p>
+          <p class="text-2xl font-bold text-blue-800 dark:text-blue-300">Camada 2</p>
+          <p class="text-lg text-blue-700 dark:text-blue-400">Automações + IA</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Semi-determinístico</p>
+        </div>
+        <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 p-6 rounded-xl border-2 border-purple-300 dark:border-purple-700 text-center">
+          <p class="text-5xl mb-4">🧠</p>
+          <p class="text-2xl font-bold text-purple-800 dark:text-purple-300">Camada 3</p>
+          <p class="text-lg text-purple-700 dark:text-purple-400">Agentes de IA</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Não-determinístico</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAMADA 1: WORKFLOWS -->
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-12 mb-12 border-2 border-green-200 dark:border-green-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">⚙️</span>
+        <h3 class="text-4xl font-bold text-green-900 dark:text-green-300">Camada 1: Workflows</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        Automações com <strong>regras fixas e determinísticas</strong>. Se X acontece, faça Y. Sempre previsível, sempre igual.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-green-700 dark:text-green-400 mb-3">✅ Vantagens</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ 100% previsível</li>
+            <li>→ Fácil de debugar</li>
+            <li>→ Baixo custo de manutenção</li>
+            <li>→ Alto ROI (30-200%)</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-green-700 dark:text-green-400 mb-3">📋 Exemplos</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Backup diário automático</li>
+            <li>→ Sync de planilhas</li>
+            <li>→ Envio de emails em lote</li>
+            <li>→ Notificações por evento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-6 bg-green-100 dark:bg-green-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-green-900 dark:text-green-200">
+          💡 80% das automações que você precisa são workflows simples. Comece aqui!
+        </p>
+      </div>
+    </div>
+
+    <!-- CAMADA 2: AUTOMAÇÕES COM IA -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-12 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🤖</span>
+        <h3 class="text-4xl font-bold text-blue-900 dark:text-blue-300">Camada 2: Automações com IA</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        Workflows com <strong>pequenas decisões inteligentes</strong>. A IA classifica, extrai ou sugere, mas o workflow controla o fluxo.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">✅ Vantagens</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Lida com variações</li>
+            <li>→ Extrai dados não-estruturados</li>
+            <li>→ Classifica automaticamente</li>
+            <li>→ Ainda previsível (workflow controla)</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-3">📋 Exemplos</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Classificar tickets por urgência</li>
+            <li>→ Extrair dados de emails</li>
+            <li>→ Resumir documentos</li>
+            <li>→ Traduzir conteúdo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-6 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-blue-900 dark:text-blue-200">
+          💡 Use IA como FERRAMENTA dentro do workflow, não como controlador.
+        </p>
+      </div>
+    </div>
+
+    <!-- CAMADA 3: AGENTES -->
+    <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-3xl p-12 mb-12 border-2 border-purple-200 dark:border-purple-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🧠</span>
+        <h3 class="text-4xl font-bold text-purple-900 dark:text-purple-300">Camada 3: Agentes de IA</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        A IA decide <strong>O QUE fazer</strong>, não apenas COMO. Poderoso, mas não-determinístico e difícil de manter.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-3">✅ Vantagens</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Resolve problemas complexos</li>
+            <li>→ Adapta-se a situações novas</li>
+            <li>→ Usa múltiplas ferramentas</li>
+            <li>→ Raciocina sobre o problema</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-red-700 dark:text-red-400 mb-3">⚠️ Desafios</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Imprevisível</li>
+            <li>→ Difícil de debugar</li>
+            <li>→ Custo alto (tokens)</li>
+            <li>→ Precisa de guardrails</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-6 bg-purple-100 dark:bg-purple-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-purple-900 dark:text-purple-200">
+          ⚠️ Agentes são poderosos, mas NÃO comece por aqui. Domine workflows primeiro!
+        </p>
+      </div>
+    </div>
+
+    <!-- QUANDO USAR CADA -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎯</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Quando Usar Cada Camada?</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-lg">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-4 px-4">Cenário</th>
+              <th class="text-center py-4 px-4">Camada</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-700 dark:text-neutral-300">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-4 px-4">Regras claras, sempre igual</td>
+              <td class="text-center py-4 px-4"><span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Workflow</span></td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-4 px-4">Precisa classificar ou extrair dados</td>
+              <td class="text-center py-4 px-4"><span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Workflow + IA</span></td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-4 px-4">Problema aberto, múltiplas ferramentas</td>
+              <td class="text-center py-4 px-4"><span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Agente</span></td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-4 px-4">Precisa de 100% confiabilidade</td>
+              <td class="text-center py-4 px-4"><span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Workflow</span></td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4">Interação conversacional complexa</td>
+              <td class="text-center py-4 px-4"><span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Agente</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- POR QUE COMEÇAR POR WORKFLOWS -->
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-12 mb-12 border-2 border-amber-200 dark:border-amber-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🎓</span>
+        <h3 class="text-4xl font-bold text-amber-900 dark:text-amber-300">Por que Começar por Workflows?</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-amber-700 dark:text-amber-400 mb-3">📚 Aprende Fundamentos</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Triggers, dados, lógica, integrações - base para tudo que vem depois</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-amber-700 dark:text-amber-400 mb-3">💰 ROI Imediato</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Workflows simples já resolvem 80% dos problemas com baixo custo</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-amber-700 dark:text-amber-400 mb-3">🔧 Fácil de Manter</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Debugar workflow é simples. Debugar agente é pesadelo.</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-amber-700 dark:text-amber-400 mb-3">🚀 Base para Evoluir</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Adicionar IA a um workflow sólido é trivial. O inverso não.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+      <div class="space-y-8">
+        <!-- Exemplo 1: Workflow Simples -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800">
+          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-3">⚙️ Exemplo de Workflow (Camada 1)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Backup diário de planilha Google Sheets para Dropbox:</p>
+          <div class="code-block text-sm">
+Trigger: Schedule (diário às 23:00)
+   ↓
+Node: Google Sheets - Get Rows (busca todos os dados)
+   ↓
+Node: Dropbox - Upload File (salva como backup_2025-01-01.xlsx)
+   ↓
+Node: Slack - Send Message (notifica: "Backup concluído!")
+
+✅ 100% previsível
+✅ Sempre executa igual
+✅ Zero decisões de IA
+          </div>
+        </div>
+
+        <!-- Exemplo 2: Workflow + IA -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">🤖 Exemplo de Workflow + IA (Camada 2)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Triagem automática de emails de suporte:</p>
+          <div class="code-block text-sm">
+Trigger: Gmail - New Email (novos emails em suporte@)
+   ↓
+Node: OpenAI - Classificar email
+      Prompt: "Classifique este email em: URGENTE, NORMAL, SPAM"
+      Retorna: { "categoria": "URGENTE", "confianca": 0.95 }
+   ↓
+Node: IF - Verifica categoria
+      ├── URGENTE → Cria ticket prioritário no Jira
+      ├── NORMAL → Cria ticket normal
+      └── SPAM → Move para lixeira
+
+✅ Workflow controla o fluxo
+✅ IA apenas CLASSIFICA
+✅ Resultado ainda previsível
+          </div>
+        </div>
+
+        <!-- Exemplo 3: Agente -->
+        <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🧠 Exemplo de Agente (Camada 3)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Agente de atendimento ao cliente com acesso a ferramentas:</p>
+          <div class="code-block text-sm">
+Trigger: Webhook (mensagem do cliente via chat)
+   ↓
+Node: AI Agent (n8n Agent)
+      - Prompt do sistema: "Você é um atendente..."
+      - Ferramentas disponíveis:
+        • consultar_pedido(id) → API do e-commerce
+        • verificar_estoque(produto) → API do estoque
+        • criar_devolucao(id, motivo) → API de devoluções
+        • escalar_humano(contexto) → Notifica time
+   ↓
+O agente DECIDE quais ferramentas usar baseado na conversa
+
+⚠️ Não sabemos exatamente o que vai fazer
+⚠️ Pode chamar 1 ou 5 ferramentas
+⚠️ Precisa de guardrails (limites de ações)
+          </div>
+        </div>
+
+        <!-- Exemplo 4: Comparação -->
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">📊 Comparativo: Mesmo Problema, 3 Abordagens</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Problema: Responder emails de clientes perguntando sobre status do pedido</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+                  <th class="text-left py-2 px-3">Camada</th>
+                  <th class="text-left py-2 px-3">Implementação</th>
+                  <th class="text-left py-2 px-3">Prós/Contras</th>
+                </tr>
+              </thead>
+              <tbody class="text-neutral-700 dark:text-neutral-300">
+                <tr class="border-b border-neutral-100 dark:border-neutral-700">
+                  <td class="py-2 px-3"><span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded text-xs">Workflow</span></td>
+                  <td class="py-2 px-3">Detecta palavras-chave → busca pedido → envia template fixo</td>
+                  <td class="py-2 px-3">✅ Rápido ⚠️ Só funciona p/ casos previstos</td>
+                </tr>
+                <tr class="border-b border-neutral-100 dark:border-neutral-700">
+                  <td class="py-2 px-3"><span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded text-xs">Workflow+IA</span></td>
+                  <td class="py-2 px-3">IA extrai ID do pedido → busca → IA gera resposta personalizada</td>
+                  <td class="py-2 px-3">✅ Flexível ✅ Controlado ⚠️ Custo de tokens</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-3"><span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded text-xs">Agente</span></td>
+                  <td class="py-2 px-3">Agente analisa email e decide: consultar, responder, ou escalar</td>
+                  <td class="py-2 px-3">✅ Autônomo ⚠️ Imprevisível ⚠️ Caro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-3xl p-12 text-center">
+      <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
+      <p class="text-xl mb-8">Agora aprenda JSON, a linguagem que conecta todos os sistemas.</p>
+      <a href="json.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Próximo: JSON →
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy - As 3 Camadas da Automação</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

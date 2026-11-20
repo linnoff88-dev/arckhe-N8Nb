@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferramentas Auxiliares - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-violet-500 to-purple-600 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fas fa-toolbox"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">Ferramentas Auxiliares</h1>
+          <p class="text-white/90">Pinecone, ElevenLabs, Retell AI, VAPI</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Pinecone -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-indigo-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-vector-square"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Pinecone</h2>
+          <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 text-xs rounded-full">Vector Database para RAG</span>
+        </div>
+      </div>
+
+      <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+        Armazene embeddings para busca semantica e sistemas RAG.
+        Essencial para chatbots com base de conhecimento.
+      </p>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse pinecone.io
+2. Crie conta
+3. Create Index (escolha dimensao dos embeddings)
+4. Copie API Key e Environment</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+          <h4 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">Starter (Gratis)</h4>
+          <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+            <li>- 1 index</li>
+            <li>- 100k vectors</li>
+            <li>- Sem custo</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+          <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Standard</h4>
+          <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+            <li>- Indices ilimitados</li>
+            <li>- $0.00025/hora</li>
+            <li>- Alta disponibilidade</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ElevenLabs -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-pink-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-microphone-alt"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">ElevenLabs</h2>
+      </div>
+
+      <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+        Text-to-Speech de alta qualidade com clonagem de voz.
+        Vozes realistas para automacoes e conteudo.
+      </p>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse elevenlabs.io
+2. Crie conta
+3. Profile > API Key
+4. Copie a chave</code></pre>
+      </div>
+
+      <div class="overflow-x-auto mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Custos</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-2 px-3">Plano</th>
+              <th class="text-left py-2 px-3">Caracteres/mes</th>
+              <th class="text-left py-2 px-3">Custo</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-600 dark:text-neutral-400">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">Free</td>
+              <td class="py-2 px-3">10.000</td>
+              <td class="py-2 px-3 text-emerald-600">$0</td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">Starter</td>
+              <td class="py-2 px-3">30.000</td>
+              <td class="py-2 px-3">$5/mes</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3">Creator</td>
+              <td class="py-2 px-3">100.000</td>
+              <td class="py-2 px-3">$22/mes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-3 bg-pink-50 dark:bg-pink-900/20 rounded-lg text-center">
+          <i class="fas fa-comment-dots text-pink-500 text-xl mb-2"></i>
+          <p class="text-sm font-medium">Text-to-Speech</p>
+        </div>
+        <div class="p-3 bg-pink-50 dark:bg-pink-900/20 rounded-lg text-center">
+          <i class="fas fa-clone text-pink-500 text-xl mb-2"></i>
+          <p class="text-sm font-medium">Clonagem de Voz</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice Agents -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-cyan-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Voice Agents (Retell AI / VAPI)</h2>
+      </div>
+
+      <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+        Agentes de voz para chamadas telefonicas automatizadas.
+        Atendimento, vendas e suporte por telefone com IA.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Retell AI -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-xl">
+          <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Retell AI</h3>
+          <pre><code>1. retellai.com
+2. Crie conta
+3. Dashboard > API Keys
+4. Custo: $0.07-0.12/min</code></pre>
+        </div>
+
+        <!-- VAPI -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-xl">
+          <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">VAPI</h3>
+          <pre><code>1. vapi.ai
+2. Crie conta
+3. Settings > API Keys
+4. Custo: $0.05+/min</code></pre>
+        </div>
+      </div>
+
+      <div class="mt-6 p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+        <h4 class="font-bold text-cyan-700 dark:text-cyan-300 mb-2">Casos de Uso</h4>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-headset text-cyan-500"></i>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Atendimento automatico</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-calendar-check text-cyan-500"></i>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Agendamentos</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-poll text-cyan-500"></i>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Pesquisas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FISH.AUDIO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-blue-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-fish"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">FISH.AUDIO</h2>
+      </div>
+
+      <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+        API de Text-to-Speech com controle avancado de fonemas e paralelinguagem.
+      </p>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Recursos Avancados</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Controle de Fonema</h4>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CMU Arpabet, Pinyin</p>
+          </div>
+          <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Paralelinguagem</h4>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Pausas, respiracao, riso</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+        <h4 class="font-bold text-blue-700 dark:text-blue-300 mb-2">Efeitos Especiais</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs rounded">[break]</span>
+          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs rounded">[laugh]</span>
+          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs rounded">[cough]</span>
+          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs rounded">[breath]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://pinecone.io" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-indigo-500"></i>
+          <span>Pinecone</span>
+        </a>
+        <a href="https://elevenlabs.io" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-pink-500"></i>
+          <span>ElevenLabs</span>
+        </a>
+        <a href="https://retellai.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-cyan-500"></i>
+          <span>Retell AI</span>
+        </a>
+        <a href="https://vapi.ai" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-purple-500"></i>
+          <span>VAPI</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="scraping.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-violet-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>Scraping</span>
+      </a>
+      <a href="../../conexoes-apis.html" class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:from-cyan-600 hover:to-blue-700 transition-all">
+        <span>Voltar ao Inicio</span>
+        <i class="fas fa-home"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

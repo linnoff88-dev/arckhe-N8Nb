@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planejamento de Processos | N8N Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>body { font-family: 'Inter', sans-serif; } .code-block { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.75rem; font-family: monospace; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../comecando.html" class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+          <span>←</span><span class="text-3xl">📋</span><span>Planejamento</span>
+        </a>
+        <a href="https://inema.club" target="_blank" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors mr-3">INEMA.CLUB</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z" fill-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-600 py-24">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <div class="text-8xl mb-8">📋</div>
+      <h1 class="text-6xl font-bold mb-6">Planejamento de Processos</h1>
+      <p class="text-3xl mb-4 text-white/90">Mapeie antes de construir</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">1 hora planejando economiza 10 horas refazendo</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+
+    <!-- MAPEAR ANTES -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">🗺️</span>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Mapear Antes de Construir</h2>
+      </div>
+      <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8">
+        <strong>Documente o processo manual completo</strong> antes de abrir o N8N.
+      </p>
+      <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-2 border-red-200 dark:border-red-800 mb-8">
+        <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-4">⚠️ O erro mais comum:</p>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300">
+          Abrir o N8N e ir construindo "na intuição". Resultado: workflow confuso, retrabalho infinito, edge cases descobertos em produção.
+        </p>
+      </div>
+      <div class="p-6 bg-green-100 dark:bg-green-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-green-900 dark:text-green-200">
+          ✅ Construir sem plano = descobrir problemas no meio. Planejar = encontrar problemas no papel (barato).
+        </p>
+      </div>
+    </div>
+
+    <!-- INPUTS E OUTPUTS -->
+    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-3xl p-12 mb-12 border-2 border-teal-200 dark:border-teal-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📥📤</span>
+        <h3 class="text-4xl font-bold text-teal-900 dark:text-teal-300">Identificar Inputs e Outputs</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-4">📥 Inputs</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ De onde vêm os dados?</li>
+            <li>→ Qual formato? (JSON, CSV, form)</li>
+            <li>→ Qual frequência?</li>
+            <li>→ Quais campos são obrigatórios?</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
+          <p class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">📤 Outputs</p>
+          <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
+            <li>→ Para onde vão os dados?</li>
+            <li>→ Qual formato esperado?</li>
+            <li>→ Quem consome?</li>
+            <li>→ O que define "sucesso"?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCUMENTAR NO PAPEL -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">✏️</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Documentar Fluxo no Papel</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        Desenhe o workflow antes de construir. Ferramentas: papel, Miro, Excalidraw, Notion.
+      </p>
+      <div class="bg-neutral-100 dark:bg-neutral-700 p-8 rounded-xl mb-8">
+        <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4">Modelo de Documentação:</p>
+        <div class="code-block">
+1. TRIGGER: O que inicia o processo?
+   → Novo email recebido
+
+2. PASSOS:
+   → Extrair dados do email
+   → Classificar por departamento
+   → SE urgente → notificar Slack
+   → Criar registro no CRM
+
+3. OUTPUT: Resultado esperado
+   → Lead cadastrado + notificação enviada
+
+4. EXCEÇÕES:
+   → Email sem remetente → ignorar
+   → CRM offline → salvar em fila
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDAR COM STAKEHOLDERS -->
+    <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-3xl p-12 mb-12 border-2 border-purple-200 dark:border-purple-800">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">👥</span>
+        <h3 class="text-4xl font-bold text-purple-900 dark:text-purple-300">Validar com Stakeholders</h3>
+      </div>
+      <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
+        <strong>Mostre o plano</strong> para quem vai usar/ser afetado ANTES de construir.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">🎯 Por que validar?</p>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ Usuário final conhece exceções que você não pensou</li>
+            <li>→ Evita "não era isso que eu queria"</li>
+            <li>→ Garante buy-in antes do esforço</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
+          <p class="text-lg font-bold text-green-800 dark:text-green-300 mb-3">✅ Perguntas chave</p>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+            <li>→ "Esse fluxo cobre todos os casos?"</li>
+            <li>→ "O que acontece quando X falha?"</li>
+            <li>→ "Falta algum cenário?"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVITAR RETRABALHO -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">💰</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Evitar Retrabalho</h3>
+      </div>
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-8 rounded-xl mb-8">
+        <p class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-4">Custo de Mudança:</p>
+        <div class="grid md:grid-cols-3 gap-4 text-center">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-xl">
+            <p class="text-3xl font-bold text-green-600">1x</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mudar no planejamento</p>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-xl">
+            <p class="text-3xl font-bold text-yellow-600">10x</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mudar durante desenvolvimento</p>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-xl">
+            <p class="text-3xl font-bold text-red-600">100x</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mudar em produção</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 bg-green-100 dark:bg-green-900/30 rounded-xl">
+        <p class="text-lg font-semibold text-green-900 dark:text-green-200">
+          💡 Erro no papel = 5 minutos para corrigir. Erro em produção = horas de debug + usuários afetados.
+        </p>
+      </div>
+    </div>
+
+    <!-- EXEMPLOS PRÁTICOS -->
+    <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
+      <div class="flex items-center mb-8">
+        <span class="text-6xl mr-6">📋</span>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
+      </div>
+      <div class="space-y-8">
+        <!-- Exemplo 1: Template de Documentação -->
+        <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-xl border-2 border-teal-200 dark:border-teal-800">
+          <p class="text-xl font-bold text-teal-800 dark:text-teal-300 mb-3">📝 Exemplo 1: Template de Documentação de Processo</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Use este template antes de começar qualquer automação:</p>
+          <div class="code-block">
+# DOCUMENTO DE REQUISITOS - [Nome do Processo]
+
+## 1. RESUMO
+Descrição em 1 parágrafo do que será automatizado
+
+## 2. TRIGGER (O que inicia?)
+- [ ] Webhook (formulário, pagamento, etc)
+- [ ] Schedule (diário às X, semanal, etc)
+- [ ] Manual (quando usuário clica)
+- [ ] Outro: ________________
+
+## 3. INPUTS (O que entra?)
+| Campo          | Tipo     | Obrigatório? | Exemplo          |
+|----------------|----------|--------------|------------------|
+| nome           | string   | Sim          | "João Silva"     |
+| email          | email    | Sim          | "joao@email.com" |
+| telefone       | string   | Não          | "11-99999-0000"  |
+
+## 4. PASSOS DO PROCESSO
+1. Receber dados do formulário
+2. Validar campos obrigatórios
+3. Verificar se email já existe no CRM
+4. SE existe → atualizar registro
+5. SE não existe → criar novo lead
+6. Enviar email de boas-vindas
+7. Notificar equipe no Slack
+
+## 5. OUTPUTS (O que sai?)
+- Lead criado/atualizado no HubSpot
+- Email enviado ao lead
+- Mensagem no Slack #novos-leads
+
+## 6. EXCEÇÕES (O que pode dar errado?)
+| Exceção                | Ação                        |
+|------------------------|-----------------------------|
+| Email inválido         | Rejeitar e logar erro       |
+| CRM offline            | Salvar em fila de retry     |
+| Email já existe        | Atualizar ao invés de criar |
+          </div>
+        </div>
+
+        <!-- Exemplo 2: Mapeamento Visual -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+          <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">🗺️ Exemplo 2: Mapeamento Visual (Fluxograma)</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Desenhe o fluxo antes de abrir o N8N:</p>
+          <div class="code-block">
+┌─────────────────────────────────────────────────────────────────┐
+│                    AUTOMAÇÃO: ONBOARDING DE CLIENTE             │
+└─────────────────────────────────────────────────────────────────┘
+
+        ┌──────────────┐
+        │   Webhook    │  ← Stripe envia pagamento confirmado
+        │  (Trigger)   │
+        └──────┬───────┘
+               ▼
+        ┌──────────────┐
+        │  Extrair     │  ← Pega email, nome, produto comprado
+        │  Dados       │
+        └──────┬───────┘
+               ▼
+        ┌──────────────┐
+        │   Buscar     │  ← Verifica se já é cliente
+        │   Cliente    │
+        └──────┬───────┘
+               ▼
+        ┌──────────────┐     SIM    ┌──────────────┐
+        │  Já existe?  │───────────▶│  Atualizar   │
+        └──────┬───────┘            │  Plano       │
+               │ NÃO                └──────┬───────┘
+               ▼                           │
+        ┌──────────────┐                   │
+        │   Criar      │                   │
+        │   Conta      │                   │
+        └──────┬───────┘                   │
+               │                           │
+               ◀───────────────────────────┘
+               ▼
+        ┌──────────────┐
+        │   Enviar     │  ← Email com credenciais
+        │   Email      │
+        └──────┬───────┘
+               ▼
+        ┌──────────────┐
+        │   Slack      │  ← #vendas: "Novo cliente: João"
+        │   Notificar  │
+        └──────────────┘
+          </div>
+        </div>
+
+        <!-- Exemplo 3: Checklist de Validação -->
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">✅ Exemplo 3: Checklist de Validação com Stakeholder</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Perguntas para validar antes de construir:</p>
+          <div class="code-block">
+# CHECKLIST DE VALIDAÇÃO - [Nome do Processo]
+
+## Para o DONO do processo:
+□ O fluxo que desenhei representa o processo atual?
+□ Existem exceções que não estão documentadas?
+□ Quem precisa ser notificado quando X acontece?
+□ O que fazer quando Y falha?
+□ Qual a frequência esperada? (10/dia? 1000/dia?)
+
+## Para o TIME de TI:
+□ Temos acesso a todas as APIs necessárias?
+□ Quais credenciais precisamos?
+□ Existe rate limit que devemos respeitar?
+□ Onde ficam os logs de erro?
+
+## Para o CLIENTE/Usuário final:
+□ O resultado esperado está claro?
+□ O tempo de resposta é aceitável?
+□ Precisa de confirmação manual em algum ponto?
+
+## RESPOSTAS OBTIDAS:
+- Exceção não documentada: "Clientes VIP vão para fila separada"
+- Rate limit: "Máximo 100 requisições/minuto na API do CRM"
+- Confirmação: "Pedidos acima de R$10k precisam aprovação"
+          </div>
+        </div>
+
+        <!-- Exemplo 4: Descoberta de Edge Cases -->
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-800">
+          <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">🔍 Exemplo 4: Descobrindo Edge Cases Antes de Construir</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Perguntas que revelam problemas escondidos:</p>
+          <div class="code-block">
+# ANÁLISE DE EDGE CASES - Formulário de Contato
+
+PERGUNTA: "O que acontece se..."
+
+1. ...o campo nome estiver vazio?
+   → Rejeitar: "Nome é obrigatório"
+
+2. ...o email for inválido (sem @)?
+   → Rejeitar: "Email inválido"
+
+3. ...a pessoa submeter 100x seguidas?
+   → Rate limit: máx 3 submissões por IP/minuto
+
+4. ...o CRM estiver fora do ar?
+   → Fila de retry: salvar localmente, tentar a cada 5min
+
+5. ...a mensagem contiver emoji?
+   → OK: UTF-8 suportado
+
+6. ...o nome tiver caracteres especiais (José, Müller)?
+   → OK: encoding correto
+
+7. ...for feriado e ninguém responder?
+   → Resposta automática: "Retornamos em até 48h úteis"
+
+# CASOS DESCOBERTOS NA VALIDAÇÃO:
+- Cliente VIP (email @empresa-vip.com) → fila prioritária
+- Reclamação (palavra "problema" ou "urgente") → notifica gerente
+- Spam (links no corpo) → bloquear e logar
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-br from-teal-600 to-cyan-600 text-white rounded-3xl p-12 text-center">
+      <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
+      <p class="text-xl mb-8">Agora aprenda sobre Construção e Testes - como falhar rápido e aprender rápido.</p>
+      <a href="construcao.html" class="inline-block bg-white text-teal-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Próximo: Construção e Testes →
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 N8N Academy - Planejamento de Processos</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const d = document.getElementById('theme-toggle-dark-icon');
+    const l = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); l.classList.remove('hidden'); } else { d.classList.remove('hidden'); }
+    themeToggleBtn.addEventListener('click', function() { d.classList.toggle('hidden'); l.classList.toggle('hidden'); document.documentElement.classList.toggle('dark'); localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

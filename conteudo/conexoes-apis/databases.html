@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Dados - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fas fa-database"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">Banco de Dados</h1>
+          <p class="text-white/90">Airtable, Notion, Supabase, Google Sheets</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Airtable -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-yellow-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-table"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Airtable</h2>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse airtable.com
+2. Crie conta
+3. Account > Developer hub
+4. Personal access tokens > Create
+5. Adicione scopes necessarios
+6. Copie o token</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Conectar no N8N/Make</h3>
+        <pre><code>1. Modulo Airtable
+2. Add connection
+3. Cole o Personal Access Token
+4. Selecione Base e Table</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Base</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">= Banco de dados</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Table</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">= Tabela</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">Record</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">= Registro/linha</p>
+        </div>
+        <div class="p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+          <h4 class="font-bold text-neutral-900 dark:text-neutral-100">View</h4>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">= Visualizacao filtrada</p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Custos</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-2 px-3">Plano</th>
+              <th class="text-left py-2 px-3">Registros</th>
+              <th class="text-left py-2 px-3">Custo</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-600 dark:text-neutral-400">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">Free</td>
+              <td class="py-2 px-3">1.000</td>
+              <td class="py-2 px-3 text-emerald-600">$0</td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-2 px-3">Plus</td>
+              <td class="py-2 px-3">5.000</td>
+              <td class="py-2 px-3">$10/mes</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3">Pro</td>
+              <td class="py-2 px-3">50.000</td>
+              <td class="py-2 px-3">$20/mes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notion -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-neutral-800">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-book"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Notion</h2>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse notion.com/my-integrations
+2. Clique em "New integration"
+3. Preencha: Name, Workspace, Permissoes
+4. Copiar "Internal Integration Token"
+5. IMPORTANTE: Compartilhe paginas com a integracao
+   - Abra a pagina no Notion
+   - Clique em "..." > "Connections" > sua integracao
+6. Usar token no n8n</code></pre>
+      </div>
+
+      <div class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+        <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-2">
+          <i class="fas fa-exclamation-triangle mr-2"></i>Importante
+        </h4>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          A integracao so ve paginas que voce explicitamente compartilhar com ela.
+          Nao esqueca de adicionar a integracao em cada pagina/database!
+        </p>
+      </div>
+    </div>
+
+    <!-- Supabase -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-emerald-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Supabase</h2>
+      </div>
+
+      <p class="text-neutral-600 dark:text-neutral-400 mb-4">
+        Backend completo com PostgreSQL, Auth, Storage e Realtime.
+        Alternativa open-source ao Firebase.
+      </p>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Acesse supabase.com
+2. Crie projeto
+3. Settings > API
+4. Copie:
+   - Project URL
+   - anon/public key (para operacoes publicas)
+   - service_role key (para operacoes admin)</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
+          <i class="fas fa-database text-emerald-500 text-xl mb-2"></i>
+          <p class="text-sm font-medium">PostgreSQL</p>
+        </div>
+        <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
+          <i class="fas fa-user-shield text-emerald-500 text-xl mb-2"></i>
+          <p class="text-sm font-medium">Auth</p>
+        </div>
+        <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
+          <i class="fas fa-hdd text-emerald-500 text-xl mb-2"></i>
+          <p class="text-sm font-medium">Storage</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Sheets -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8 border-l-4 border-green-500">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl">
+          <i class="fas fa-table"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Google Sheets</h2>
+          <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 text-xs rounded-full">Alternativa Gratis</span>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">Passo a Passo</h3>
+        <pre><code>1. Use conexao Google (ver pagina Google)
+2. Crie planilha no Drive
+3. Primeira linha = headers (nomes das colunas)
+4. Use modulo Google Sheets no N8N/Make</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+          <h4 class="font-bold text-green-700 dark:text-green-300 mb-2">Vantagens</h4>
+          <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+            <li>- Gratis</li>
+            <li>- Familiar para usuarios</li>
+            <li>- Colaborativo</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+          <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-2">Limitacoes</h4>
+          <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+            <li>- Menos estruturado</li>
+            <li>- Sem relacionamentos</li>
+            <li>- Performance com muitos dados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://airtable.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-yellow-500"></i>
+          <span>Airtable</span>
+        </a>
+        <a href="https://www.notion.com/my-integrations" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-neutral-500"></i>
+          <span>Notion Integrations</span>
+        </a>
+        <a href="https://supabase.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-emerald-500"></i>
+          <span>Supabase</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="llms.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>LLMs e IA</span>
+      </a>
+      <a href="scraping.html" class="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-600 hover:to-amber-700 transition-all">
+        <span>Proximo: Scraping</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

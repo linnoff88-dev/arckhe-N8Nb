@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X (Twitter) - Conexoes e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+
+  <header class="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white py-12">
+    <div class="max-w-4xl mx-auto px-6">
+      <a href="../../conexoes-apis.html" class="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Voltar para Conexoes
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="text-6xl"><i class="fab fa-x-twitter"></i></div>
+        <div>
+          <h1 class="text-4xl font-bold">X (Twitter)</h1>
+          <p class="text-white/90">API v2 - Tweets, Mencoes, Timeline</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Pricing Tiers -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-tags text-neutral-500 mr-2"></i>Niveis de Acesso
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-neutral-200 dark:border-neutral-700">
+              <th class="text-left py-3 px-4 font-bold">Nivel</th>
+              <th class="text-left py-3 px-4 font-bold">Custo</th>
+              <th class="text-left py-3 px-4 font-bold">Tweets/mes</th>
+              <th class="text-left py-3 px-4 font-bold">Uso</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-600 dark:text-neutral-400">
+            <tr class="border-b border-neutral-100 dark:border-neutral-700">
+              <td class="py-3 px-4 font-medium">Free</td>
+              <td class="py-3 px-4 text-emerald-600">$0</td>
+              <td class="py-3 px-4">1.500</td>
+              <td class="py-3 px-4">Teste</td>
+            </tr>
+            <tr class="border-b border-neutral-100 dark:border-neutral-700 bg-amber-50 dark:bg-amber-900/20">
+              <td class="py-3 px-4 font-medium">Basic</td>
+              <td class="py-3 px-4 text-amber-600">$100/mes</td>
+              <td class="py-3 px-4">50.000</td>
+              <td class="py-3 px-4">Pequeno</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Pro</td>
+              <td class="py-3 px-4 text-red-600">$5.000/mes</td>
+              <td class="py-3 px-4">1M</td>
+              <td class="py-3 px-4">Profissional</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Warning -->
+    <div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-8 border-2 border-red-200 dark:border-red-800 mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Atencao
+      </h2>
+      <p class="text-neutral-600 dark:text-neutral-400">
+        A API do X tem custos significativos. O nivel Free e muito limitado (1.500 tweets/mes).
+        Para uso comercial, prepare-se para pagar $100+/mes no minimo.
+      </p>
+    </div>
+
+    <!-- Step by Step -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+        <i class="fas fa-list-ol text-neutral-500 mr-2"></i>Passo a Passo
+      </h2>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-neutral-800 text-white rounded-full flex items-center justify-center font-bold">1</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Criar App</h3>
+        </div>
+        <pre><code>1. Acesse developer.twitter.com
+2. Inscreva-se no Developer Portal
+3. Crie um Project
+4. Crie um App dentro do Project
+5. Copie credenciais:
+   - API Key
+   - API Key Secret
+   - Bearer Token
+   - Access Token
+   - Access Token Secret</code></pre>
+      </div>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-neutral-800 text-white rounded-full flex items-center justify-center font-bold">2</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Configurar Permissoes</h3>
+        </div>
+        <pre><code>Em App Settings:
+1. User authentication settings > Set up
+2. App permissions: Read and Write
+3. Type: Web App
+4. Callback URL: https://www.make.com/oauth/cb/twitter
+5. Website URL: seu site</code></pre>
+      </div>
+
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 bg-neutral-800 text-white rounded-full flex items-center justify-center font-bold">3</span>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conectar no N8N/Make</h3>
+        </div>
+        <pre><code>1. Modulo Twitter
+2. Add connection
+3. Cole as 4 credenciais:
+   - API Key
+   - API Key Secret
+   - Access Token
+   - Access Token Secret
+4. Autorize</code></pre>
+      </div>
+    </div>
+
+    <!-- Limitations -->
+    <div class="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-8 border-2 border-amber-200 dark:border-amber-800 mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-ban text-amber-500 mr-2"></i>Limitacoes Importantes
+      </h2>
+      <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+        <li class="flex items-start"><i class="fas fa-times text-amber-500 mr-2 mt-1"></i>API v2 tem funcionalidades diferentes da v1.1</li>
+        <li class="flex items-start"><i class="fas fa-times text-amber-500 mr-2 mt-1"></i>Algumas features requerem planos pagos</li>
+        <li class="flex items-start"><i class="fas fa-times text-amber-500 mr-2 mt-1"></i>Rate limits rigorosos</li>
+        <li class="flex items-start"><i class="fas fa-times text-amber-500 mr-2 mt-1"></i>DMs requerem plano Basic ou superior</li>
+      </ul>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+        <i class="fas fa-link text-cyan-500 mr-2"></i>Links Uteis
+      </h2>
+      <div class="space-y-3">
+        <a href="https://developer.twitter.com" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors">
+          <i class="fas fa-external-link-alt text-neutral-500"></i>
+          <span>Twitter Developer Portal</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <a href="youtube.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 transition-colors">
+        <i class="fas fa-arrow-left"></i>
+        <span>YouTube</span>
+      </a>
+      <a href="llms.html" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-3 rounded-xl font-bold hover:from-purple-600 hover:to-pink-700 transition-all">
+        <span>Proximo: LLMs e IA</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-neutral-400 text-sm">N8N Academy - Conexoes e APIs</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
