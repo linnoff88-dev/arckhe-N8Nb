@@ -1,6 +1,6 @@
 traduza
 
- Configuração Simples do RAG
+ Configuraçêo Simples do RAG
 
 
 Data Ingestion & Vectorization Flow
@@ -58,7 +58,7 @@ SaaS Product Teams: In-app AI assistants for product documentation and API refer
 Manufacturing & Operations: Rapid access to equipment manuals, safety procedures, compliance docs.
 
 Recursos
-Configuração Simples do RAG
+Configuraçêo Simples do RAG
 
 
 resuma sobre o q é a solucao
@@ -93,7 +93,7 @@ resuma sobre o q é a solucao
 ==========
 traduza
 
-Reclassificação do Assistente RAG
+Reclassificaçêo do Assistente RAG
 
 
 Data Ingestion & Vectorization Flow
@@ -147,7 +147,7 @@ E-Commerce Platforms: Product catalogs with overlapping descriptions requiring p
 Academic Research Databases: University libraries needing precise paper recommendations from massive archives.
 
 Recursos
-Reclassificação do Agente RAG
+Reclassificaçêo do Agente RAG
 
 resuma a finalidade 
 

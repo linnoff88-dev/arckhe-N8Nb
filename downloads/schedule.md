@@ -4,7 +4,7 @@
 
 O **Schedule Trigger** é o node que permite executar workflows automaticamente em horários pré-determinados ou em intervalos regulares. É como um despertador ou cronômetro para suas automações.
 
-Ideal para tarefas repetitivas que precisam acontecer sem intervenção manual: relatórios diários, backups noturnos, sincronizações de dados, entre outros.
+Ideal para tarefas repetitivas que precisam acontecer sem intervençêo manual: relatórios diários, backups noturnos, sincronizações de dados, entre outros.
 
 ---
 
@@ -24,20 +24,20 @@ Execute workflows a cada X minutos, horas, dias ou use expressões CRON para age
 - ✓ Padrões personalizados
 
 ### Por que aprender:
-Automatize tarefas repetitivas sem intervenção manual (relatórios, backups, sincronizações).
+Automatize tarefas repetitivas sem intervençêo manual (relatórios, backups, sincronizações).
 
 ---
 
-## 🌍 Configuração de Timezone
+## 🌍 Configuraçêo de Timezone
 
 ### O que é:
 Definir o fuso horário correto para garantir execuções no horário local desejado.
 
-### ⚠️ Atenção:
+### ⚠️ Atençêo:
 Servidores geralmente rodam em UTC. Sempre configure o timezone correto para evitar execuções em horários errados!
 
 ### Conceitos chave:
-UTC, GMT, timezone local, horário de verão.
+UTC, GMT, timezone local, horário de verêo.
 
 ---
 
@@ -50,12 +50,12 @@ CRON: 0 8 * * *
 ```
 
 ### 2. Backup Semanal
-Execute todo domingo às 3h da manhã para fazer backup do banco de dados.
+Execute todo domingo às 3h da manhê para fazer backup do banco de dados.
 ```
 CRON: 0 3 * * 0
 ```
 
-### 3. Sincronização Horária
+### 3. Sincronizaçêo Horária
 Execute a cada hora para sincronizar dados entre sistemas.
 ```
 Intervalo: 1 hora
@@ -67,15 +67,15 @@ Intervalo: 1 hora
 
 ### Intervalos e CRON
 - **O que é:** Execute workflows a cada X minutos, horas, dias ou use CRON para agendamentos complexos
-- **Por que aprender:** Automatize tarefas repetitivas sem intervenção manual (relatórios, backups, sincronizações)
+- **Por que aprender:** Automatize tarefas repetitivas sem intervençêo manual (relatórios, backups, sincronizações)
 - **Conceitos chave:** Intervalos fixos, expressões CRON, timezone, polling schedule
 
-### Configuração de Timezone
+### Configuraçêo de Timezone
 - **O que é:** Definir o fuso horário correto para garantir execuções no horário local desejado
 - **Por que aprender:** Evitar execuções em horários errados, especialmente em equipes globais ou servidores em outras regiões
-- **Conceitos chave:** UTC, GMT, timezone local, horário de verão
+- **Conceitos chave:** UTC, GMT, timezone local, horário de verêo
 
-### Modos de Execução
+### Modos de Execuçêo
 - **O que é:** Escolher entre intervalos fixos ou expressões CRON para maior flexibilidade
 - **Por que aprender:** CRON permite padrões complexos (apenas dias úteis, horários específicos, etc.)
 - **Conceitos chave:** Cron syntax, interval mode, schedule mode

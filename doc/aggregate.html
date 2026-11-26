@@ -142,7 +142,7 @@
                     <li><strong>Lotes para APIs:</strong> Preparar arrays de registros para enviar a um sistema externo em massa, em vez de um de cada vez</li>
                     <li><strong>Resumir:</strong> Computar métricas agregadas (como totais, médias ou min/max) para relatórios</li>
                     <li><strong>Agrupar:</strong> Agrupar itens por um campo específico (como ID do cliente ou categoria) para reestruturar sua saída para análise ou dashboards</li>
-                    <li><strong>Reconstruir Arrays:</strong> Após processar itens individuais (por exemplo, após um Split Out), reagrupá-los para processamento adicional ou exportação</li>
+                    <li><strong>Reconstruir Arrays:</strong> Após processar itens individuais (por exemplo, após um Split Out), reagrupá-los para processamento adicional ou exportaçêo</li>
                 </ul>
             </div>
 
@@ -152,7 +152,7 @@
                     <ol>
                         <li><strong>Inserir o Nó:</strong> Adicione o nó Aggregate após uma série de itens, como saídas de Split Out, requisições HTTP ou registros transformados</li>
 
-                        <li><strong>Escolher Modo de Agregação:</strong>
+                        <li><strong>Escolher Modo de Agregaçêo:</strong>
                             <ul>
                                 <li><strong>Individual Fields:</strong> Combine campos específicos de todos os itens de entrada em um array (ex: coletar todos os endereços de email em um campo de array)</li>
                                 <li><strong>All Item Data:</strong> Agrupe itens inteiros em uma lista dentro de um único campo de saída, frequentemente nomeado como "orders" ou "results"</li>
@@ -163,12 +163,12 @@
                             <ul>
                                 <li><strong>Group By:</strong> Agrupe itens por um valor único ou categoria (ex: todas as vendas por cliente)</li>
                                 <li><strong>Merge Lists:</strong> Achate arrays do campo agregado se cada entrada já for um array (problema de "lista de listas")</li>
-                                <li><strong>Include/Exclude Fields:</strong> Ajuste quais campos são mantidos em arrays ou itens de resumo</li>
+                                <li><strong>Include/Exclude Fields:</strong> Ajuste quais campos sêo mantidos em arrays ou itens de resumo</li>
                                 <li><strong>Disable Dot Notation:</strong> Referencie campos com nomes contendo pontos como chaves literais</li>
                             </ul>
                         </li>
 
-                        <li><strong>Conectar Downstream:</strong> Após a agregação, a saída é um único item (ou itens agrupados se usar Group By) contendo arrays ou dados resumidos, pronto para relatórios, exportação ou ação em massa</li>
+                        <li><strong>Conectar Downstream:</strong> Após a agregaçêo, a saída é um único item (ou itens agrupados se usar Group By) contendo arrays ou dados resumidos, pronto para relatórios, exportaçêo ou açêo em massa</li>
                     </ol>
                 </div>
             </div>
@@ -177,8 +177,8 @@
                 <h2>Melhores Práticas e Dicas</h2>
                 <div class="highlight-box">
                     <ul>
-                        <li><strong>Use após Split Out ou lógica de loop</strong> para recombinar resultados individuais de volta em estrutura para o próximo passo de automação</li>
-                        <li><strong>Ao resumir, aproveite nós JavaScript downstream</strong> para cálculos complexos (ex: totais/médias) se não forem tratados diretamente no Aggregate</li>
+                        <li><strong>Use após Split Out ou lógica de loop</strong> para recombinar resultados individuais de volta em estrutura para o próximo passo de automaçêo</li>
+                        <li><strong>Ao resumir, aproveite nós JavaScript downstream</strong> para cálculos complexos (ex: totais/médias) se nêo forem tratados diretamente no Aggregate</li>
                         <li><strong>Sempre verifique</strong> que seu array resultante ou dados agrupados correspondem ao que o próximo sistema downstream ou API está esperando</li>
                     </ul>
                 </div>
@@ -195,7 +195,7 @@
                         <li><strong>Individual Fields + Sum:</strong> Reúne todos os campos "amount" em um único array, ou os soma para um valor total de vendas</li>
                     </ul>
 
-                    <p><strong>Resultado:</strong> O nó Aggregate é o passo crítico de "recombinação" ou "agrupamento", ajudando você a passar do tratamento de dados granular de volta para dados agrupados e prontos para lote para automações eficientes.</p>
+                    <p><strong>Resultado:</strong> O nó Aggregate é o passo crítico de "recombinaçêo" ou "agrupamento", ajudando você a passar do tratamento de dados granular de volta para dados agrupados e prontos para lote para automações eficientes.</p>
                 </div>
             </div>
         </div>

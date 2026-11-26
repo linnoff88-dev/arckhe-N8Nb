@@ -128,23 +128,23 @@
         <div class="content">
             <div class="section">
                 <h2>O que o HTTP Request Faz</h2>
-                <p>O nó HTTP Request no n8n é uma das ferramentas mais poderosas e versáteis do seu arsenal de workflow, permitindo que você se conecte com qualquer API, mesmo quando o n8n não oferece uma integração nativa.</p>
+                <p>O nó HTTP Request no n8n é uma das ferramentas mais poderosas e versáteis do seu arsenal de workflow, permitindo que você se conecte com qualquer API, mesmo quando o n8n nêo oferece uma integraçêo nativa.</p>
 
                 <ul>
                     <li><strong>Faz chamadas HTTP de saída</strong> (GET, POST, PUT, DELETE, PATCH, etc.) para qualquer endpoint</li>
                     <li><strong>Permite buscar ou enviar dados</strong> para serviços de terceiros, acionar ações ou integrar APIs legadas ou customizadas</li>
-                    <li><strong>Lida com tudo</strong>: desde APIs REST padrão até casos avançados como autenticação, uploads multi-part (arquivos) e parsing de JSON, XML ou texto</li>
-                    <li><strong>Pode ser usado para construir qualquer automação</strong>: buscar clima, enviar formulários, consultar bancos de dados, controlar dispositivos smart, invocar cloud functions e muito mais</li>
+                    <li><strong>Lida com tudo</strong>: desde APIs REST padrêo até casos avançados como autenticaçêo, uploads multi-part (arquivos) e parsing de JSON, XML ou texto</li>
+                    <li><strong>Pode ser usado para construir qualquer automaçêo</strong>: buscar clima, enviar formulários, consultar bancos de dados, controlar dispositivos smart, invocar cloud functions e muito mais</li>
                 </ul>
             </div>
 
             <div class="section">
                 <h2>Principais Casos de Uso</h2>
                 <ul>
-                    <li><strong>Conectar com plataformas não suportadas nativamente</strong> pelo n8n, incluindo ferramentas internas de negócio ou produtos SaaS obscuros</li>
-                    <li><strong>Customizar ou estender ações integradas</strong> (mesmo para serviços como Gmail ou Airtable) quando você precisa de mais controle ou acesso do que o nó padrão oferece</li>
+                    <li><strong>Conectar com plataformas nêo suportadas nativamente</strong> pelo n8n, incluindo ferramentas internas de negócio ou produtos SaaS obscuros</li>
+                    <li><strong>Customizar ou estender ações integradas</strong> (mesmo para serviços como Gmail ou Airtable) quando você precisa de mais controle ou acesso do que o nó padrêo oferece</li>
                     <li><strong>Lidar com webhooks de API</strong>, interagir com serviços de IA, fazer scraping de dados ou enviar notificações para Slack, Discord, Telegram, etc.</li>
-                    <li><strong>Construir automações escaláveis</strong> onde batching, requisições paralelas ou jobs com limite de taxa são necessários</li>
+                    <li><strong>Construir automações escaláveis</strong> onde batching, requisições paralelas ou jobs com limite de taxa sêo necessários</li>
                 </ul>
             </div>
 
@@ -156,10 +156,10 @@
 
                         <li><strong>Escolher Método e URL:</strong> Selecione o método HTTP (GET, POST, etc.) e especifique o endpoint da API completo que você quer chamar</li>
 
-                        <li><strong>Configurar Autenticação:</strong>
+                        <li><strong>Configurar Autenticaçêo:</strong>
                             <ul>
                                 <li>Para tipos de auth nativamente suportados, use Predefined Credential Type (OAuth, API key, Basic, etc.)</li>
-                                <li>Para APIs não suportadas/customizadas, configure headers manualmente no nó usando campos de expressão ou credenciais armazenadas</li>
+                                <li>Para APIs nêo suportadas/customizadas, configure headers manualmente no nó usando campos de expressêo ou credenciais armazenadas</li>
                             </ul>
                         </li>
 
@@ -180,7 +180,7 @@
                         <li><strong>Importar de cURL:</strong>
                             <ul>
                                 <li>Você pode colar um comando cURL e o n8n preencherá automaticamente todos os campos relevantes</li>
-                                <li>Economiza tempo massivo de configuração para endpoints complexos</li>
+                                <li>Economiza tempo massivo de configuraçêo para endpoints complexos</li>
                             </ul>
                         </li>
 
@@ -200,29 +200,29 @@
                     <ul>
                         <li><strong>GET:</strong> Buscar dados de uma API (ex: listar usuários, obter detalhes de produto)</li>
                         <li><strong>POST:</strong> Criar novos recursos (ex: adicionar novo contato, enviar formulário)</li>
-                        <li><strong>PUT:</strong> Atualizar recurso completo (substituição total)</li>
-                        <li><strong>PATCH:</strong> Atualizar campos específicos de um recurso (atualização parcial)</li>
+                        <li><strong>PUT:</strong> Atualizar recurso completo (substituiçêo total)</li>
+                        <li><strong>PATCH:</strong> Atualizar campos específicos de um recurso (atualizaçêo parcial)</li>
                         <li><strong>DELETE:</strong> Remover um recurso (ex: deletar registro, cancelar assinatura)</li>
                     </ul>
                 </div>
             </div>
 
             <div class="section">
-                <h2>Autenticação</h2>
+                <h2>Autenticaçêo</h2>
                 <div class="highlight-box">
-                    <h3>Tipos Comuns de Autenticação</h3>
+                    <h3>Tipos Comuns de Autenticaçêo</h3>
                     <ul>
                         <li><strong>API Key:</strong> Token passado em header (ex: <code>Authorization: Bearer TOKEN</code>) ou query parameter</li>
-                        <li><strong>OAuth 2.0:</strong> Fluxo de autenticação para serviços como Google, Facebook, etc.</li>
+                        <li><strong>OAuth 2.0:</strong> Fluxo de autenticaçêo para serviços como Google, Facebook, etc.</li>
                         <li><strong>Basic Auth:</strong> Username e password codificados em Base64</li>
                         <li><strong>Custom Headers:</strong> Headers específicos da API (ex: <code>X-API-Key: seu-token</code>)</li>
-                        <li><strong>JWT:</strong> JSON Web Tokens para autenticação stateless</li>
+                        <li><strong>JWT:</strong> JSON Web Tokens para autenticaçêo stateless</li>
                     </ul>
 
                     <h3 style="margin-top: 20px;">Melhores Práticas</h3>
                     <ul>
                         <li><strong>Use o sistema de Credentials do n8n</strong>, nunca hardcode chaves nos campos dos nós</li>
-                        <li><strong>Para APIs não suportadas</strong>, crie Generic Credential Type para reutilização</li>
+                        <li><strong>Para APIs nêo suportadas</strong>, crie Generic Credential Type para reutilizaçêo</li>
                         <li><strong>Proteja credenciais sensíveis</strong> com permissões apropriadas de workspace</li>
                     </ul>
                 </div>
@@ -248,7 +248,7 @@
                         <li><strong>Método:</strong> POST</li>
                         <li><strong>URL:</strong> https://crm.exemplo.com/api/leads</li>
                         <li><strong>Body:</strong> <code>{"name": "{{$json.name}}", "email": "{{$json.email}}", "source": "website"}</code></li>
-                        <li><strong>Response:</strong> Confirmação com ID do lead criado</li>
+                        <li><strong>Response:</strong> Confirmaçêo com ID do lead criado</li>
                     </ul>
                 </div>
 
@@ -283,12 +283,12 @@
                         <li><strong>Use o sistema de Credentials</strong>, nunca hardcode chaves em campos de nós</li>
                         <li><strong>Log request/response data</strong> para debugging fácil</li>
                         <li><strong>Leia respostas de erro</strong> e gerencie retries para falhas intermitentes, especialmente com APIs com limite de taxa ou instáveis</li>
-                        <li><strong>Entenda a diferença entre requisições paralelas (padrão) vs. sequenciais</strong> - sequencial é crítico para algumas APIs evitarem banimentos ou throttling</li>
-                        <li><strong>Quando resolver problemas</strong>, inspecione docs completas da API, logs de execução de nós e comece com requisições GET simples antes de mover para POSTs complexos ou fluxos de auth</li>
+                        <li><strong>Entenda a diferença entre requisições paralelas (padrêo) vs. sequenciais</strong> - sequencial é crítico para algumas APIs evitarem banimentos ou throttling</li>
+                        <li><strong>Quando resolver problemas</strong>, inspecione docs completas da API, logs de execuçêo de nós e comece com requisições GET simples antes de mover para POSTs complexos ou fluxos de auth</li>
                         <li><strong>Use Import from cURL</strong> quando API fornece exemplos cURL - economiza tempo enorme</li>
                         <li><strong>Teste com dados de exemplo</strong> antes de ativar workflow com dados reais</li>
                         <li><strong>Configure timeouts apropriados</strong> para APIs lentas</li>
-                        <li><strong>Implemente retry logic</strong> para APIs não confiáveis</li>
+                        <li><strong>Implemente retry logic</strong> para APIs nêo confiáveis</li>
                     </ul>
                 </div>
             </div>
@@ -298,19 +298,19 @@
                 <div class="warning">
                     <h3>Erros Comuns e Soluções</h3>
                     <ul>
-                        <li><strong>401 Unauthorized:</strong> Verifique credenciais e headers de autenticação</li>
+                        <li><strong>401 Unauthorized:</strong> Verifique credenciais e headers de autenticaçêo</li>
                         <li><strong>403 Forbidden:</strong> Verifique permissões da API key ou escopo do OAuth</li>
                         <li><strong>404 Not Found:</strong> Confirme URL e existência do recurso</li>
                         <li><strong>429 Too Many Requests:</strong> Implemente rate limiting com Loop Over Items + Wait</li>
                         <li><strong>500 Internal Server Error:</strong> Problema no servidor da API, implemente retry</li>
-                        <li><strong>Timeout:</strong> Aumente timeout ou otimize requisição</li>
+                        <li><strong>Timeout:</strong> Aumente timeout ou otimize requisiçêo</li>
                     </ul>
 
                     <h3 style="margin-top: 20px;">Dicas para Debugging</h3>
                     <ul>
                         <li>Habilite "Full Response" nas opções para ver headers e status code</li>
                         <li>Use ferramentas como Postman ou cURL para testar API isoladamente</li>
-                        <li>Verifique documentação da API para formato correto de request/response</li>
+                        <li>Verifique documentaçêo da API para formato correto de request/response</li>
                         <li>Adicione nós de logging para capturar requests e responses</li>
                     </ul>
                 </div>

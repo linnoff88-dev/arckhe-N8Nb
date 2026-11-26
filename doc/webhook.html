@@ -134,7 +134,7 @@
                     <li><strong>Escuta requisições HTTP recebidas</strong> (como POST, GET, etc.) em uma URL customizada gerada pelo n8n</li>
                     <li><strong>Aciona seu workflow instantaneamente</strong> quando dados chegam de outra app, serviço ou script</li>
                     <li><strong>Faz o n8n agir como receptor universal de API</strong> - qualquer app que pode enviar webhooks ou requisições HTTP pode agora acionar sua lógica de workflow</li>
-                    <li><strong>Suporta opções chave</strong>: caminhos customizados, métodos HTTP, autenticação (opcional, para segurança), URLs de teste/produção</li>
+                    <li><strong>Suporta opções chave</strong>: caminhos customizados, métodos HTTP, autenticaçêo (opcional, para segurança), URLs de teste/produçêo</li>
                 </ul>
             </div>
 
@@ -142,8 +142,8 @@
                 <h2>Principais Casos de Uso</h2>
                 <ul>
                     <li><strong>Triggers Instantâneos de Workflow:</strong> Reagir a envios de formulário, eventos de CRM/web app, notificações de sistema de pagamento ou dados de IoT</li>
-                    <li><strong>Construir Endpoints de API:</strong> Criar seus próprios microserviços leves ou APIs de automação dentro do n8n, onde clientes enviam dados E recebem respostas estruturadas</li>
-                    <li><strong>Workarounds de Integração:</strong> Quando um app ou serviço não pode usar triggers nativos, simplesmente conecte-o via webhooks</li>
+                    <li><strong>Construir Endpoints de API:</strong> Criar seus próprios microserviços leves ou APIs de automaçêo dentro do n8n, onde clientes enviam dados E recebem respostas estruturadas</li>
+                    <li><strong>Workarounds de Integraçêo:</strong> Quando um app ou serviço nêo pode usar triggers nativos, simplesmente conecte-o via webhooks</li>
                     <li><strong>Receber Notificações:</strong> De serviços como GitHub, Stripe, Shopify, ou qualquer sistema que suporte webhooks</li>
                     <li><strong>Formulários Web:</strong> Processar envios de formulários HTML customizados</li>
                 </ul>
@@ -152,7 +152,7 @@
             <div class="section">
                 <h2>Como Configurar</h2>
                 <div class="steps">
-                    <h3>Configuração Básica</h3>
+                    <h3>Configuraçêo Básica</h3>
                     <ol>
                         <li><strong>Adicionar Webhook Node:</strong> Defina o método HTTP (GET, POST, etc.) e caminho customizado</li>
 
@@ -163,30 +163,30 @@
                             </ul>
                         </li>
 
-                        <li><strong>Configurar Remetente:</strong> Cole a URL do webhook nas configurações de webhook/evento da outra aplicação, ou teste com Postman/cURL</li>
+                        <li><strong>Configurar Remetente:</strong> Cole a URL do webhook nas configurações de webhook/evento da outra aplicaçêo, ou teste com Postman/cURL</li>
 
                         <li><strong>Modo de Resposta:</strong> Escolha como responder:
                             <ul>
-                                <li><strong>Immediately:</strong> Responde imediatamente com confirmação simples</li>
+                                <li><strong>Immediately:</strong> Responde imediatamente com confirmaçêo simples</li>
                                 <li><strong>When Last Node Finishes:</strong> Responde após workflow completar</li>
                                 <li><strong>Using 'Respond to Webhook' Node:</strong> Para respostas customizadas</li>
                             </ul>
                         </li>
 
-                        <li><strong>Testar e Iterar:</strong> Use URL de teste para debugging ativo, então mude para URL de produção quando live</li>
+                        <li><strong>Testar e Iterar:</strong> Use URL de teste para debugging ativo, entêo mude para URL de produçêo quando live</li>
                     </ol>
                 </div>
             </div>
 
             <div class="section">
-                <h2>Opções de Configuração</h2>
+                <h2>Opções de Configuraçêo</h2>
                 <div class="highlight-box">
                     <h3>Métodos HTTP</h3>
                     <ul>
                         <li><strong>GET:</strong> Receber dados via query parameters</li>
                         <li><strong>POST:</strong> Receber dados no body (mais comum)</li>
                         <li><strong>PUT:</strong> Atualizar recursos</li>
-                        <li><strong>PATCH:</strong> Atualização parcial</li>
+                        <li><strong>PATCH:</strong> Atualizaçêo parcial</li>
                         <li><strong>DELETE:</strong> Remover recursos</li>
                     </ul>
 
@@ -196,11 +196,11 @@
                         <li><code>/form-submission</code></li>
                         <li><code>/stripe-payment</code></li>
                         <li><code>/github-push</code></li>
-                        <li>Facilita organização quando tem múltiplos webhooks</li>
+                        <li>Facilita organizaçêo quando tem múltiplos webhooks</li>
                     </ul>
 
-                    <h3 style="margin-top: 20px;">Autenticação</h3>
-                    <p>Proteja seu webhook com autenticação:</p>
+                    <h3 style="margin-top: 20px;">Autenticaçêo</h3>
+                    <p>Proteja seu webhook com autenticaçêo:</p>
                     <ul>
                         <li><strong>Header Auth:</strong> Requer header específico com token</li>
                         <li><strong>Basic Auth:</strong> Username e password</li>
@@ -225,7 +225,7 @@
                         <li>URL permanente e estável</li>
                         <li>Ativa apenas quando workflow está ATIVADO</li>
                         <li>Use esta URL em integrações reais</li>
-                        <li>Não muda a menos que você altere o caminho</li>
+                        <li>Nêo muda a menos que você altere o caminho</li>
                     </ul>
 
                     <p style="margin-top: 15px;"><strong>IMPORTANTE:</strong> Sempre teste com Test URL primeiro, depois ative o workflow e mude para Production URL!</p>
@@ -251,7 +251,7 @@
                     <ul>
                         <li><strong>Webhook:</strong> POST /stripe-webhook</li>
                         <li><strong>Stripe:</strong> Envia evento quando pagamento é concluído</li>
-                        <li><strong>Workflow:</strong> Valida assinatura → Atualiza banco → Envia email de confirmação</li>
+                        <li><strong>Workflow:</strong> Valida assinatura → Atualiza banco → Envia email de confirmaçêo</li>
                         <li><strong>Resposta:</strong> Status 200 para confirmar recebimento</li>
                     </ul>
                 </div>
@@ -270,7 +270,7 @@
                     <h3>Exemplo 4: API Customizada para Mobile App</h3>
                     <p><strong>Cenário:</strong> Endpoint para app mobile enviar dados de usuário</p>
                     <ul>
-                        <li><strong>Webhook:</strong> POST /user-data com autenticação</li>
+                        <li><strong>Webhook:</strong> POST /user-data com autenticaçêo</li>
                         <li><strong>App:</strong> Envia dados do usuário</li>
                         <li><strong>Workflow:</strong> Valida → Processa → Retorna resposta customizada</li>
                         <li><strong>Respond to Webhook:</strong> Retorna {"success": true, "userId": 123}</li>
@@ -283,9 +283,9 @@
                 <div class="highlight-box">
                     <ul>
                         <li><strong>Sempre teste com Test URL primeiro</strong>, mude para production apenas quando pronto</li>
-                        <li><strong>Adicione autenticação</strong> se webhook for exposto publicamente</li>
-                        <li><strong>Valide dados recebidos</strong> antes de processar (use IF node para validação)</li>
-                        <li><strong>Use caminhos descritivos</strong> para facilitar organização e debugging</li>
+                        <li><strong>Adicione autenticaçêo</strong> se webhook for exposto publicamente</li>
+                        <li><strong>Valide dados recebidos</strong> antes de processar (use IF node para validaçêo)</li>
+                        <li><strong>Use caminhos descritivos</strong> para facilitar organizaçêo e debugging</li>
                         <li><strong>Configure resposta apropriada</strong> baseado no que cliente espera</li>
                         <li><strong>Log requisições</strong> para debugging e auditoria</li>
                         <li><strong>Trate erros graciosamente</strong> - sempre retorne resposta, mesmo em erro</li>
@@ -299,13 +299,13 @@
                 <div class="warning">
                     <h3>Considerações Importantes de Segurança</h3>
                     <ul>
-                        <li><strong>Nunca exponha webhooks sem autenticação</strong> para operações sensíveis</li>
+                        <li><strong>Nunca exponha webhooks sem autenticaçêo</strong> para operações sensíveis</li>
                         <li><strong>Valide assinaturas</strong> quando plataformas oferecem (como Stripe, GitHub)</li>
                         <li><strong>Limite taxa de requisições</strong> para prevenir abuso</li>
                         <li><strong>Valide origem das requisições</strong> quando possível (IP whitelist)</li>
-                        <li><strong>Não confie cegamente em dados recebidos</strong> - sempre valide e sanitize</li>
+                        <li><strong>Nêo confie cegamente em dados recebidos</strong> - sempre valide e sanitize</li>
                         <li><strong>Use HTTPS</strong> - n8n cloud já fornece, self-hosted deve configurar</li>
-                        <li><strong>Rotacione tokens</strong> de autenticação regularmente</li>
+                        <li><strong>Rotacione tokens</strong> de autenticaçêo regularmente</li>
                         <li><strong>Log acessos suspeitos</strong> para monitoramento de segurança</li>
                     </ul>
                 </div>
@@ -324,9 +324,9 @@
 
                     <h3 style="margin-top: 20px;">Problemas Comuns</h3>
                     <ul>
-                        <li><strong>Webhook não aciona:</strong> Workflow está ativado? Usando Production URL?</li>
-                        <li><strong>Dados não aparecem:</strong> Verifique formato do body (JSON, form-data, etc.)</li>
-                        <li><strong>Erro de autenticação:</strong> Confirme headers de auth estão corretos</li>
+                        <li><strong>Webhook nêo aciona:</strong> Workflow está ativado? Usando Production URL?</li>
+                        <li><strong>Dados nêo aparecem:</strong> Verifique formato do body (JSON, form-data, etc.)</li>
+                        <li><strong>Erro de autenticaçêo:</strong> Confirme headers de auth estêo corretos</li>
                         <li><strong>Timeout:</strong> Workflow está levando muito tempo, considere processamento assíncrono</li>
                     </ul>
                 </div>

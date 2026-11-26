@@ -47,7 +47,7 @@ def create_schedule_trigger():
     <div class="max-w-7xl mx-auto px-4 text-center text-white">
       <div class="text-8xl mb-8 animate-pulse">⏰</div>
       <h1 class="text-6xl font-bold mb-6 gradient-text-white">Schedule Trigger</h1>
-      <p class="text-3xl mb-4 text-white/90">Automação hands-free que funciona enquanto você dorme</p>
+      <p class="text-3xl mb-4 text-white/90">Automaçêo hands-free que funciona enquanto você dorme</p>
       <p class="text-xl text-white/80 max-w-3xl mx-auto">Dispare workflows em horários fixos ou intervalos personalizados - como o cron do Unix, integrado ao n8n</p>
     </div>
   </section>
@@ -106,7 +106,7 @@ def create_schedule_trigger():
           <p class="text-lg text-neutral-600 dark:text-neutral-400">Notificações, lembretes ou emails em lote programados</p>
         </div>
         <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
-          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">🧹 Tarefas de Manutenção</p>
+          <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">🧹 Tarefas de Manutençêo</p>
           <p class="text-lg text-neutral-600 dark:text-neutral-400">Limpeza de banco de dados, arquivamento recorrente</p>
         </div>
         <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
@@ -129,7 +129,7 @@ def create_schedule_trigger():
         </div>
         <div class="border-l-4 border-emerald-500 pl-6 py-4">
           <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">2. Configurar Intervalos</p>
-          <p class="text-lg text-neutral-600 dark:text-neutral-400">Escolha entre intervalos (minutos, horas, dias, semanas) ou use padrão CRON para agendamentos avançados (como "toda terça às 5h")</p>
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">Escolha entre intervalos (minutos, horas, dias, semanas) ou use padrêo CRON para agendamentos avançados (como "toda terça às 5h")</p>
         </div>
         <div class="border-l-4 border-emerald-500 pl-6 py-4">
           <p class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">3. Definir Timezone</p>
@@ -150,12 +150,12 @@ def create_schedule_trigger():
     <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-3xl p-12 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">💡</span>
-        <h3 class="text-4xl font-bold text-emerald-900 dark:text-emerald-300">Exemplo Prático: Automação Toda Segunda às 9h</h3>
+        <h3 class="text-4xl font-bold text-emerald-900 dark:text-emerald-300">Exemplo Prático: Automaçêo Toda Segunda às 9h</h3>
       </div>
       <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
-        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6 font-semibold">Cenário: Executar workflow toda segunda-feira às 9h da manhã</p>
+        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6 font-semibold">Cenário: Executar workflow toda segunda-feira às 9h da manhê</p>
         <div class="code-block mb-6">
-<span class="text-emerald-400">// Configuração do Schedule Trigger</span>
+<span class="text-emerald-400">// Configuraçêo do Schedule Trigger</span>
 
 <span class="text-blue-400">Modo:</span> Weekly (Semanal)
 <span class="text-blue-400">Weeks Between Triggers:</span> 1
@@ -167,7 +167,7 @@ def create_schedule_trigger():
 <span class="text-emerald-400">// Conecte aos próximos nodes:</span>
 Schedule Trigger → HTTP Request → Edit Fields → Send Email
         </div>
-        <p class="text-lg text-neutral-600 dark:text-neutral-400">⚡ <strong>Resultado:</strong> O workflow dispara automaticamente toda segunda-feira às 9h, sem intervenção manual!</p>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400">⚡ <strong>Resultado:</strong> O workflow dispara automaticamente toda segunda-feira às 9h, sem intervençêo manual!</p>
       </div>
     </div>
 
@@ -184,7 +184,7 @@ Schedule Trigger → HTTP Request → Edit Fields → Send Email
         </div>
         <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
           <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">🌍 Sempre Verifique o Timezone</p>
-          <p class="text-lg text-neutral-700 dark:text-neutral-300">Dupla-verificação do timezone PREVINE execuções fora do horário esperado</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300">Dupla-verificaçêo do timezone PREVINE execuções fora do horário esperado</p>
         </div>
         <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-xl border-l-4 border-emerald-500">
           <p class="text-xl font-bold text-emerald-900 dark:text-emerald-300 mb-2">⚠️ Cuidado com Frequências Excessivas</p>
@@ -238,11 +238,11 @@ Schedule Trigger → HTTP Request → Edit Fields → Send Email
 </html>'''
 
 
-# Função principal que vai criar TODOS os 17 nodes
+# Funçêo principal que vai criar TODOS os 17 nodes
 def create_all_nodes():
     nodes = {
         'schedule': create_schedule_trigger(),
-        # Os outros 16 nodes virão em seguida...
+        # Os outros 16 nodes virêo em seguida...
     }
 
     for filename, content in nodes.items():

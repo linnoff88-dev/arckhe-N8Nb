@@ -43,16 +43,16 @@
         <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">IF/ELSE Básico</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8">
-        Se condição é <strong>verdadeira</strong>, vai por um caminho. Senão, vai por outro.
+        Se condiçêo é <strong>verdadeira</strong>, vai por um caminho. Senêo, vai por outro.
       </p>
       <div class="grid md:grid-cols-2 gap-8 mb-8">
         <div class="bg-green-50 dark:bg-green-900/20 p-8 rounded-xl border-l-4 border-green-500">
           <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-2">✅ TRUE</p>
-          <p class="text-neutral-600 dark:text-neutral-400">Condição verdadeira → executa este caminho</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Condiçêo verdadeira → executa este caminho</p>
         </div>
         <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-l-4 border-red-500">
           <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-2">❌ FALSE</p>
-          <p class="text-neutral-600 dark:text-neutral-400">Condição falsa → executa este outro caminho</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Condiçêo falsa → executa este outro caminho</p>
         </div>
       </div>
       <div class="code-block">
@@ -66,7 +66,7 @@ Se valor = 80  → FALSE → sem desconto
     <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-3xl p-12 mb-12 border-2 border-purple-200 dark:border-purple-800">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">🔧</span>
-        <h3 class="text-4xl font-bold text-purple-900 dark:text-purple-300">Operadores de Comparação</h3>
+        <h3 class="text-4xl font-bold text-purple-900 dark:text-purple-300">Operadores de Comparaçêo</h3>
       </div>
       <div class="grid md:grid-cols-2 gap-4">
         <div class="bg-white dark:bg-neutral-800 p-4 rounded-xl">
@@ -164,7 +164,7 @@ switch(departamento):
           <p class="text-lg font-bold text-red-800 dark:text-red-300 mb-3">🔄 Estratégias</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li>→ <strong>Retry:</strong> Tentar novamente X vezes</li>
-            <li>→ <strong>Fallback:</strong> Usar valor padrão</li>
+            <li>→ <strong>Fallback:</strong> Usar valor padrêo</li>
             <li>→ <strong>Notificar:</strong> Enviar alerta</li>
             <li>→ <strong>Log:</strong> Registrar para análise</li>
           </ul>
@@ -193,8 +193,8 @@ switch(departamento):
           <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-3">🔀 Exemplo 1: IF Simples - Pedido VIP</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Tratamento especial para pedidos acima de R$500:</p>
           <div class="code-block">
-// Configuração do IF Node:
-Condição: {{ $json.total }} > 500
+// Configuraçêo do IF Node:
+Condiçêo: {{ $json.total }} > 500
 
 // Entrada (do node anterior):
 { "cliente": "Maria", "total": 750, "itens": [...] }
@@ -205,12 +205,12 @@ Condição: {{ $json.total }} > 500
 └── Notificar gerente de vendas
 
 // FALSE (valor <= 500):
-├── Enviar email padrão
+├── Enviar email padrêo
 └── Calcular frete normal
 
 // No N8N, visualmente:
 [Webhook] → [IF: total > 500] → TRUE → [Email VIP] → [Slack]
-                             → FALSE → [Email Padrão]
+                             → FALSE → [Email Padrêo]
           </div>
         </div>
 
@@ -219,7 +219,7 @@ Condição: {{ $json.total }} > 500
           <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">🔗 Exemplo 2: AND/OR - Lead Qualificado</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Lead é qualificado se: empresa > 50 funcionários E cargo = decisor:</p>
           <div class="code-block">
-// Configuração do IF Node com AND:
+// Configuraçêo do IF Node com AND:
 Condições (ALL devem ser verdadeiras):
   1. {{ $json.empresa_tamanho }} > 50
   2. {{ $json.cargo }}.includes("Diretor") OR {{ $json.cargo }}.includes("Gerente")
@@ -237,7 +237,7 @@ Condições (ALL devem ser verdadeiras):
 ├── Agendar call com SDR
 └── Score = 80
 
-// FALSE (não qualificado):
+// FALSE (nêo qualificado):
 ├── Adicionar à lista de nurturing
 └── Score = 30
           </div>
@@ -248,7 +248,7 @@ Condições (ALL devem ser verdadeiras):
           <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🔀 Exemplo 3: Switch - Roteamento por Departamento</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Enviar ticket para o canal certo baseado no departamento:</p>
           <div class="code-block">
-// Configuração do Switch Node:
+// Configuraçêo do Switch Node:
 Campo: {{ $json.departamento }}
 
 Outputs:
@@ -275,14 +275,14 @@ Outputs:
           <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-3">⚠️ Exemplo 4: Error Handling Completo</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">O que fazer quando a API externa falha:</p>
           <div class="code-block">
-// Configuração do HTTP Request Node:
+// Configuraçêo do HTTP Request Node:
 Settings:
   On Error: Continue (On Fail)
   Retry On Fail: Yes
   Max Tries: 3
 
 // Depois do HTTP Request, adicionar IF:
-Condição: {{ $json.error }} exists
+Condiçêo: {{ $json.error }} exists
 
 // Se ERRO:
 ├── Log no Airtable (data, erro, payload)

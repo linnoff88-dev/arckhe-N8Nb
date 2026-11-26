@@ -33,17 +33,17 @@
       <div class="text-8xl mb-8">🌐</div>
       <h1 class="text-6xl font-bold mb-6">APIs</h1>
       <p class="text-3xl mb-4 text-white/90">A Ponte Entre Sistemas</p>
-      <p class="text-xl text-white/80 max-w-3xl mx-auto">N8N é basicamente um orquestrador de APIs. Entender APIs é entender automação.</p>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">N8N é basicamente um orquestrador de APIs. Entender APIs é entender automaçêo.</p>
     </div>
   </section>
 
   <section class="max-w-7xl mx-auto px-4 py-20">
 
-    <!-- O QUE SÃO APIs -->
+    <!-- O QUE SêO APIs -->
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">📚</span>
-        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que são APIs?</h2>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que sêo APIs?</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
         <strong>Application Programming Interface</strong> - forma padronizada de sistemas conversarem entre si.
@@ -56,7 +56,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl text-center">
           <p class="text-4xl mb-2">📤</p>
-          <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">Requisição</p>
+          <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">Requisiçêo</p>
           <p class="text-sm text-neutral-600 dark:text-neutral-400">Você pede algo</p>
         </div>
         <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl text-center">
@@ -79,7 +79,7 @@
         <h3 class="text-4xl font-bold text-indigo-900 dark:text-indigo-300">Métodos HTTP</h3>
       </div>
       <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
-        Cada método indica uma <strong>ação diferente</strong>. Use o método certo!
+        Cada método indica uma <strong>açêo diferente</strong>. Use o método certo!
       </p>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
@@ -121,7 +121,7 @@
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">🔐</span>
-        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Headers e Autenticação</h3>
+        <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Headers e Autenticaçêo</h3>
       </div>
       <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-6">
         Headers carregam metadados importantes como tipo de conteúdo e credenciais:
@@ -134,12 +134,12 @@ Accept: application/json
       </div>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
-          <p class="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">🔑 Tipos de Autenticação</p>
+          <p class="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">🔑 Tipos de Autenticaçêo</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li>→ <strong>Bearer Token:</strong> Token no header Authorization</li>
             <li>→ <strong>API Key:</strong> Chave no header ou query param</li>
             <li>→ <strong>Basic Auth:</strong> Usuário:senha em base64</li>
-            <li>→ <strong>OAuth 2.0:</strong> Fluxo completo de autorização</li>
+            <li>→ <strong>OAuth 2.0:</strong> Fluxo completo de autorizaçêo</li>
           </ul>
         </div>
         <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl">
@@ -175,10 +175,10 @@ Accept: application/json
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-2xl font-bold text-yellow-600 mb-2">4xx - Erro do Cliente</p>
           <ul class="space-y-1 text-neutral-600 dark:text-neutral-400">
-            <li><strong>400</strong> - Requisição inválida</li>
-            <li><strong>401</strong> - Não autorizado</li>
+            <li><strong>400</strong> - Requisiçêo inválida</li>
+            <li><strong>401</strong> - Nêo autorizado</li>
             <li><strong>403</strong> - Proibido</li>
-            <li><strong>404</strong> - Não encontrado</li>
+            <li><strong>404</strong> - Nêo encontrado</li>
             <li><strong>429</strong> - Muitas requisições</li>
           </ul>
         </div>
@@ -208,7 +208,7 @@ Accept: application/json
         <!-- Exemplo 1: GET Request -->
         <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-800">
           <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-3">📥 Exemplo 1: GET - Buscar lista de clientes</p>
-          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Configuração do HTTP Request Node:</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Configuraçêo do HTTP Request Node:</p>
           <div class="code-block">
 Método: GET
 URL: https://api.empresa.com/v1/clientes
@@ -224,7 +224,7 @@ Query Parameters (opcional):
 // RESPOSTA (200 OK):
 {
   "clientes": [
-    { "id": 1, "nome": "João", "email": "joao@email.com" },
+    { "id": 1, "nome": "Joêo", "email": "joao@email.com" },
     { "id": 2, "nome": "Maria", "email": "maria@email.com" }
   ],
   "total": 2
@@ -264,10 +264,10 @@ Body (JSON):
           </div>
         </div>
 
-        <!-- Exemplo 3: Autenticação -->
+        <!-- Exemplo 3: Autenticaçêo -->
         <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
           <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🔐 Exemplo 3: OAuth 2.0 - Autenticando no Google</p>
-          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Fluxo de autenticação configurado via Credentials:</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Fluxo de autenticaçêo configurado via Credentials:</p>
           <div class="code-block">
 // 1. Configurar Credential no N8N:
    Tipo: OAuth2
@@ -291,7 +291,7 @@ Body (JSON):
         <!-- Exemplo 4: Tratando Erros -->
         <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl border-2 border-red-200 dark:border-red-800">
           <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-3">⚠️ Exemplo 4: Tratando erros de API</p>
-          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Configuração de retry e error handling:</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Configuraçêo de retry e error handling:</p>
           <div class="code-block">
 // No HTTP Request Node - Settings:
    On Error: Continue (On Fail)
@@ -300,7 +300,7 @@ Body (JSON):
    Wait Between Tries: 1000ms
 
 // Depois adicione um IF Node para verificar:
-   Condição: {{ $json.statusCode }} != 200
+   Condiçêo: {{ $json.statusCode }} != 200
 
    Se ERRO (4xx ou 5xx):
      ├── Log erro no Notion/Airtable
@@ -311,7 +311,7 @@ Body (JSON):
 
 // Erros comuns e soluções:
 401 → Token expirado, precisa re-autenticar
-403 → Sem permissão, verificar scopes
+403 → Sem permissêo, verificar scopes
 429 → Rate limit, adicionar delay entre requests
 500 → Erro do servidor, tentar novamente depois
           </div>

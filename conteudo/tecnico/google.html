@@ -42,14 +42,14 @@
 
   <section class="max-w-7xl mx-auto px-4 py-20">
 
-    <!-- VISÃO GERAL -->
+    <!-- VISêO GERAL -->
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">🎯</span>
-        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visão Geral</h2>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visêo Geral</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
-        O Google usa <strong>OAuth 2.0</strong> para autenticação. Isso significa que você precisa criar um "App" no Google Cloud Console, configurar credenciais e autorizar o N8N a acessar sua conta.
+        O Google usa <strong>OAuth 2.0</strong> para autenticaçêo. Isso significa que você precisa criar um "App" no Google Cloud Console, configurar credenciais e autorizar o N8N a acessar sua conta.
       </p>
       <div class="grid md:grid-cols-4 gap-6">
         <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl text-center">
@@ -118,7 +118,7 @@
             </li>
             <li class="flex items-start gap-3">
               <span class="text-blue-500 font-bold">→</span>
-              <span>Organização: deixe como está (ou selecione se tiver)</span>
+              <span>Organizaçêo: deixe como está (ou selecione se tiver)</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-blue-500 font-bold">→</span>
@@ -195,7 +195,7 @@
       </div>
 
       <div class="mt-6 p-4 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
-        <p class="text-blue-900 dark:text-blue-200">💡 <strong>Dica:</strong> Ative todas as APIs que você pretende usar agora. Não precisa voltar depois.</p>
+        <p class="text-blue-900 dark:text-blue-200">💡 <strong>Dica:</strong> Ative todas as APIs que você pretende usar agora. Nêo precisa voltar depois.</p>
       </div>
     </div>
 
@@ -207,7 +207,7 @@
       </div>
 
       <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg mb-6">
-        <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.1 Acessar Configuração</p>
+        <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.1 Acessar Configuraçêo</p>
         <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
           <li class="flex items-start gap-3">
             <span class="text-purple-500 font-bold">→</span>
@@ -272,8 +272,8 @@ https://www.googleapis.com/auth/calendar            // Calendar
       <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg">
         <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">3.4 Adicionar Usuários de Teste</p>
         <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-xl mb-4 border-2 border-red-300 dark:border-red-700">
-          <p class="text-red-800 dark:text-red-300 font-semibold">⚠️ CRÍTICO - Não pule este passo!</p>
-          <p class="text-neutral-700 dark:text-neutral-300">Enquanto o app estiver em modo "Teste", APENAS os emails adicionados aqui poderão se conectar.</p>
+          <p class="text-red-800 dark:text-red-300 font-semibold">⚠️ CRÍTICO - Nêo pule este passo!</p>
+          <p class="text-neutral-700 dark:text-neutral-300">Enquanto o app estiver em modo "Teste", APENAS os emails adicionados aqui poderêo se conectar.</p>
         </div>
         <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
           <li class="flex items-start gap-3">
@@ -401,7 +401,7 @@ http://localhost:5678/rest/oauth2-credential/callback
           <ol class="space-y-3 text-neutral-700 dark:text-neutral-300">
             <li class="flex items-start gap-3">
               <span class="text-orange-500 font-bold">1.</span>
-              <span>Clique em <strong>"Sign in with Google"</strong> (ou botão similar)</span>
+              <span>Clique em <strong>"Sign in with Google"</strong> (ou botêo similar)</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-orange-500 font-bold">2.</span>
@@ -413,7 +413,7 @@ http://localhost:5678/rest/oauth2-credential/callback
             </li>
             <li class="flex items-start gap-3">
               <span class="text-orange-500 font-bold">4.</span>
-              <span>Vai aparecer um aviso <strong>"App não verificado"</strong> - clique em <strong>"Avançado"</strong> → <strong>"Ir para N8N Automações (não seguro)"</strong></span>
+              <span>Vai aparecer um aviso <strong>"App nêo verificado"</strong> - clique em <strong>"Avançado"</strong> → <strong>"Ir para N8N Automações (nêo seguro)"</strong></span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-orange-500 font-bold">5.</span>
@@ -493,7 +493,7 @@ Binary Property: data
 // Operation: Create
 
 Calendar: primary
-Summary: Reunião com {{ $json.cliente }}
+Summary: Reuniêo com {{ $json.cliente }}
 Start: {{ $json.data_reuniao }}
 End: {{ $json.data_reuniao_fim }}
 Description:
@@ -515,26 +515,26 @@ Attendees:
       <div class="space-y-6">
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "Error 400: redirect_uri_mismatch"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> A URL de callback no Google não bate com a do N8N.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Verifique a URL exata nas credenciais do Google Console. Atenção a http vs https e presença de barra no final.</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> A URL de callback no Google nêo bate com a do N8N.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Verifique a URL exata nas credenciais do Google Console. Atençêo a http vs https e presença de barra no final.</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "Access blocked: This app's request is invalid"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Tela de consentimento não configurada ou projeto errado selecionado.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Complete a configuração da tela de consentimento OAuth e verifique se o projeto correto está selecionado.</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Tela de consentimento nêo configurada ou projeto errado selecionado.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Complete a configuraçêo da tela de consentimento OAuth e verifique se o projeto correto está selecionado.</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "Error 403: access_denied"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> O email não está na lista de usuários de teste.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Adicione o email em "Tela de consentimento OAuth" → "Usuários de teste".</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> O email nêo está na lista de usuários de teste.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Adicione o email em "Tela de consentimento OAuth" → "Usuários de teste".</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ Token expira frequentemente</p>
           <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Apps em modo "teste" têm tokens com validade de 7 dias.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Publique o app (envie para verificação do Google) ou reconecte a credencial periodicamente.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Publique o app (envie para verificaçêo do Google) ou reconecte a credencial periodicamente.</p>
         </div>
       </div>
     </div>

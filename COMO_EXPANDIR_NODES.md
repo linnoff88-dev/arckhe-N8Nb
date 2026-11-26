@@ -2,14 +2,14 @@
 
 ## ✅ Status Atual
 
-- **Schedule Trigger:** ✅ COMPLETO (665 linhas, padrão ouro)
-- **Outros 16 nodes:** Placeholders prontos para expansão
+- **Schedule Trigger:** ✅ COMPLETO (665 linhas, padrêo ouro)
+- **Outros 16 nodes:** Placeholders prontos para expansêo
 
 ---
 
 ## 🎯 Objetivo
 
-Criar conteúdo **COMPLETO E PROFUNDO** para cada um dos 16 nodes restantes, seguindo o mesmo padrão do Schedule Trigger.
+Criar conteúdo **COMPLETO E PROFUNDO** para cada um dos 16 nodes restantes, seguindo o mesmo padrêo do Schedule Trigger.
 
 ---
 
@@ -23,7 +23,7 @@ Use `conteudo/schedule.html` como **referência perfeita**. Cada node deve ter:
 - 3 badges categorizados
 - Gradiente da cor do node
 
-### 2. **Introdução Expandida** (100-150 linhas)
+### 2. **Introduçêo Expandida** (100-150 linhas)
 - O que é? (parágrafo detalhado)
 - 4 Casos de Uso Principais (grid 2x2 com cards)
 - Diferencial do node
@@ -34,17 +34,17 @@ Crie **3-5 seções principais** com gradientes alternados:
 
 #### Exemplo de Seções (HTTP Request):
 - **Métodos HTTP** (GET, POST, PUT, PATCH, DELETE)
-- **Autenticação** (None, Basic, OAuth2, Header, Digest)
+- **Autenticaçêo** (None, Basic, OAuth2, Header, Digest)
 - **Body Types** (JSON, Form, Multipart, Raw, Binary)
 - **Headers e Query Parameters**
 - **Response Handling**
 
-Use padrão:
+Use padrêo:
 ```html
 <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 mb-10 border-2 border-indigo-200 dark:border-indigo-800">
   <div class="flex items-center mb-6">
     <span class="text-5xl mr-4">⚙️</span>
-    <h3 class="text-3xl font-bold">Título da Seção</h3>
+    <h3 class="text-3xl font-bold">Título da Seçêo</h3>
   </div>
   <!-- Conteúdo detalhado -->
 </div>
@@ -55,13 +55,13 @@ Use padrão:
 Grid 2x2 ou 2x3 com:
 - Código real (em .code-block)
 - Badge de categoria (BÁSICO, COMUM, AVANÇADO)
-- Explicação do uso
+- Explicaçêo do uso
 
 ### 5. **Caso de Uso Real** (80-100 linhas)
 
 Workflow completo passo a passo:
 - Cenário real
-- Configuração detalhada
+- Configuraçêo detalhada
 - Fluxo numerado (1. 2. 3.)
 - Benefícios listados
 
@@ -69,7 +69,7 @@ Workflow completo passo a passo:
 
 Grid 2 colunas:
 - ✅ FAÇA (lista verde)
-- ❌ NÃO FAÇA (lista vermelha)
+- ❌ NêO FAÇA (lista vermelha)
 - Performance Tips (opcional)
 
 ### 7. **Troubleshooting** (60-80 linhas)
@@ -77,7 +77,7 @@ Grid 2 colunas:
 3-5 problemas comuns:
 - ❓ Problema
 - Causa
-- ✅ Solução
+- ✅ Soluçêo
 
 ### 8. **CTA Final** (40-50 linhas)
 
@@ -113,19 +113,19 @@ Event Trigger:     sky-600 to blue-700
 
 ## 📚 Fontes de Pesquisa
 
-### Documentação Oficial:
+### Documentaçêo Oficial:
 - https://docs.n8n.io/integrations/builtin/core-nodes/
 - https://n8n.io/workflows/ (exemplos reais)
 
 ### Para cada node, pesquise:
-1. Documentação oficial N8N
+1. Documentaçêo oficial N8N
 2. Use cases reais
 3. Problemas comuns (GitHub Issues, Stack Overflow)
 4. Best practices da comunidade
 
 ---
 
-## 🔄 Processo de Criação
+## 🔄 Processo de Criaçêo
 
 ### Para cada node:
 
@@ -149,7 +149,7 @@ Event Trigger:     sky-600 to blue-700
    - Adicione comentários explicativos
    - Use dados realistas
 
-5. **Revisão** (10 min)
+5. **Revisêo** (10 min)
    - Dark mode funciona?
    - Links corretos?
    - Typos?
@@ -165,18 +165,18 @@ Event Trigger:     sky-600 to blue-700
 2. Webhook (trigger crítico)
 3. IF (lógica essencial)
 4. Code (poder máximo)
-5. Edit Fields / Set (manipulação dados)
+5. Edit Fields / Set (manipulaçêo dados)
 
 ### Tier 2 - Importantes:
 6. Split Out (arrays)
 7. Aggregate (agrupamento)
-8. Loop (iteração)
-9. Merge (união dados)
+8. Loop (iteraçêo)
+9. Merge (uniêo dados)
 10. Switch (decisões múltiplas)
 
 ### Tier 3 - Avançados:
 11. AI Agent (trending)
-12. Execute Workflow (modularização)
+12. Execute Workflow (modularizaçêo)
 13. Error Trigger (resiliência)
 14. Respond Webhook (APIs)
 15. Wait (delays)
@@ -187,7 +187,7 @@ Event Trigger:     sky-600 to blue-700
 ## ✅ Checklist por Node
 
 - [ ] Hero com gradiente correto
-- [ ] Introdução com 4 casos de uso
+- [ ] Introduçêo com 4 casos de uso
 - [ ] 3-5 seções detalhadas
 - [ ] 6 exemplos práticos com código
 - [ ] 1 caso de uso real completo
@@ -219,10 +219,10 @@ Para cada HTML, crie um `.md` simplificado em `downloads/`:
 
 ## ⚙️ Principais Configurações
 ### Métodos HTTP
-[Explicação]
+[Explicaçêo]
 
-### Autenticação
-[Explicação]
+### Autenticaçêo
+[Explicaçêo]
 
 ## 💡 Exemplos Práticos
 ### Exemplo 1
@@ -235,7 +235,7 @@ Código
 
 ## 💎 Best Practices
 ### ✅ FAÇA
-### ❌ NÃO FAÇA
+### ❌ NêO FAÇA
 
 ## 🔧 Troubleshooting
 [Problemas comuns]
@@ -251,8 +251,8 @@ Código
 ### Tom:
 - ✅ Didático e acessível
 - ✅ Use analogias (Schedule = "alarme inteligente")
-- ✅ Explique o "porquê", não só o "como"
-- ❌ Evite jargões sem explicação
+- ✅ Explique o "porquê", nêo só o "como"
+- ❌ Evite jargões sem explicaçêo
 
 ### Estrutura:
 - ✅ Parágrafos curtos (2-4 linhas)
@@ -261,9 +261,9 @@ Código
 - ✅ Code blocks para exemplos
 
 ### Visual:
-- ✅ Emojis nos títulos (mas não abuse)
-- ✅ Badges coloridos para categorização
-- ✅ Gradientes diferentes por seção
+- ✅ Emojis nos títulos (mas nêo abuse)
+- ✅ Badges coloridos para categorizaçêo
+- ✅ Gradientes diferentes por seçêo
 - ✅ Grid 2 colunas para comparações
 
 ---
@@ -272,10 +272,10 @@ Código
 
 **Objetivo:** 17 nodes × ~600 linhas = ~10.200 linhas de conteúdo educacional de altíssima qualidade!
 
-**Resultado:** A melhor documentação de N8N em português do mundo! 🇧🇷
+**Resultado:** A melhor documentaçêo de N8N em português do mundo! 🇧🇷
 
 ---
 
-**Última atualização:** 2025-11-26
-**Versão:** 1.0
+**Última atualizaçêo:** 2025-11-26
+**Versêo:** 1.0
 **Autor:** N8N Academy Team

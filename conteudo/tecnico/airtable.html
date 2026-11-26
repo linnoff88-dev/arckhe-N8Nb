@@ -40,14 +40,14 @@
 
   <section class="max-w-7xl mx-auto px-4 py-20">
 
-    <!-- VISÃO GERAL -->
+    <!-- VISêO GERAL -->
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">🎯</span>
-        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visão Geral</h2>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visêo Geral</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
-        Airtable é como um Excel com poderes de banco de dados. Perfeito para CRMs, gestão de projetos, inventários e qualquer dado estruturado. A API permite CRUD completo.
+        Airtable é como um Excel com poderes de banco de dados. Perfeito para CRMs, gestêo de projetos, inventários e qualquer dado estruturado. A API permite CRUD completo.
       </p>
 
       <div class="grid md:grid-cols-4 gap-6">
@@ -339,7 +339,7 @@ Base: Minha Base
 Table: Clientes
 Record ID: {{ $json.airtable_id }}
 
-// ⚠️ Cuidado: não há undo!
+// ⚠️ Cuidado: nêo há undo!
 // Considere usar campo "Deleted"
 // em vez de deletar de verdade
           </div>
@@ -364,7 +364,7 @@ Fields:
   Phone: {{ $json.telefone }}
 
 // Se email existe → atualiza
-// Se não existe → cria novo
+// Se nêo existe → cria novo
           </div>
         </div>
       </div>
@@ -384,7 +384,7 @@ Fields:
 {Campo} = 'valor'
 {Numero} = 100
 
-// Comparação:
+// Comparaçêo:
 {Preco} > 50
 {Data} >= '2024-01-01'
 
@@ -426,19 +426,19 @@ AND(
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "INVALID_REQUEST_UNKNOWN"</p>
           <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Nome de campo incorreto ou tipo de dado errado.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Verifique os nomes dos campos (case sensitive). Use exatamente como aparece no Airtable.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Verifique os nomes dos campos (case sensitive). Use exatamente como aparece no Airtable.</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "INVALID_PERMISSIONS"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Token não tem permissão para a base/operação.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Regenere o token incluindo a base e os scopes necessários.</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Token nêo tem permissêo para a base/operaçêo.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Regenere o token incluindo a base e os scopes necessários.</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ Rate Limit (429)</p>
           <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Muitas requisições (limite: 5/seg).</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Use batch operations (até 10 registros por request) ou adicione delay entre requisições.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Use batch operations (até 10 registros por request) ou adicione delay entre requisições.</p>
         </div>
       </div>
     </div>

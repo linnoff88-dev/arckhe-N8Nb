@@ -29,25 +29,25 @@
     <div class="max-w-7xl mx-auto px-4 text-center text-white">
       <div class="text-8xl mb-8">🪝</div>
       <h1 class="text-6xl font-bold mb-6">Webhooks</h1>
-      <p class="text-3xl mb-4 text-white/90">Comunicação em Tempo Real</p>
+      <p class="text-3xl mb-4 text-white/90">Comunicaçêo em Tempo Real</p>
       <p class="text-xl text-white/80 max-w-3xl mx-auto">Receba notificações instantâneas quando eventos acontecem</p>
     </div>
   </section>
 
   <section class="max-w-7xl mx-auto px-4 py-20">
 
-    <!-- O QUE SÃO WEBHOOKS -->
+    <!-- O QUE SêO WEBHOOKS -->
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">📚</span>
-        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que são Webhooks?</h2>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">O que sêo Webhooks?</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8">
-        Uma <strong>URL que recebe dados quando algo acontece</strong>. O sistema te AVISA, você não precisa perguntar.
+        Uma <strong>URL que recebe dados quando algo acontece</strong>. O sistema te AVISA, você nêo precisa perguntar.
       </p>
       <div class="bg-pink-50 dark:bg-pink-900/20 p-8 rounded-xl border-2 border-pink-200 dark:border-pink-800">
         <p class="text-xl text-neutral-700 dark:text-neutral-300">
-          <strong>Analogia:</strong> É como receber uma notificação no celular. Você não fica verificando o app toda hora - ele te avisa quando algo novo acontece.
+          <strong>Analogia:</strong> É como receber uma notificaçêo no celular. Você nêo fica verificando o app toda hora - ele te avisa quando algo novo acontece.
         </p>
       </div>
     </div>
@@ -66,7 +66,7 @@
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li>✅ Instantâneo</li>
             <li>✅ Eficiente</li>
-            <li>✅ Não gasta execuções</li>
+            <li>✅ Nêo gasta execuções</li>
           </ul>
         </div>
         <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
@@ -111,7 +111,7 @@
       </p>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
-          <p class="text-lg font-bold text-amber-800 dark:text-amber-300 mb-3">🔑 Métodos de Validação</p>
+          <p class="text-lg font-bold text-amber-800 dark:text-amber-300 mb-3">🔑 Métodos de Validaçêo</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li>→ <strong>Secret Token:</strong> Header com token secreto</li>
             <li>→ <strong>HMAC Signature:</strong> Assinatura criptográfica</li>
@@ -120,7 +120,7 @@
           </ul>
         </div>
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
-          <p class="text-lg font-bold text-red-800 dark:text-red-300 mb-3">⚠️ Riscos sem Validação</p>
+          <p class="text-lg font-bold text-red-800 dark:text-red-300 mb-3">⚠️ Riscos sem Validaçêo</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li>→ Dados falsos injetados</li>
             <li>→ Spam de requisições</li>
@@ -148,7 +148,7 @@
         </div>
         <div class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
           <p class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-2">💬 Mensagens (Slack)</p>
-          <p class="text-neutral-600 dark:text-neutral-400">Nova mensagem → webhook dispara → automação executa</p>
+          <p class="text-neutral-600 dark:text-neutral-400">Nova mensagem → webhook dispara → automaçêo executa</p>
         </div>
         <div class="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
           <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-2">🔧 CI/CD (GitHub)</p>
@@ -206,7 +206,7 @@ URL: https://seu-n8n.com/webhook/leads
 {
   "form_response": {
     "answers": [
-      { "field": { "ref": "nome" }, "text": "João Silva" },
+      { "field": { "ref": "nome" }, "text": "Joêo Silva" },
       { "field": { "ref": "email" }, "email": "joao@empresa.com" },
       { "field": { "ref": "empresa" }, "text": "TechCorp" }
     ]
@@ -218,9 +218,9 @@ Webhook → Set (extrair dados) → HubSpot (criar contato) → Slack (notificar
           </div>
         </div>
 
-        <!-- Exemplo 3: Validação de Segurança -->
+        <!-- Exemplo 3: Validaçêo de Segurança -->
         <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
-          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🔐 Exemplo 3: Validação de Segurança HMAC</p>
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">🔐 Exemplo 3: Validaçêo de Segurança HMAC</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Verificar se o webhook veio realmente do Stripe:</p>
           <div class="code-block">
 // Headers que o Stripe envia:
@@ -252,7 +252,7 @@ if (signature.includes(expectedSig)) {
           <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">↩️ Exemplo 4: Webhook que Retorna Dados</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">API customizada que consulta e retorna em tempo real:</p>
           <div class="code-block">
-// Configuração do Webhook Node:
+// Configuraçêo do Webhook Node:
 HTTP Method: POST
 Response Mode: When Last Node Finishes
 Response Data: All Entries
@@ -267,7 +267,7 @@ Webhook → HTTP Request (consulta API externa) → Set (formata) → Respond to
 // Resposta automática:
 {
   "status": "regular",
-  "nome": "João Silva",
+  "nome": "Joêo Silva",
   "situacao": "Ativo",
   "consultado_em": "2025-01-15T10:30:00Z"
 }

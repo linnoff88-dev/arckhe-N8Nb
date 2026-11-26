@@ -1,6 +1,6 @@
 # 🌍 HTTP Request - N8N Fundamentos
 
-## 📚 Visão Geral
+## 📚 Visêo Geral
 
 Conteúdo em desenvolvimento.
 

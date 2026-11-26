@@ -159,7 +159,7 @@
                     <p>Anexa todos os itens de todas as entradas em uma única lista</p>
                     <ul>
                         <li>Simplesmente junta todos os itens</li>
-                        <li>Não faz correspondência ou combinação</li>
+                        <li>Nêo faz correspondência ou combinaçêo</li>
                         <li>Útil para consolidar resultados de múltiplas fontes</li>
                     </ul>
 
@@ -172,7 +172,7 @@
                     </ul>
 
                     <h3 style="margin-top: 25px;">3. Merge By Position</h3>
-                    <p>Combina itens baseado em sua posição no array</p>
+                    <p>Combina itens baseado em sua posiçêo no array</p>
                     <ul>
                         <li>Primeiro item com primeiro item, segundo com segundo, etc.</li>
                         <li>Útil quando ordem é significativa</li>
@@ -193,17 +193,17 @@
                 <h2>Principais Casos de Uso</h2>
                 <ul>
                     <li><strong>Enriquecimento de Dados:</strong> Combinar dados de cliente de CRM com dados de vendas do banco de dados</li>
-                    <li><strong>Consolidação de Resultados:</strong> Juntar resultados de múltiplas APIs ou fontes de dados</li>
-                    <li><strong>Sincronização Paralela:</strong> Aguardar múltiplas operações paralelas completarem antes de continuar</li>
-                    <li><strong>Combinação de Dados Relacionados:</strong> Juntar tabelas relacionadas como em JOIN de SQL</li>
-                    <li><strong>Agregação Multi-fonte:</strong> Combinar dados de diferentes sistemas para relatórios unificados</li>
+                    <li><strong>Consolidaçêo de Resultados:</strong> Juntar resultados de múltiplas APIs ou fontes de dados</li>
+                    <li><strong>Sincronizaçêo Paralela:</strong> Aguardar múltiplas operações paralelas completarem antes de continuar</li>
+                    <li><strong>Combinaçêo de Dados Relacionados:</strong> Juntar tabelas relacionadas como em JOIN de SQL</li>
+                    <li><strong>Agregaçêo Multi-fonte:</strong> Combinar dados de diferentes sistemas para relatórios unificados</li>
                 </ul>
             </div>
 
             <div class="section">
                 <h2>Como Configurar</h2>
                 <div class="highlight-box">
-                    <h3>Configuração Básica</h3>
+                    <h3>Configuraçêo Básica</h3>
                     <ol style="padding-left: 25px; margin-top: 15px;">
                         <li><strong>Inserir o Nó:</strong> Adicione onde dois ou mais ramos de workflow se encontram</li>
                         <li><strong>Conectar Entradas:</strong> Conecte múltiplos nós ao Merge (Input 1, Input 2, etc.)</li>
@@ -215,7 +215,7 @@
             </div>
 
             <div class="section">
-                <h2>Comparação de Modos</h2>
+                <h2>Comparaçêo de Modos</h2>
                 <div class="table-box">
                     <table>
                         <thead>
@@ -228,7 +228,7 @@
                         <tbody>
                             <tr>
                                 <td><strong>Append</strong></td>
-                                <td>Combinar listas sem relação</td>
+                                <td>Combinar listas sem relaçêo</td>
                                 <td>Juntar leads de 3 fontes diferentes</td>
                             </tr>
                             <tr>
@@ -257,15 +257,15 @@
                     <h3>Exemplo 1: Enriquecimento de Dados de Cliente</h3>
                     <p><strong>Cenário:</strong> Combinar dados básicos de clientes com histórico de compras</p>
                     <ul>
-                        <li><strong>Input 1:</strong> Buscar clientes do CRM → [{id: 1, name: "João", email: "..."}]</li>
+                        <li><strong>Input 1:</strong> Buscar clientes do CRM → [{id: 1, name: "Joêo", email: "..."}]</li>
                         <li><strong>Input 2:</strong> Buscar pedidos do DB → [{customer_id: 1, total: 500}]</li>
                         <li><strong>Merge By Fields:</strong> id = customer_id</li>
-                        <li><strong>Resultado:</strong> [{id: 1, name: "João", email: "...", total: 500}]</li>
+                        <li><strong>Resultado:</strong> [{id: 1, name: "Joêo", email: "...", total: 500}]</li>
                     </ul>
                 </div>
 
                 <div class="example">
-                    <h3>Exemplo 2: Consolidação de Múltiplas APIs</h3>
+                    <h3>Exemplo 2: Consolidaçêo de Múltiplas APIs</h3>
                     <p><strong>Cenário:</strong> Buscar produtos de 3 fornecedores diferentes</p>
                     <ul>
                         <li><strong>Input 1:</strong> API Fornecedor A → [prod1, prod2]</li>
@@ -276,14 +276,14 @@
                 </div>
 
                 <div class="example">
-                    <h3>Exemplo 3: Sincronização de Uploads Paralelos</h3>
+                    <h3>Exemplo 3: Sincronizaçêo de Uploads Paralelos</h3>
                     <p><strong>Cenário:</strong> Fazer upload de múltiplos arquivos em paralelo e aguardar todos</p>
                     <ul>
                         <li><strong>Input 1:</strong> Upload arquivo 1 para S3</li>
                         <li><strong>Input 2:</strong> Upload arquivo 2 para S3</li>
                         <li><strong>Input 3:</strong> Upload arquivo 3 para S3</li>
                         <li><strong>Merge Wait to Finish:</strong> Aguarda todos completarem</li>
-                        <li><strong>Próximo passo:</strong> Enviar notificação de conclusão</li>
+                        <li><strong>Próximo passo:</strong> Enviar notificaçêo de conclusêo</li>
                     </ul>
                 </div>
             </div>
@@ -295,8 +295,8 @@
                         <li><strong>Valide Campos Chave:</strong> Ao usar Merge By Fields, garanta que campos chave existem em ambas as entradas</li>
                         <li><strong>Considere Performance:</strong> Merge By Fields pode ser lento com muitos itens - otimize quando possível</li>
                         <li><strong>Documente Lógica:</strong> Deixe claro no workflow qual modo de merge está sendo usado e por quê</li>
-                        <li><strong>Trate Dados Ausentes:</strong> Planeje para casos onde não há correspondência (em Merge By Fields)</li>
-                        <li><strong>Use Wait to Finish Apropriadamente:</strong> Quando precisar apenas sincronizar, não combinar dados</li>
+                        <li><strong>Trate Dados Ausentes:</strong> Planeje para casos onde nêo há correspondência (em Merge By Fields)</li>
+                        <li><strong>Use Wait to Finish Apropriadamente:</strong> Quando precisar apenas sincronizar, nêo combinar dados</li>
                         <li><strong>Teste com Dados Reais:</strong> Sempre teste merges com volumes e variedades de dados representativos</li>
                     </ul>
                 </div>
@@ -307,8 +307,8 @@
                 <div class="highlight-box">
                     <h3>Problemas Comuns</h3>
                     <ul>
-                        <li><strong>Merge não encontra correspondências:</strong> Verifique se campos chave têm mesmo tipo de dados e formato</li>
-                        <li><strong>Dados duplicados:</strong> Pode acontecer se campos chave não são únicos - considere limpeza prévia</li>
+                        <li><strong>Merge nêo encontra correspondências:</strong> Verifique se campos chave têm mesmo tipo de dados e formato</li>
+                        <li><strong>Dados duplicados:</strong> Pode acontecer se campos chave nêo sêo únicos - considere limpeza prévia</li>
                         <li><strong>Ordem incorreta:</strong> Merge By Position requer ordem consistente - use Sort antes se necessário</li>
                         <li><strong>Timeout:</strong> Para grandes volumes, considere processar em lotes menores</li>
                     </ul>

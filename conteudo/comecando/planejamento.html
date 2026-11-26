@@ -48,7 +48,7 @@
       <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-2 border-red-200 dark:border-red-800 mb-8">
         <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-4">⚠️ O erro mais comum:</p>
         <p class="text-lg text-neutral-700 dark:text-neutral-300">
-          Abrir o N8N e ir construindo "na intuição". Resultado: workflow confuso, retrabalho infinito, edge cases descobertos em produção.
+          Abrir o N8N e ir construindo "na intuiçêo". Resultado: workflow confuso, retrabalho infinito, edge cases descobertos em produçêo.
         </p>
       </div>
       <div class="p-6 bg-green-100 dark:bg-green-900/30 rounded-xl">
@@ -71,13 +71,13 @@
             <li>→ De onde vêm os dados?</li>
             <li>→ Qual formato? (JSON, CSV, form)</li>
             <li>→ Qual frequência?</li>
-            <li>→ Quais campos são obrigatórios?</li>
+            <li>→ Quais campos sêo obrigatórios?</li>
           </ul>
         </div>
         <div class="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-lg">
           <p class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">📤 Outputs</p>
           <ul class="space-y-2 text-lg text-neutral-600 dark:text-neutral-400">
-            <li>→ Para onde vão os dados?</li>
+            <li>→ Para onde vêo os dados?</li>
             <li>→ Qual formato esperado?</li>
             <li>→ Quem consome?</li>
             <li>→ O que define "sucesso"?</li>
@@ -96,7 +96,7 @@
         Desenhe o workflow antes de construir. Ferramentas: papel, Miro, Excalidraw, Notion.
       </p>
       <div class="bg-neutral-100 dark:bg-neutral-700 p-8 rounded-xl mb-8">
-        <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4">Modelo de Documentação:</p>
+        <p class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4">Modelo de Documentaçêo:</p>
         <div class="code-block">
 1. TRIGGER: O que inicia o processo?
    → Novo email recebido
@@ -108,7 +108,7 @@
    → Criar registro no CRM
 
 3. OUTPUT: Resultado esperado
-   → Lead cadastrado + notificação enviada
+   → Lead cadastrado + notificaçêo enviada
 
 4. EXCEÇÕES:
    → Email sem remetente → ignorar
@@ -130,8 +130,8 @@
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">🎯 Por que validar?</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
-            <li>→ Usuário final conhece exceções que você não pensou</li>
-            <li>→ Evita "não era isso que eu queria"</li>
+            <li>→ Usuário final conhece exceções que você nêo pensou</li>
+            <li>→ Evita "nêo era isso que eu queria"</li>
             <li>→ Garante buy-in antes do esforço</li>
           </ul>
         </div>
@@ -165,13 +165,13 @@
           </div>
           <div class="bg-white dark:bg-neutral-800 p-4 rounded-xl">
             <p class="text-3xl font-bold text-red-600">100x</p>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mudar em produção</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mudar em produçêo</p>
           </div>
         </div>
       </div>
       <div class="p-6 bg-green-100 dark:bg-green-900/30 rounded-xl">
         <p class="text-lg font-semibold text-green-900 dark:text-green-200">
-          💡 Erro no papel = 5 minutos para corrigir. Erro em produção = horas de debug + usuários afetados.
+          💡 Erro no papel = 5 minutos para corrigir. Erro em produçêo = horas de debug + usuários afetados.
         </p>
       </div>
     </div>
@@ -183,15 +183,15 @@
         <h3 class="text-4xl font-bold text-neutral-900 dark:text-neutral-100">Exemplos Práticos</h3>
       </div>
       <div class="space-y-8">
-        <!-- Exemplo 1: Template de Documentação -->
+        <!-- Exemplo 1: Template de Documentaçêo -->
         <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-xl border-2 border-teal-200 dark:border-teal-800">
-          <p class="text-xl font-bold text-teal-800 dark:text-teal-300 mb-3">📝 Exemplo 1: Template de Documentação de Processo</p>
-          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Use este template antes de começar qualquer automação:</p>
+          <p class="text-xl font-bold text-teal-800 dark:text-teal-300 mb-3">📝 Exemplo 1: Template de Documentaçêo de Processo</p>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Use este template antes de começar qualquer automaçêo:</p>
           <div class="code-block">
 # DOCUMENTO DE REQUISITOS - [Nome do Processo]
 
 ## 1. RESUMO
-Descrição em 1 parágrafo do que será automatizado
+Descriçêo em 1 parágrafo do que será automatizado
 
 ## 2. TRIGGER (O que inicia?)
 - [ ] Webhook (formulário, pagamento, etc)
@@ -202,16 +202,16 @@ Descrição em 1 parágrafo do que será automatizado
 ## 3. INPUTS (O que entra?)
 | Campo          | Tipo     | Obrigatório? | Exemplo          |
 |----------------|----------|--------------|------------------|
-| nome           | string   | Sim          | "João Silva"     |
+| nome           | string   | Sim          | "Joêo Silva"     |
 | email          | email    | Sim          | "joao@email.com" |
-| telefone       | string   | Não          | "11-99999-0000"  |
+| telefone       | string   | Nêo          | "11-99999-0000"  |
 
 ## 4. PASSOS DO PROCESSO
 1. Receber dados do formulário
 2. Validar campos obrigatórios
 3. Verificar se email já existe no CRM
 4. SE existe → atualizar registro
-5. SE não existe → criar novo lead
+5. SE nêo existe → criar novo lead
 6. Enviar email de boas-vindas
 7. Notificar equipe no Slack
 
@@ -221,7 +221,7 @@ Descrição em 1 parágrafo do que será automatizado
 - Mensagem no Slack #novos-leads
 
 ## 6. EXCEÇÕES (O que pode dar errado?)
-| Exceção                | Ação                        |
+| Exceçêo                | Açêo                        |
 |------------------------|-----------------------------|
 | Email inválido         | Rejeitar e logar erro       |
 | CRM offline            | Salvar em fila de retry     |
@@ -235,7 +235,7 @@ Descrição em 1 parágrafo do que será automatizado
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Desenhe o fluxo antes de abrir o N8N:</p>
           <div class="code-block">
 ┌─────────────────────────────────────────────────────────────────┐
-│                    AUTOMAÇÃO: ONBOARDING DE CLIENTE             │
+│                    AUTOMAÇêO: ONBOARDING DE CLIENTE             │
 └─────────────────────────────────────────────────────────────────┘
 
         ┌──────────────┐
@@ -256,7 +256,7 @@ Descrição em 1 parágrafo do que será automatizado
         ┌──────────────┐     SIM    ┌──────────────┐
         │  Já existe?  │───────────▶│  Atualizar   │
         └──────┬───────┘            │  Plano       │
-               │ NÃO                └──────┬───────┘
+               │ NêO                └──────┬───────┘
                ▼                           │
         ┌──────────────┐                   │
         │   Criar      │                   │
@@ -271,22 +271,22 @@ Descrição em 1 parágrafo do que será automatizado
         └──────┬───────┘
                ▼
         ┌──────────────┐
-        │   Slack      │  ← #vendas: "Novo cliente: João"
+        │   Slack      │  ← #vendas: "Novo cliente: Joêo"
         │   Notificar  │
         └──────────────┘
           </div>
         </div>
 
-        <!-- Exemplo 3: Checklist de Validação -->
+        <!-- Exemplo 3: Checklist de Validaçêo -->
         <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800">
-          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">✅ Exemplo 3: Checklist de Validação com Stakeholder</p>
+          <p class="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">✅ Exemplo 3: Checklist de Validaçêo com Stakeholder</p>
           <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">Perguntas para validar antes de construir:</p>
           <div class="code-block">
-# CHECKLIST DE VALIDAÇÃO - [Nome do Processo]
+# CHECKLIST DE VALIDAÇêO - [Nome do Processo]
 
 ## Para o DONO do processo:
 □ O fluxo que desenhei representa o processo atual?
-□ Existem exceções que não estão documentadas?
+□ Existem exceções que nêo estêo documentadas?
 □ Quem precisa ser notificado quando X acontece?
 □ O que fazer quando Y falha?
 □ Qual a frequência esperada? (10/dia? 1000/dia?)
@@ -300,12 +300,12 @@ Descrição em 1 parágrafo do que será automatizado
 ## Para o CLIENTE/Usuário final:
 □ O resultado esperado está claro?
 □ O tempo de resposta é aceitável?
-□ Precisa de confirmação manual em algum ponto?
+□ Precisa de confirmaçêo manual em algum ponto?
 
 ## RESPOSTAS OBTIDAS:
-- Exceção não documentada: "Clientes VIP vão para fila separada"
+- Exceçêo nêo documentada: "Clientes VIP vêo para fila separada"
 - Rate limit: "Máximo 100 requisições/minuto na API do CRM"
-- Confirmação: "Pedidos acima de R$10k precisam aprovação"
+- Confirmaçêo: "Pedidos acima de R$10k precisam aprovaçêo"
           </div>
         </div>
 
@@ -339,9 +339,9 @@ PERGUNTA: "O que acontece se..."
 7. ...for feriado e ninguém responder?
    → Resposta automática: "Retornamos em até 48h úteis"
 
-# CASOS DESCOBERTOS NA VALIDAÇÃO:
+# CASOS DESCOBERTOS NA VALIDAÇêO:
 - Cliente VIP (email @empresa-vip.com) → fila prioritária
-- Reclamação (palavra "problema" ou "urgente") → notifica gerente
+- Reclamaçêo (palavra "problema" ou "urgente") → notifica gerente
 - Spam (links no corpo) → bloquear e logar
           </div>
         </div>
@@ -351,9 +351,9 @@ PERGUNTA: "O que acontece se..."
     <!-- CTA -->
     <div class="bg-gradient-to-br from-teal-600 to-cyan-600 text-white rounded-3xl p-12 text-center">
       <h3 class="text-4xl font-bold mb-4">🎯 Pronto para o próximo passo?</h3>
-      <p class="text-xl mb-8">Agora aprenda sobre Construção e Testes - como falhar rápido e aprender rápido.</p>
+      <p class="text-xl mb-8">Agora aprenda sobre Construçêo e Testes - como falhar rápido e aprender rápido.</p>
       <a href="construcao.html" class="inline-block bg-white text-teal-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
-        Próximo: Construção e Testes →
+        Próximo: Construçêo e Testes →
       </a>
     </div>
 

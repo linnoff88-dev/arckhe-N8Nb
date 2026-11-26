@@ -138,11 +138,11 @@
         <div class="content">
             <div class="section">
                 <h2>O que o IF Faz</h2>
-                <p>O nó IF no n8n traz poder de tomada de decisão aos seus workflows, permitindo que automações executem verificações e se ramifiquem com base nas suas condições, seja igualdade, comparação ou lógica customizada.</p>
+                <p>O nó IF no n8n traz poder de tomada de decisêo aos seus workflows, permitindo que automações executem verificações e se ramifiquem com base nas suas condições, seja igualdade, comparaçêo ou lógica customizada.</p>
 
                 <ul>
-                    <li><strong>Avalia uma condição lógica</strong> contra seus dados (ex: "status = active", "amount > 1000", "email includes @company.com")</li>
-                    <li><strong>Envia a execução do workflow por dois ramos:</strong> "true" (se a condição for atendida), ou "false" (se não for)</li>
+                    <li><strong>Avalia uma condiçêo lógica</strong> contra seus dados (ex: "status = active", "amount > 1000", "email includes @company.com")</li>
+                    <li><strong>Envia a execuçêo do workflow por dois ramos:</strong> "true" (se a condiçêo for atendida), ou "false" (se nêo for)</li>
                     <li><strong>Usado para filtragem avançada</strong>, tratamento de erros, lógica de negócio e roteamento de diferentes ações baseadas em entradas</li>
                 </ul>
             </div>
@@ -162,23 +162,23 @@
                 <h2>Como Configurar e Usar</h2>
                 <div class="steps">
                     <ol>
-                        <li><strong>Inserir o Nó:</strong> Adicione após qualquer nó onde ramificação baseada em lógica é necessária (ex: Set, HTTP Request)</li>
+                        <li><strong>Inserir o Nó:</strong> Adicione após qualquer nó onde ramificaçêo baseada em lógica é necessária (ex: Set, HTTP Request)</li>
 
                         <li><strong>Configurar Condições:</strong>
                             <ul>
-                                <li>Escolha "Field to Evaluate", então defina "Comparison Operation" (igual a, diferente, maior que, contém, começa com, termina com, etc.)</li>
+                                <li>Escolha "Field to Evaluate", entêo defina "Comparison Operation" (igual a, diferente, maior que, contém, começa com, termina com, etc.)</li>
                                 <li>Para casos avançados, use expressões, lógica baseada em JavaScript para avaliar condições complexas (ex: "score > 90 && status == 'active'")</li>
                             </ul>
                         </li>
 
                         <li><strong>Ramos True/False:</strong>
                             <ul>
-                                <li>Saídas no conector "true" se a condição corresponder, conector "false" caso contrário</li>
+                                <li>Saídas no conector "true" se a condiçêo corresponder, conector "false" caso contrário</li>
                                 <li>Adicione diferentes nós/ações a cada ramo, automações se adaptam a qualquer entrada de dados</li>
                             </ul>
                         </li>
 
-                        <li><strong>Testar Execução:</strong> Use dados de teste no desenvolvimento para confirmar comportamento de ramificação antes de ativar seu workflow</li>
+                        <li><strong>Testar Execuçêo:</strong> Use dados de teste no desenvolvimento para confirmar comportamento de ramificaçêo antes de ativar seu workflow</li>
                     </ol>
                 </div>
             </div>
@@ -187,8 +187,8 @@
                 <h2>Melhores Práticas e Dicas</h2>
                 <div class="highlight-box">
                     <ul>
-                        <li><strong>Divida lógica complexa</strong> usando múltiplos nós IF ou combine com nós Switch para ramificação multi-direcional</li>
-                        <li><strong>Agrupe verificações relacionadas</strong> em blocos lógicos para debugging e manutenção mais fáceis</li>
+                        <li><strong>Divida lógica complexa</strong> usando múltiplos nós IF ou combine com nós Switch para ramificaçêo multi-direcional</li>
+                        <li><strong>Agrupe verificações relacionadas</strong> em blocos lógicos para debugging e manutençêo mais fáceis</li>
                         <li><strong>Para verificar existência de campos</strong>, use verificações de objeto como <code>{{ $json.items.length > 0 }}</code></li>
                         <li><strong>Use em loops</strong> para terminar iterações sob certas condições (ex: quando "nextPage" é false)</li>
                     </ul>
@@ -201,7 +201,7 @@
                     <h4>Igualdade básica:</h4>
                     <code>{{ $json.status === "active" }}</code>
 
-                    <h4>Comparação numérica:</h4>
+                    <h4>Comparaçêo numérica:</h4>
                     <code>{{ $json.amount > 1000 }}</code>
 
                     <h4>String contém:</h4>
@@ -219,12 +219,12 @@
                     <p>Você quer processar pedidos de forma diferente baseado no valor:</p>
 
                     <ul>
-                        <li><strong>Condição:</strong> <code>{{ $json.amount > 1000 }}</code></li>
-                        <li><strong>Ramo TRUE:</strong> Enviar para aprovação manual e notificar gerente</li>
+                        <li><strong>Condiçêo:</strong> <code>{{ $json.amount > 1000 }}</code></li>
+                        <li><strong>Ramo TRUE:</strong> Enviar para aprovaçêo manual e notificar gerente</li>
                         <li><strong>Ramo FALSE:</strong> Aprovar automaticamente e processar imediatamente</li>
                     </ul>
 
-                    <p><strong>Resultado:</strong> O nó IF é essencial para automação inteligente de workflows, transformando o n8n de um sistema estático em uma plataforma responsiva que pode adaptar, filtrar e lidar com regras de negócio dinamicamente.</p>
+                    <p><strong>Resultado:</strong> O nó IF é essencial para automaçêo inteligente de workflows, transformando o n8n de um sistema estático em uma plataforma responsiva que pode adaptar, filtrar e lidar com regras de negócio dinamicamente.</p>
                 </div>
             </div>
         </div>

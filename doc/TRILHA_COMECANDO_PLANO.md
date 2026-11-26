@@ -6,26 +6,26 @@
 - `/home/nmaldaner/projetos/N8Nb/doc/n8n2026/guia_aprendizado_n8n_2026.md`
 - `/home/nmaldaner/projetos/N8Nb/doc/n8n2026/resumo_video_n8n_2026.md`
 
-## Padrão a Seguir
+## Padrêo a Seguir
 - Arquivo modelo: `iniciante.html`
-- Tópicos expansíveis com botão
+- Tópicos expansíveis com botêo
 - 3 respostas por tópico: "O que é", "Por que aprender", "Conceitos chave"
 - Botões: Modal, Página Completa, Download MD
-- Cores: usar gradiente diferente (sugestão: amber/orange para diferenciar)
+- Cores: usar gradiente diferente (sugestêo: amber/orange para diferenciar)
 
 ## Estrutura: 10 Módulos (5+ tópicos cada)
 
-### Módulo 1: 🧠 Mindset de Automação
+### Módulo 1: 🧠 Mindset de Automaçêo
 - Por que automatizar?
-- O que NÃO automatizar
+- O que NêO automatizar
 - ROI de automações (30-200%)
-- Ciclo: empolgação → frustração → confiança
+- Ciclo: empolgaçêo → frustraçêo → confiança
 - Pensamento de engenheiro de processos
 
-### Módulo 2: 🏗️ As 3 Camadas da Automação
+### Módulo 2: 🏗️ As 3 Camadas da Automaçêo
 - Workflows (regras fixas, determinísticos)
 - Automações com IA (decisões simples)
-- Agentes de IA (não determinísticos)
+- Agentes de IA (nêo determinísticos)
 - Quando usar cada camada
 - Por que começar por workflows
 
@@ -34,17 +34,17 @@
 - Estrutura: chave-valor
 - Arrays e objetos
 - JSON no N8N
-- Validação e debug de JSON
+- Validaçêo e debug de JSON
 
 ### Módulo 4: 🌐 APIs - Conectando Sistemas
-- O que são APIs
+- O que sêo APIs
 - REST vs outros tipos
 - Métodos HTTP (GET, POST, PUT, DELETE)
-- Headers e autenticação
+- Headers e autenticaçêo
 - Status codes (200, 400, 500)
 
-### Módulo 5: 🪝 Webhooks - Comunicação em Tempo Real
-- O que são webhooks
+### Módulo 5: 🪝 Webhooks - Comunicaçêo em Tempo Real
+- O que sêo webhooks
 - Push vs Pull
 - Webhook vs Polling
 - Segurança de webhooks
@@ -58,7 +58,7 @@
 - Tratamento de erros
 
 ### Módulo 7: 🎯 Context Engineering
-- IA não é mágica
+- IA nêo é mágica
 - Importância do contexto
 - Prompts vs Contexto
 - Dados estruturados para IA
@@ -71,15 +71,15 @@
 - Validar com stakeholders
 - Evitar retrabalho
 
-### Módulo 9: 🔧 Construção e Testes
+### Módulo 9: 🔧 Construçêo e Testes
 - Falhar rápido
 - Testar limites
 - Usar logs efetivamente
 - Debug passo a passo
 - Melhoria contínua
 
-### Módulo 10: 💰 Monetização e ROI
-- Vender resultados, não tecnologia
+### Módulo 10: 💰 Monetizaçêo e ROI
+- Vender resultados, nêo tecnologia
 - Calcular tempo economizado
 - Calcular dinheiro economizado
 - Métricas de qualidade

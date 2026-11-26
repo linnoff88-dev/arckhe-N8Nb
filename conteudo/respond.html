@@ -152,10 +152,10 @@
                 <ul>
                     <li><strong>APIs Customizadas:</strong> Criar endpoints de API completos com lógica de negócio complexa</li>
                     <li><strong>Integrações Bidirecionais:</strong> Receber dados, processar e retornar resultados ao sistema chamador</li>
-                    <li><strong>Validação de Formulários:</strong> Validar dados de formulário e retornar sucesso/erro</li>
-                    <li><strong>Processamento Síncrono:</strong> Processar solicitação e retornar resultado na mesma chamada</li>
+                    <li><strong>Validaçêo de Formulários:</strong> Validar dados de formulário e retornar sucesso/erro</li>
+                    <li><strong>Processamento Síncrono:</strong> Processar solicitaçêo e retornar resultado na mesma chamada</li>
                     <li><strong>Retorno de Cálculos:</strong> Executar cálculos complexos e retornar resultados</li>
-                    <li><strong>Webhooks de Confirmação:</strong> Confirmar recebimento e processamento de dados</li>
+                    <li><strong>Webhooks de Confirmaçêo:</strong> Confirmar recebimento e processamento de dados</li>
                 </ul>
             </div>
 
@@ -175,10 +175,10 @@
 
                     <h3 style="margin-top: 25px;">2. Status Codes HTTP</h3>
                     <ul>
-                        <li><strong>200 OK:</strong> Sucesso padrão</li>
+                        <li><strong>200 OK:</strong> Sucesso padrêo</li>
                         <li><strong>201 Created:</strong> Recurso criado com sucesso</li>
-                        <li><strong>400 Bad Request:</strong> Erro de validação</li>
-                        <li><strong>404 Not Found:</strong> Recurso não encontrado</li>
+                        <li><strong>400 Bad Request:</strong> Erro de validaçêo</li>
+                        <li><strong>404 Not Found:</strong> Recurso nêo encontrado</li>
                         <li><strong>500 Internal Server Error:</strong> Erro no servidor</li>
                     </ul>
 
@@ -195,7 +195,7 @@
             <div class="section">
                 <h2>Como Configurar</h2>
                 <div class="highlight-box">
-                    <h3>Configuração Passo a Passo</h3>
+                    <h3>Configuraçêo Passo a Passo</h3>
                     <ol style="padding-left: 25px; margin-top: 15px;">
                         <li><strong>No Webhook Trigger:</strong> Defina "Respond" como "Using 'Respond to Webhook' Node"</li>
                         <li><strong>Adicione Processamento:</strong> Insira nós para sua lógica de negócio</li>
@@ -211,7 +211,7 @@
             <div class="section">
                 <h2>Exemplos Práticos</h2>
                 <div class="example">
-                    <h3>Exemplo 1: API de Validação de Email</h3>
+                    <h3>Exemplo 1: API de Validaçêo de Email</h3>
                     <p><strong>Cenário:</strong> Criar API que valida se email é válido</p>
                     <ul>
                         <li><strong>Webhook:</strong> POST /validate-email</li>
@@ -235,7 +235,7 @@
 
                 <div class="example">
                     <h3>Exemplo 3: Formulário de Contato</h3>
-                    <p><strong>Cenário:</strong> Processar formulário e retornar confirmação</p>
+                    <p><strong>Cenário:</strong> Processar formulário e retornar confirmaçêo</p>
                     <ul>
                         <li><strong>Webhook:</strong> POST /contact com dados do formulário</li>
                         <li><strong>Set Node:</strong> Valida e limpa dados</li>
@@ -261,13 +261,13 @@
                 <div class="highlight-box">
                     <ul>
                         <li><strong>Use Status Codes Apropriados:</strong> 2xx para sucesso, 4xx para erros do cliente, 5xx para erros do servidor</li>
-                        <li><strong>Estruture Respostas Consistentes:</strong> Mantenha formato padrão para todas as APIs</li>
+                        <li><strong>Estruture Respostas Consistentes:</strong> Mantenha formato padrêo para todas as APIs</li>
                         <li><strong>Inclua Mensagens de Erro Claras:</strong> Sempre retorne mensagens descritivas em caso de erro</li>
                         <li><strong>Configure Content-Type Correto:</strong> application/json para JSON, text/html para HTML, etc.</li>
                         <li><strong>Trate Todos os Caminhos:</strong> Use IF/Switch para garantir que sempre há uma resposta</li>
                         <li><strong>Valide Entrada:</strong> Sempre valide dados recebidos antes de processar</li>
                         <li><strong>Log Adequado:</strong> Registre requests e responses para debugging</li>
-                        <li><strong>Timeout Razoável:</strong> Garanta que processamento não demore muito</li>
+                        <li><strong>Timeout Razoável:</strong> Garanta que processamento nêo demore muito</li>
                     </ul>
                 </div>
             </div>
@@ -275,17 +275,17 @@
             <div class="section">
                 <h2>Padrões de Resposta Comuns</h2>
                 <div class="highlight-box">
-                    <h3>Sucesso Padrão (200)</h3>
+                    <h3>Sucesso Padrêo (200)</h3>
                     <code style="display: block; margin: 10px 0; padding: 10px; background: white;">
-                        {"success": true, "data": {...}, "message": "Operação concluída"}
+                        {"success": true, "data": {...}, "message": "Operaçêo concluída"}
                     </code>
 
-                    <h3 style="margin-top: 20px;">Erro de Validação (400)</h3>
+                    <h3 style="margin-top: 20px;">Erro de Validaçêo (400)</h3>
                     <code style="display: block; margin: 10px 0; padding: 10px; background: white;">
                         {"success": false, "error": "Validation failed", "details": ["Email inválido"]}
                     </code>
 
-                    <h3 style="margin-top: 20px;">Não Encontrado (404)</h3>
+                    <h3 style="margin-top: 20px;">Nêo Encontrado (404)</h3>
                     <code style="display: block; margin: 10px 0; padding: 10px; background: white;">
                         {"success": false, "error": "Resource not found", "resource": "user", "id": 123}
                     </code>
@@ -301,9 +301,9 @@
                 <h2>Importante Lembrar</h2>
                 <div class="highlight-box">
                     <ul>
-                        <li><strong>Apenas Primeiro Item:</strong> Por padrão, retorna apenas o primeiro item, configure "All Input Data" se precisar de todos</li>
+                        <li><strong>Apenas Primeiro Item:</strong> Por padrêo, retorna apenas o primeiro item, configure "All Input Data" se precisar de todos</li>
                         <li><strong>Timeout do Cliente:</strong> Cliente pode ter timeout próprio, processe rapidamente ou use processamento assíncrono</li>
-                        <li><strong>Segurança:</strong> Adicione autenticação no Webhook se endpoint for público</li>
+                        <li><strong>Segurança:</strong> Adicione autenticaçêo no Webhook se endpoint for público</li>
                         <li><strong>CORS:</strong> Configure headers CORS se API será chamada de browsers</li>
                     </ul>
                 </div>

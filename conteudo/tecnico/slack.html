@@ -33,21 +33,21 @@
     <div class="max-w-7xl mx-auto px-4 text-center text-white">
       <div class="text-8xl mb-8">💼</div>
       <h1 class="text-6xl font-bold mb-6">Slack</h1>
-      <p class="text-3xl mb-4 text-white/90">Comunicação Empresarial</p>
+      <p class="text-3xl mb-4 text-white/90">Comunicaçêo Empresarial</p>
       <p class="text-xl text-white/80 max-w-3xl mx-auto">Guia completo para criar um Slack App, configurar OAuth e enviar/receber mensagens automaticamente.</p>
     </div>
   </section>
 
   <section class="max-w-7xl mx-auto px-4 py-20">
 
-    <!-- VISÃO GERAL -->
+    <!-- VISêO GERAL -->
     <div class="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-12 mb-12">
       <div class="flex items-center mb-8">
         <span class="text-6xl mr-6">🎯</span>
-        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visão Geral</h2>
+        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100">Visêo Geral</h2>
       </div>
       <p class="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
-        Slack oferece uma API robusta para automação empresarial. Você pode enviar mensagens, criar canais, reagir a eventos e muito mais.
+        Slack oferece uma API robusta para automaçêo empresarial. Você pode enviar mensagens, criar canais, reagir a eventos e muito mais.
       </p>
 
       <div class="grid md:grid-cols-4 gap-6">
@@ -256,7 +256,7 @@ https://seu-n8n.com/webhook/slack-events
 // Path: slack-events
 
 // Depois do Webhook, adicione um IF:
-// Condição: {{ $json.type }} === 'url_verification'
+// Condiçêo: {{ $json.type }} === 'url_verification'
 
 // Se TRUE: Respond to Webhook
 // Body: { "challenge": "{{ $json.challenge }}" }
@@ -274,7 +274,7 @@ message.channels       // Mensagens em canais públicos
 message.groups         // Mensagens em canais privados
 message.im             // Mensagens diretas para o bot
 app_mention            // Quando alguém @menciona o bot
-reaction_added         // Quando adicionam reação
+reaction_added         // Quando adicionam reaçêo
           </div>
           <p class="mt-4 text-neutral-600 dark:text-neutral-400">Clique em <strong>"Save Changes"</strong> após adicionar eventos.</p>
         </div>
@@ -354,7 +354,7 @@ Body: { "text": "Mensagem do N8N!" }
 Channel: #geral
 Text: Novo pedido recebido!
 
-// Ou com formatação:
+// Ou com formataçêo:
 Text: |
   *Novo Pedido* #{{ $json.id }}
   • Cliente: {{ $json.nome }}
@@ -383,7 +383,7 @@ Text: |
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "Versão *v2.1.0*"
+        "text": "Versêo *v2.1.0*"
       }
     }
   ]
@@ -393,7 +393,7 @@ Text: |
 
         <!-- Reagir a Mensagem -->
         <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
-          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-4">👍 Adicionar Reação</p>
+          <p class="text-xl font-bold text-green-800 dark:text-green-300 mb-4">👍 Adicionar Reaçêo</p>
           <div class="code-block text-sm">
 // Node: Slack
 // Operation: Add Reaction
@@ -443,7 +443,7 @@ Title: Relatório Diário
           </div>
         </div>
 
-        <!-- Notificação de Erro -->
+        <!-- Notificaçêo de Erro -->
         <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
           <p class="text-xl font-bold text-red-800 dark:text-red-300 mb-4">🚨 Alerta de Erro</p>
           <div class="code-block text-sm">
@@ -475,10 +475,10 @@ Text: |
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-green-700 dark:text-green-400 mb-3">✅ Faça</p>
           <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
-            <li>→ Use canais específicos para cada tipo de notificação</li>
+            <li>→ Use canais específicos para cada tipo de notificaçêo</li>
             <li>→ Inclua contexto suficiente nas mensagens</li>
             <li>→ Use threads para manter conversas organizadas</li>
-            <li>→ Adicione botões de ação quando apropriado</li>
+            <li>→ Adicione botões de açêo quando apropriado</li>
             <li>→ Respeite rate limits (1 msg/seg por canal)</li>
           </ul>
         </div>
@@ -488,7 +488,7 @@ Text: |
             <li>→ Spam de mensagens (pode ser silenciado)</li>
             <li>→ Notificações irrelevantes ou muito frequentes</li>
             <li>→ @channel ou @here desnecessários</li>
-            <li>→ Mensagens sem formatação (difíceis de ler)</li>
+            <li>→ Mensagens sem formataçêo (difíceis de ler)</li>
             <li>→ Expor dados sensíveis em canais públicos</li>
           </ul>
         </div>
@@ -505,20 +505,20 @@ Text: |
       <div class="space-y-6">
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "channel_not_found"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> O bot não está no canal ou o ID está errado.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Convide o bot para o canal com /invite @nome-do-bot ou use o ID correto do canal (C0123...).</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> O bot nêo está no canal ou o ID está errado.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Convide o bot para o canal com /invite @nome-do-bot ou use o ID correto do canal (C0123...).</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "missing_scope"</p>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Falta permissão para a ação.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Adicione o scope necessário em OAuth & Permissions e reinstale o app.</p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Falta permissêo para a açêo.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Adicione o scope necessário em OAuth & Permissions e reinstale o app.</p>
         </div>
 
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl">
           <p class="text-lg font-bold text-red-700 dark:text-red-400 mb-2">❌ "invalid_auth"</p>
           <p class="text-neutral-700 dark:text-neutral-300 mb-2"><strong>Causa:</strong> Token inválido ou revogado.</p>
-          <p class="text-neutral-700 dark:text-neutral-300"><strong>Solução:</strong> Reinstale o app no workspace para gerar novo token.</p>
+          <p class="text-neutral-700 dark:text-neutral-300"><strong>Soluçêo:</strong> Reinstale o app no workspace para gerar novo token.</p>
         </div>
       </div>
     </div>
@@ -526,7 +526,7 @@ Text: |
     <!-- CTA -->
     <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-center text-white">
       <h3 class="text-4xl font-bold mb-6">Slack Configurado!</h3>
-      <p class="text-xl mb-8 text-white/90">Agora você pode automatizar a comunicação da sua equipe.</p>
+      <p class="text-xl mb-8 text-white/90">Agora você pode automatizar a comunicaçêo da sua equipe.</p>
       <div class="flex gap-4 justify-center flex-wrap">
         <a href="telegram.html" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors">
           Próximo: Telegram →
